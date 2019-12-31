@@ -1,0 +1,173 @@
+#price .panel {
+    background: linear-gradient(to right, #0987f4, #003073);
+    border-radius: 10px;
+}
+
+#price, #feature {
+    background: #eee;
+}
+
+#price .panel-title img {
+    width: 40px;
+    margin: 5px;
+}
+
+#price .panel-title h4 {
+    color: #fff !important;
+    display: inline-block;
+}
+
+#price .panel-body .row .col-sm-6 {
+    color: #fff !important;
+    display: inline-block;
+}
+
+#price .panel-body a {
+    position: relative;
+    top: 30px;
+}
+
+/*=================================== Site Template ===================================*/
+.menu-area {
+    background-color: #1E2126 !important;
+    color: #fff !important;
+    height: 65px !important;
+}
+
+.navbar {
+    margin-top: 0px !important;
+}
+
+.navbar ul li a {
+    font-size: 14px !important;
+}
+
+.register-btn {
+    min-width: 0px;
+    -webkit-appearance: none;
+    user-select: none;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-family: inherit;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(33, 40, 51);
+    background-color: rgb(240, 185, 11);
+    padding-top: 4px;
+    padding-bottom: 4px;
+    min-height: 32px;
+    display: flex;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0px 16px 0px 8px;
+    overflow: hidden;
+    text-decoration: none;
+    outline: none;
+    border-radius: 4px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}
+.bnc-btn {
+    min-width: 0px;
+    -webkit-appearance: none;
+    user-select: none;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-family: inherit;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(33, 40, 51);
+    background-color: rgb(240, 185, 11);
+    padding-top: 4px;
+    padding-bottom: 4px;
+    min-height: 32px;
+    display: flex;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0px 16px 0px 8px;
+    overflow: hidden;
+    text-decoration: none;
+    outline: none;
+    border-radius: 4px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}
+
+.navbar-right {
+    margin-left: 0 !important;
+
+}
+
+.navbar-right li {
+    padding-top: 0 !important;
+}
+
+.dp-dl {
+    box-sizing: border-box;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    fill: #FFF;
+}
+
+#qrcode-box {
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    top: 10px;
+    left: 10px;
+    background-color: #1E2126 !important;
+    padding: 10px 30px;
+    display: none;
+}
+
+#qrcode-box p {
+    line-height: 35px;
+    font-size: 14px;
+    text-align: left;
+    font-weight: bolder;
+}
+
+#app-qrcode {
+    padding-left: 0;
+    position: relative;
+    width: 50px;
+    text-align: left;
+}
+#slider-bg{
+    background: rgb(11, 14, 17) !important;
+    margin-top:65px !important;
+    height: 360px !important;
+}
+
+#app-qrcode:hover #qrcode-box {
+    display: block;
+}
+#expand{
+    font-size: 22px;
+    cursor: pointer;
+}
+
+
+/*=================================== Site Template ===================================*/
