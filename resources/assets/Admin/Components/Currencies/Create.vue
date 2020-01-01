@@ -9,12 +9,7 @@
                 <label for="symbol">نماد</label>
                 <input type="text" class="form-control form-control-sm" v-model="form.symbol" id="symbol">
             </div>
-            <div class="col-md-3">
-                <label for="wage">کارمزد</label>
-                <input type="text" class="form-control form-control-sm" v-model="form.wage" id="wage"
-                       placeholder="لطفا بصورت صحیح و یا اعشاری با / وارد کنید."
-                >
-            </div>
+
             <submit @click="handleSubmit"/>
         </div>
     </card>

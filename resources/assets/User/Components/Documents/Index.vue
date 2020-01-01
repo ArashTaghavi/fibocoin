@@ -5,14 +5,12 @@
             <table class="table table-hover mb-0 table-responsive">
                 <thead>
                 <tr>
-                    <th>عنوان</th>
                     <th>وضعیت</th>
                     <th>عملیات</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr v-for="document in documents">
-                    <td>{{document.title}}</td>
                     <td v-html=approved(document.approved)></td>
                     <td>
                         <edit-btn :to="`documents/${document.id}`"/>

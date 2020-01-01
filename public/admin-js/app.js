@@ -2015,11 +2015,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2052,11 +2047,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2110,8 +2100,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -3344,6 +3332,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3389,14 +3387,27 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    handleSearch: function handleSearch() {
+    handleVerifyPhone: function handleVerifyPhone(id) {
       var _this4 = this;
 
+      this.deleteConfirm().then(function (confirm) {
+        if (confirm) {
+          axios.get("/users/verify-phone/".concat(id)).then(function (response) {
+            return _this4.getUsers();
+          })["catch"](function (error) {
+            return _this4.errorNotify(error);
+          });
+        }
+      });
+    },
+    handleSearch: function handleSearch() {
+      var _this5 = this;
+
       axios.get("/users/search/".concat(this.search_value)).then(function (response) {
-        _this4.users = response.data;
-        _this4.doing_search = true;
+        _this5.users = response.data;
+        _this5.doing_search = true;
       })["catch"](function (error) {
-        return _this4.errorNotify(error);
+        return _this5.errorNotify(error);
       });
     },
     resetSearch: function resetSearch() {
@@ -25849,36 +25860,6 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("label", { attrs: { for: "wage" } }, [_vm._v("کارمزد")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.wage,
-                  expression: "form.wage"
-                }
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: {
-                type: "text",
-                id: "wage",
-                placeholder: "لطفا بصورت صحیح و یا اعشاری با / وارد کنید."
-              },
-              domProps: { value: _vm.form.wage },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "wage", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
           _c("submit", { on: { click: _vm.handleSubmit } })
         ],
         1
@@ -25965,36 +25946,6 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-md-3" }, [
-          _c("label", { attrs: { for: "wage" } }, [_vm._v("کارمزد")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.form.wage,
-                expression: "form.wage"
-              }
-            ],
-            staticClass: "form-control form-control-sm",
-            attrs: {
-              type: "text",
-              id: "wage",
-              placeholder: "لطفا بصورت صحیح و یا اعشاری با / وارد کنید."
-            },
-            domProps: { value: _vm.form.wage },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.form, "wage", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
         _c("submit", { on: { click: _vm.handleSubmit } })
       ],
       1
@@ -26039,8 +25990,6 @@ var render = function() {
                   _c("tr", [
                     _c("th", [_vm._v("عنوان")]),
                     _vm._v(" "),
-                    _c("th", [_vm._v("کارمزد")]),
-                    _vm._v(" "),
                     _c("th", [_vm._v("عملیات")])
                   ])
                 ]),
@@ -26057,8 +26006,6 @@ var render = function() {
                             ")"
                         )
                       ]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(currency.wage))]),
                       _vm._v(" "),
                       _c(
                         "td",
@@ -28566,6 +28513,8 @@ var render = function() {
                     _vm._v(" "),
                     _c("th", [_vm._v("موبایل")]),
                     _vm._v(" "),
+                    _c("th", [_vm._v("تلفن")]),
+                    _vm._v(" "),
                     _c("th")
                   ])
                 ]),
@@ -28581,6 +28530,25 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(user.mobile))]),
+                      _vm._v(" "),
+                      _c("td", [
+                        user.verify_phone == 1
+                          ? _c("i", {
+                              staticClass: "zmdi zmdi-check text-success"
+                            })
+                          : _vm._e(),
+                        _vm._v(" "),
+                        user.verify_phone == 0
+                          ? _c("i", {
+                              staticClass: "zmdi zmdi-stop text-warning"
+                            })
+                          : _vm._e(),
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(user.phone) +
+                            "\n                "
+                        )
+                      ]),
                       _vm._v(" "),
                       _c("td", [
                         _c(
@@ -28687,38 +28655,6 @@ var render = function() {
                                   "link-btn",
                                   {
                                     attrs: {
-                                      type: "warning",
-                                      icon: "money",
-                                      to: "/user/" + user.id + "/buy-orders"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      " خرید ها\n                            "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "link-btn",
-                                  {
-                                    attrs: {
-                                      type: "success",
-                                      icon: "money",
-                                      to: "/user/" + user.id + "/sell-orders"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      " فروش ها\n                            "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "link-btn",
-                                  {
-                                    attrs: {
                                       type: "info",
                                       icon: "card",
                                       to: "/user/" + user.id + "/cards"
@@ -28729,7 +28665,31 @@ var render = function() {
                                       "کارت ها\n                            "
                                     )
                                   ]
-                                )
+                                ),
+                                _vm._v(" "),
+                                user.verify_phone == 0
+                                  ? _c(
+                                      "icon-btn",
+                                      {
+                                        attrs: {
+                                          type: "success",
+                                          icon: "pause"
+                                        },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.handleVerifyPhone(
+                                              user.id
+                                            )
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                تایید تلفن\n                            "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
                               ],
                               1
                             )

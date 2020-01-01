@@ -206,13 +206,13 @@
                             </div>
                             <div class="col-md-5 video-box" style="margin-top:7%">
                                 <div class="row">
-                                    <div class="col-md-10">
+                                    <div class="col-md-10 video-container">
                                         <video src="https://as2.cdn.asset.aparat.com/aparat-video/de088529cd9e3d87bb58b7f8a239b49a18539284-144p__74885.mp4"
                                                autoplay>
 
                                         </video>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 slider-container">
                                         <!-- Swiper -->
                                         <div class="swiper-container">
                                             <div class="swiper-wrapper">
@@ -805,7 +805,9 @@
 
     $('#expand').click(function () {
         $('.text-box').animate({width: 'toggle'}, 350);
-
+        $('.video-box').toggleClass('col-md-5').toggleClass('col-md-10');
+        $('.video-container').toggleClass('col-md-10').toggleClass('col-md-5');
+        $('.slider-container').toggleClass('col-md-2').toggleClass('col-md-7');
         $(this).toggleClass('fa-arrow-right').toggleClass('fa-arrow-left');
     });
 

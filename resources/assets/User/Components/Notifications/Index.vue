@@ -49,9 +49,7 @@
             },
             readAllNotification() {
                 axios.put('/notifications/read-all')
-                    .then(response => {
-                        eventBus.$emit('aa');
-                    })
+                    .then(response =>response)
                     .catch(error => this.errorNotify(error));
 
             },

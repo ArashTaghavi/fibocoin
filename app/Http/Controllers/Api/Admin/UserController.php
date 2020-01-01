@@ -153,5 +153,18 @@ class UserController extends Controller
         return $validator->getData();
     }
 
+    public function verify_phone($id)
+    {
+        $user = User::find($id);
+        $user->verify_phone = 1;
+        $user->save();
+
+        $notify = new Notification();
+        $notify->notification_detail_id = NotificationDetail::PHONE_CONFIRM;
+        $notify->user_id = $user->id;
+        $notify->save();
+        return ['message' => __('messages.save_success')];
+    }
+
 
 }

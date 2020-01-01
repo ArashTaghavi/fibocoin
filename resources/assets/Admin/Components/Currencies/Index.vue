@@ -7,14 +7,12 @@
                 <thead>
                 <tr>
                     <th>عنوان</th>
-                    <th>کارمزد</th>
                     <th>عملیات</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr v-for="currency in currencies">
                     <td>{{currency.title}} ({{currency.symbol}})</td>
-                    <td>{{currency.wage}}</td>
                     <td>
                         <edit-btn :to="`currencies/${currency.id}`"/>
                         <delete-btn :id=currency.id></delete-btn>

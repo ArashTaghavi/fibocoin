@@ -16,6 +16,7 @@
                 <tr>
                     <th>نام</th>
                     <th>موبایل</th>
+                    <th>تلفن</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -23,6 +24,11 @@
                 <tr v-for="user in users">
                     <td>{{user.first_name}} {{user.last_name}}</td>
                     <td>{{user.mobile}}</td>
+                    <td>
+                        <i class="zmdi zmdi-check text-success" v-if="user.verify_phone==1"></i>
+                        <i class="zmdi zmdi-stop text-warning" v-if="user.verify_phone==0"></i>
+                        {{user.phone}}
+                    </td>
                     <td>
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
@@ -41,12 +47,16 @@
                                 </icon-btn>
                                 <link-btn type="secondary" icon="file" :to="`/user/${user.id}/documents`"> مدارک
                                 </link-btn>
-                                <link-btn type="warning" icon="money" :to="`/user/${user.id}/buy-orders`"> خرید ها
-                                </link-btn>
-                                <link-btn type="success" icon="money" :to="`/user/${user.id}/sell-orders`"> فروش ها
-                                </link-btn>
+                                <!-- <link-btn type="warning" icon="money" :to="`/user/${user.id}/buy-orders`"> خرید ها
+                                 </link-btn>
+                                 <link-btn type="success" icon="money" :to="`/user/${user.id}/sell-orders`"> فروش ها
+                                 </link-btn>-->
                                 <link-btn type="info" icon="card" :to="`/user/${user.id}/cards`">کارت ها
                                 </link-btn>
+                                <icon-btn type="success" icon="pause" v-if="user.verify_phone==0"
+                                          @click="handleVerifyPhone(user.id)">
+                                    تایید تلفن
+                                </icon-btn>
                             </div>
                         </div>
                     </td>
@@ -91,6 +101,16 @@
                     .then(confirm => {
                         if (confirm) {
                             axios.get(`/users/block/${id}`)
+                                .then(response => this.getUsers())
+                                .catch(error => this.errorNotify(error));
+                        }
+                    });
+            },
+            handleVerifyPhone(id) {
+                this.deleteConfirm()
+                    .then(confirm => {
+                        if (confirm) {
+                            axios.get(`/users/verify-phone/${id}`)
                                 .then(response => this.getUsers())
                                 .catch(error => this.errorNotify(error));
                         }

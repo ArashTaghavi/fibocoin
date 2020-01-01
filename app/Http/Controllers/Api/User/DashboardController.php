@@ -42,26 +42,24 @@ class DashboardController extends Controller
         $user_info = User::with(['cards', 'documents'])->where('id', Auth::id())->first();
         $phone_status = $user_info->verify_phone ? true : false;
         $document_status = true;
-        $card_status = true;
+        $card_status = false;
         if ($user_info->is_admin_define) {
             $phone_status = true;
+            $document_status = true;
+            $card_status = true;
             return compact('phone_status', 'document_status', 'card_status');
         }
 
-        if ($user_info->cards != null)
-            $card_status = false;
-        else {
+        if ($user_info->cards != null) {
             foreach ($user_info->cards as $card) {
-                if ($card->approved == Card::WAITING || $card->approved == Card::REJECT) {
-                    $card_status = false;
+                if ($card->approved == Card::CONFIRM) {
+                    $card_status = true;
                     break;
                 }
             }
         }
 
-        if ($user_info->documents != null)
-            $document_status = false;
-        else {
+        if ($user_info->documents != null) {
             foreach ($user_info->documents as $document) {
                 if ($document->approved == Document::WAITING || $document->approved == Document::REJECT) {
                     $document_status = false;

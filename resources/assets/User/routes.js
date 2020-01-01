@@ -43,7 +43,7 @@ import CurrencyUserEdit from './Components/CurrencyUsers/Edit';
 // =================== Currency Users ===================
 
 export default [
-    {path: '/', name: 'داشبورد', component: Dashboard},
+    {path: '/', name: 'احراز هویت', component: Dashboard},
     {path: '/profile', name: 'پروفایل', component: Profile},
     {path: '/change-password', name: 'تغییر کلمه عبور', component: ChangePassword},
 

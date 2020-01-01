@@ -20,7 +20,7 @@
             </li>
 
             <li class="dropdown">
-                <a href="default.htm" data-toggle="dropdown" class="top-nav__notify"><i class="zmdi zmdi-email"></i></a>
+                <a href="default.htm" @click="getNotifications" data-toggle="dropdown" class="top-nav__notify"><i class="zmdi zmdi-email"></i></a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
                     <div class="dropdown-header text-right">
                         پیام های مدیریت
@@ -292,11 +292,6 @@
             },
             jDate(date) {
                 return moment(date).format('jYYYY/jM/jD H:m:s');
-            }
-        },
-        events: {
-            aa() {
-                console.log('aaa')
             }
         }
     }

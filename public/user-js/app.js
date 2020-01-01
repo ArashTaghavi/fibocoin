@@ -3316,13 +3316,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     var _this = this;
@@ -3359,8 +3352,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -3767,11 +3758,6 @@ var eventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
     jDate: function jDate(date) {
       return moment(date).format('jYYYY/jM/jD H:m:s');
     }
-  },
-  events: {
-    aa: function aa() {
-      console.log('aaa');
-    }
   }
 });
 
@@ -3786,6 +3772,12 @@ var eventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4003,7 +3995,7 @@ var eventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
       var _this2 = this;
 
       axios.put('/notifications/read-all').then(function (response) {
-        eventBus.$emit('aa');
+        return response;
       })["catch"](function (error) {
         return _this2.errorNotify(error);
       });
@@ -29641,38 +29633,6 @@ var render = function() {
       "div",
       { staticClass: "row" },
       [
-        _c("div", { staticClass: "col-md-3" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "title" } }, [_vm._v("عنوان مدرک")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.title,
-                  expression: "form.title"
-                }
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: {
-                type: "text",
-                id: "title",
-                placeholder: "عنوان مدرک را اینجا وارد نمایید.."
-              },
-              domProps: { value: _vm.form.title },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "title", $event.target.value)
-                }
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
         _c("div", { staticClass: "col-md-12 text-right mt-3" }, [
           _c(
             "div",
@@ -29741,8 +29701,6 @@ var render = function() {
               [
                 _c("thead", [
                   _c("tr", [
-                    _c("th", [_vm._v("عنوان")]),
-                    _vm._v(" "),
                     _c("th", [_vm._v("وضعیت")]),
                     _vm._v(" "),
                     _c("th", [_vm._v("عملیات")])
@@ -29753,8 +29711,6 @@ var render = function() {
                   "tbody",
                   _vm._l(_vm.documents, function(document) {
                     return _c("tr", [
-                      _c("td", [_vm._v(_vm._s(document.title))]),
-                      _vm._v(" "),
                       _c("td", {
                         domProps: {
                           innerHTML: _vm._s(_vm.approved(document.approved))
@@ -29847,7 +29803,15 @@ var render = function() {
       _vm._m(3),
       _vm._v(" "),
       _c("li", { staticClass: "dropdown" }, [
-        _vm._m(4),
+        _c(
+          "a",
+          {
+            staticClass: "top-nav__notify",
+            attrs: { href: "default.htm", "data-toggle": "dropdown" },
+            on: { click: _vm.getNotifications }
+          },
+          [_c("i", { staticClass: "zmdi zmdi-email" })]
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -29922,18 +29886,18 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
+      _vm._m(4),
+      _vm._v(" "),
       _vm._m(5),
       _vm._v(" "),
       _vm._m(6),
       _vm._v(" "),
       _vm._m(7),
       _vm._v(" "),
-      _vm._m(8),
-      _vm._v(" "),
-      _vm._m(9)
+      _vm._m(8)
     ]),
     _vm._v(" "),
-    _vm._m(10)
+    _vm._m(9)
   ])
 }
 var staticRenderFns = [
@@ -29992,19 +29956,6 @@ var staticRenderFns = [
         [_c("i", { staticClass: "zmdi zmdi-search" })]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "top-nav__notify",
-        attrs: { href: "default.htm", "data-toggle": "dropdown" }
-      },
-      [_c("i", { staticClass: "zmdi zmdi-email" })]
-    )
   },
   function() {
     var _vm = this
@@ -30670,7 +30621,7 @@ var render = function() {
           [
             _c("router-link", { attrs: { to: "/" } }, [
               _c("i", { staticClass: "zmdi zmdi-home" }),
-              _vm._v("داشبورد")
+              _vm._v("احراز هویت")
             ])
           ],
           1
@@ -30716,19 +30667,7 @@ var render = function() {
           "li",
           { staticClass: "@@widgetactive" },
           [
-            _c("router-link", { attrs: { to: "/buy-orders" } }, [
-              _c("i", { staticClass: "zmdi zmdi-collection-text" }),
-              _vm._v("\n                    سفارشات خرید\n                ")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "@@widgetactive" },
-          [
-            _c("router-link", { attrs: { to: "/sell-orders" } }, [
+            _c("router-link", { attrs: { to: "/currency-users" } }, [
               _c("i", { staticClass: "zmdi zmdi-collection-text" }),
               _vm._v("\n                    سفارشات فروش\n                ")
             ])
@@ -49341,7 +49280,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ([{
   path: '/',
-  name: 'داشبورد',
+  name: 'احراز هویت',
   component: _Components_Dashboard_Index__WEBPACK_IMPORTED_MODULE_0__["default"]
 }, {
   path: '/profile',

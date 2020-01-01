@@ -59,7 +59,6 @@ class CurrencyController extends Controller
         $validator = \Validator::make($request->all(), [
             'title' => 'required',
             'symbol' => 'required',
-            'wage' => 'required'
         ]);
 
         if ($validator->fails()) {

@@ -24,7 +24,7 @@
 
             <ul class="navigation">
                 <li class="navigation__active">
-                    <router-link to="/"><i class="zmdi zmdi-home"></i>داشبورد</router-link>
+                    <router-link to="/"><i class="zmdi zmdi-home"></i>احراز هویت</router-link>
                 </li>
 
 
@@ -48,6 +48,12 @@
                     </router-link>
                 </li>
                 <li class="@@widgetactive">
+                    <router-link to="/currency-users">
+                        <i class="zmdi zmdi-collection-text"></i>
+                        سفارشات فروش
+                    </router-link>
+                </li>
+               <!-- <li class="@@widgetactive">
                     <router-link to="/buy-orders">
                         <i class="zmdi zmdi-collection-text"></i>
                         سفارشات خرید
@@ -58,7 +64,7 @@
                         <i class="zmdi zmdi-collection-text"></i>
                         سفارشات فروش
                     </router-link>
-                </li>
+                </li>-->
                 <li class="@@widgetactive">
                     <router-link to="/financial">
                         <i class="zmdi zmdi-trending-up"></i>
