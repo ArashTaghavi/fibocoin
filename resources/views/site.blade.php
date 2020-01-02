@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>بیت کوین</title>
+    <title>فیبوکوین</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="خرید و فروش ارز دیجیتال | فیبوکوین">
     <meta name="keywords" content="ارز دیجیتال، بیت کوین، اتریوم، فیبوکوین">
@@ -52,6 +52,7 @@
         html, body {
             position: relative;
             height: 100%;
+            background: #eee !important;
         }
 
         .swiper-wrapper img, video {
@@ -100,7 +101,7 @@
                             <nav>
                                 <ul class="nav navbar-nav navbar-left">
                                     <li><a class="smooth_scroll" href="#price"> بازار</a></li>
-                                    <li><a class="smooth_scroll" href="#about-us">سفارشات</a></li>
+                                    <li><a class="smooth_scroll" href="#orders">سفارشات</a></li>
                                     <li><a class="smooth_scroll" href="#feature">بلاگ</a></li>
                                     <li><a class="smooth_scroll" href="#questions">ماشین حساب</a></li>
                                     <li><a href="/blog">چرا فیبوکوین</a></li>
@@ -131,7 +132,6 @@
                                                 <div class="col-md-6">
                                                     <p>App Store</p>
                                                     <p>Google Play</p>
-                                                    <p>Android</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -177,7 +177,7 @@
     <div class="slider-full-carousel owl-carousel">
         <div class="single-carousel">
             <div class="banner-content ">
-                <div class="container">
+                <div class="container toggle-container">
                     <div class="background-content">
                         <div class="row">
                             <div class="col-lg-7 col-md-7 text-box">
@@ -217,7 +217,7 @@
                                         <div class="swiper-container">
                                             <div class="swiper-wrapper">
                                                 <div class="swiper-slide">
-                                                    <img src="/site-assets/images/slide1.jpg" style="width:100%" alt="">
+                                                    <img src="/site-assets/images/slide1.jpg" style="width:91%" alt="">
                                                 </div>
                                                 <div class="swiper-slide">
                                                     <img src="/site-assets/images/slide2.jpg" style="width:100%" alt="">
@@ -322,9 +322,7 @@
 <!-- Slider Area End -->
 
 <style>
-    #price {
-        background: #f5f9fc;
-    }
+
 
     #price table {
         box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 40px;
@@ -337,7 +335,7 @@
 </style>
 
 <!-- Price -->
-<section id="price" class="section-big">
+<section id="price" class="section-big" style="background: #f9f9f9 !important;">
     <div class="container">
         <div class="section-title">
             <h2>مارکت</h2>
@@ -378,8 +376,8 @@
 </section>
 <!-- Price -->
 
-<!-- feature area starts -->
-<section id="feature" class="feature-area section-big">
+<!-- orders area starts -->
+<section id="orders" class="feature-area section-big" style="background: #eee !important;">
     <div class="container">
         <div class="row">
             <!-- section-title -->
@@ -466,8 +464,8 @@
 
         <div class="row feature-inner about-content">
 
-            <div class="col-md-12 col-sm-12">
-                <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-12 col-md-3">
 
                     <!--single-feature-->
                     <div class="single-feature single-feature-squre">
@@ -484,7 +482,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12 col-md-3">
 
                     <!--single-feature-->
                     <div class="single-feature single-feature-squre">
@@ -493,15 +491,28 @@
                                 <img src="/site-assets/images/retina-ready.png" alt="">
                             </div>
                         </div>
-                        <h3>کیف پول امن</h3>
-                        <p>
-                            دارایی های کاربر در یک کیف پول امن در بلاکچین بیت کوین ایران ذخیره می شوند که به دلیل
-                            استفاده از بلاکچین در زیرساخت بیت کوین ایران دسترسی به این داده ها برای اشخاص ثالت(سوم شخص)
-                            غیر ممکن می باشد.
-                        </p>
+                        <h3>اپلیکیشن</h3>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-md-6 mb-1">
+                                    <img src="/site-assets/images/qrcode.png" class="mb-3" alt="qrcode">
+                                </div>
+                                <div class="col-md-6 ">
+                                    <a href="">
+                                        <img src="/site-assets/images/google-play.png" class="img-fluid mb-2"
+                                             width="120" alt="">
+                                    </a>
+                                    <a href="">
+                                        <img class="img-fluid " width="120" src="/site-assets/images/app-store.png"
+                                             alt="">
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12 col-md-3">
 
                     <!--single-feature-->
                     <div class="single-feature single-feature-squre">
@@ -518,7 +529,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12 col-md-3">
 
                     <!--single-feature-->
                     <div class="single-feature single-feature-squre">
@@ -541,7 +552,7 @@
 <!-- feature area ends -->
 
 <!-- feature area starts -->
-<section id="feature" class="feature-area section-big">
+<section id="feature" class="feature-area section-big" style="background: #f9f9f9 !important">
     <div class="container">
 
         <div class="row">
@@ -581,6 +592,7 @@
 </section>
 <!-- feature area ends -->
 
+{{--
 <!-- Questions -->
 <section id="questions" style="background: #f5f9fc" class="feature-area section-big">
     <div class="container">
@@ -659,6 +671,7 @@
 
 </section>
 <!-- Questions -->
+--}}
 
 <!-- Contact  area Start -->
 <section id="contact" class="our-contact section-big">
@@ -745,7 +758,7 @@
 <!-- Contact  area end -->
 
 <!-- copyright area starts -->
-<footer class="copyright-area">
+<footer class="copyright-area" style="background: #000;color:#fff">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">

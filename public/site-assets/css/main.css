@@ -266,7 +266,7 @@ img {
 
 .btn.btn-bordered-grad:before {
     background: #14c393 repeat scroll 0 0;
-    background-color: #14c393;
+    background-color: #3c3c3c;
     border-radius: 100px;
     content: "";
     height: calc(100% + 4px);
@@ -464,7 +464,7 @@ img {
 * --------------------------------------------------------------------------------------- */
 
 #scroll-to-top {
-    background-color: #14c393;
+    background-color: #3c3c3c;
     width: 40px;
     height: 40px;
     text-align: center;
@@ -1011,8 +1011,8 @@ img {
 }
 
 .single-feature:hover {
-    background-color: #14c393;
-    color: #fff !important;
+   /* background-color: #14c393;*/
+    /*color: #fff !important;*/
     box-shadow: 0px 4px 10px #373737;
 }
 
@@ -1022,7 +1022,7 @@ img {
 }
 
 .single-feature:hover h3 {
-    color: #fff;
+   /* color: #fff;*/
 }
 
 .single-feature h3 {
@@ -1070,7 +1070,7 @@ img {
     content: "";
     height: calc(100% + 2px);
     width: calc(100% + 2px);
-    background-color: #14c393;
+    background-color: #3c3c3c;
     z-index: -1;
     border-radius: 50%;
 }
@@ -1201,7 +1201,7 @@ img {
 
 .available-inner h4 {
     font-size: 22px;
-    color: #14c393;
+    color: #3c3c3c;
     font-weight: 700;
     text-transform: capitalize;
     padding: 20px 0 10px 0;
@@ -1270,9 +1270,9 @@ img {
 .screen-nav .prev,
 .screen-nav .next {
     cursor: pointer;
-    background-color: #14c393;
+    /*background-color: #14c393;
 
-    color: #fff;
+    color: #fff;*/
     height: 50px;
     width: 50px;
     text-align: center;
@@ -1392,7 +1392,7 @@ img {
 }
 
 .price-box .price-rate {
-    color: #14c393;
+    color: #3c3c3c;
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 30px;
@@ -1405,13 +1405,12 @@ img {
 }
 
 .bttn-default {
-    background-color: #14c393;
+    background-color: #3c3c3c;
     border-radius: 100px;
     color: #003073;
     padding: 10px 30px;
     display: inline-block;
     font-weight: 700;
-    background-color: #ffffff;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
@@ -1419,8 +1418,8 @@ img {
 }
 
 .bttn-default:hover {
-    background-color: #14c393;
-    color: #ffffff;
+   /* background-color: #14c393;
+    color: #ffffff;*/
 }
 
 .bttn-sq {
@@ -1694,7 +1693,7 @@ img {
 
 .testmonial-quote::before,
 .testmonial-quote::after {
-    color: #14c393;
+    color: #3c3c3c;
     content: "\f10d";
     font-family: fontawesome;
     font-size: 41px;
@@ -1729,7 +1728,7 @@ img {
 }
 
 .author-img {
-    border: 3px solid #14c393;
+    border: 3px solid #3c3c3c;
     border-radius: 50%;
     height: 90px;
     left: 0;
@@ -1864,7 +1863,7 @@ img {
 
 .faq-text h4 {
     font-size: 16px;
-    color: #14c393;
+    color: #3c3c3c;
     font-weight: 700;
     text-transform: capitalize;
     margin-bottom: 15px;
@@ -1876,7 +1875,7 @@ img {
     font-weight: 400;
     text-transform: capitalize;
     padding-left: 20px;
-    border-left: 2px solid #14c393;;
+    border-left: 2px solid #3c3c3c;;
     margin-bottom: 15px;
     text-align: justify;
 }
@@ -2031,7 +2030,7 @@ img {
 .form5 {
     margin: 80px 0 0px;
     padding: 50px 30px;
-    background: #14c393;
+    background: #3c3c3c;
     box-shadow: 10px 10px 0 0 #0000ff14;
 }
 
@@ -2109,7 +2108,7 @@ textarea {
 /* sub-contact */
 
 #sub-contact {
-    background: #14c393;
+    background: #3c3c3c;
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -2175,8 +2174,8 @@ textarea {
 }
 
 .cont-icon ul li a:hover {
-    color: #14c393;
-    background: #ffffff;
+  /*  color: #14c393;
+    background: #ffffff;*/
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
     -o-transform: rotate(360deg);
