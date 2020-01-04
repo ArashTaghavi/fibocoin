@@ -68,8 +68,6 @@ class DashboardController extends Controller
             }
         }
 
-
         return compact('phone_status', 'document_status', 'card_status');
-
     }
 }

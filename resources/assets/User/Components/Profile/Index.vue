@@ -1,6 +1,6 @@
 <template>
     <card title="مشخصات شخصی" sub_title="لطفا تمامی فیلد های درخواستی را بصورت دقیق پر کنید.">
-        <div class="row">
+        <div class="row" v-if="!status">
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="first_name">نام</label>
@@ -44,7 +44,15 @@
                            placeholder="کد معرف">
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="sos_phone">تلفن ضروری</label>
+                    <input type="text" id="sos_phone" v-model="form.sos_phone"
+                           class="form-control form-control-sm"
+                           placeholder="کد معرف">
+                </div>
+            </div>
+            <div class="col-md-3">
                 <div class="form-group">
                     <label for="address">آدرس</label>
                     <textarea id="address" v-model="form.address" class="form-control form-control-sm"
@@ -58,15 +66,50 @@
             </div>
             <submit @click="handleSubmit"/>
         </div>
+            <div class="row" v-else>
+                <table class="table table-responsive">
+                    <thead>
+                    <tr>
+                        <th>نام</th>
+                        <th>نام خانوادگی</th>
+                        <th>نام پدر</th>
+                        <th>کد ملی</th>
+                        <th>ایمیل</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{form.first_name}}</td>
+                        <td>{{form.last_name}}</td>
+                        <td>{{form.father_name}}</td>
+                        <td>{{form.national_code}}</td>
+                        <td>{{form.email}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p>
+                    آدرس : {{form.address}}
+                </p>
+                <div class="col-md-4 offset-4">
+                    <img :src="form.profile_image" width="100%" alt="">
+                </div>
+            </div>
     </card>
 </template>
 
 <script>
     export default {
-
+        data() {
+            return {
+                status: true
+            }
+        },
         created() {
             axios.get('/profile')
-                .then(response => this.form = response.data)
+                .then(response => {
+                    this.form = response.data.user;
+                    this.status = response.data.status
+                })
                 .catch(error => this.errorNotify(error));
 
         },

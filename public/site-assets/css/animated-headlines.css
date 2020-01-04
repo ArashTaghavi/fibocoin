@@ -746,14 +746,14 @@ xclip
   vertical-align: top;
 }
 .cd-headline.clip .cd-words-wrapper::after {
-  /* line */
+ /* !* line *!
   content: '';
   position: absolute;
   top: 0;
   right: 0;
   width: 2px;
   height: 100%;
-  background-color: #fff;
+  background-color: #fff;*/
 }
 .cd-headline.clip b {
   opacity: 0;

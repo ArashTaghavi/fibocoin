@@ -4,7 +4,9 @@
         <Sidebar/>
         <Theme/>
         <section class="content">
-            <router-view></router-view>
+            <div class="content__inner">
+                <router-view></router-view>
+            </div>
         </section>
     </main>
 </template>

@@ -33,8 +33,11 @@
 
     <!-- Responsive css -->
     <link href="/site-assets/css/responsive.css" rel="stylesheet">
+    <link href="/site-assets/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
     <link href="/site-assets/css/custom.css" rel="stylesheet">
     <style>
+
         #questions a:hover {
             color: initial !important;
         }
@@ -75,7 +78,9 @@
 
 <!-- Preloader starts-->
 <div id="loading">
-    <div class="load-circle"><span class="one"></span></div>
+    <div class="load-circle">
+        <img src="/site-assets/images/logo.png" width="150px" alt="logo">
+    </div>
 </div>
 <!-- Preloader ends -->
 
@@ -155,7 +160,7 @@
                                     @endif
                                     <li style="padding-left: 0">
                                         <a href="">
-                                            <img src="/site-assets/images/logo.png" width="100px" alt="">
+                                            <img src="/site-assets/images/logo.png" width="148px" alt="">
                                         </a>
                                     </li>
                                 </ul>
@@ -338,15 +343,15 @@
 <section id="price" class="section-big" style="background: #f9f9f9 !important;">
     <div class="container">
         <div class="section-title">
-            <h2>مارکت</h2>
+            <h2 class="title-class">مارکت</h2>
 
         </div>
         <div class="row">
             <div class="prices_container col-md-12">
-                <table class="table table-responsive prices">
+                <table class="table table-responsive prices w-100 table-striped">
                     <thead>
                     <tr>
-                        <th>نام ارز</th>
+                        <th class="w-50 pr-2" style="text-align: right !important;">نام ارز</th>
                         <th>آخرین قیمت</th>
                         <th>تغییرات 24 ساعت اخیر</th>
                         <th>بازار</th>
@@ -355,7 +360,8 @@
                     <tbody>
                     @foreach($prices as $price)
                         <tr>
-                            <td>{{$price['symbol']}} <span class="text-muted">{{$price['name']}}</span></td>
+                            <td style="text-align: right !important" class="pr-2">{{$price['symbol']}} <span
+                                        class="text-muted">{{$price['name']}}</span></td>
                             <td>{{number_format($price['quote']['USD']['price'],2)}} $</td>
                             <td dir="ltr">
                                 @if($price['quote']['USD']['percent_change_24h']<0)
@@ -382,39 +388,59 @@
         <div class="row">
             <!-- section-title -->
             <div class="section-title">
-                <h2>جدول خرید و فروش ارزهای دیجیتال کاربران فیبوکوین</h2>
+                <h2 class="title-class">سفارشات فعال</h2>
             </div>
         </div>
 
         <div class="row feature-inner about-content">
-            <table class="table table-responsive">
-                <thead>
-                <tr>
-                    <th>نام کاربری</th>
-                    <th>نوع ارز</th>
-                    <th>موجودی</th>
-                    <th>حداقل فروش</th>
-                    <th>قیمت یک واحد</th>
-                    <th>تاریخ ثبت</th>
-                    <th>خرید</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($cu as $c)
-                    <tr>
-                        <td>{{$c->user->mobile}}</td>
-                        <td>{{$c->currency->title}} ({{$c->currency->symbol}})</td>
-                        <td>{{number_format($c->balance)}}</td>
-                        <td>{{number_format($c->min_sale)}}</td>
-                        <td>{{number_format($c->unit_price)}}</td>
-                        <td>{{jdate($c->created_at)}}</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-info">خرید</a>
-                        </td>
-                    </tr>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                @foreach ($currencies as $currency)
+
+                    <li class="nav-item {{$loop->first ? "active" : ""}}">
+                        <a class="nav-link" data-toggle="tab"
+                           href="#tab{{$loop->iteration}}">{{$currency->title}}</a>
+                    </li>
                 @endforeach
-                </tbody>
-            </table>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                @foreach ($currencies as $currency)
+                    <div class="tab-pane container {{$loop->first ? "active" : ""}}" id="tab{{$loop->iteration}}">
+                        <table class="table table-responsive" id="orders_table{{$loop->iteration}}">
+                            <thead>
+                            <tr>
+                                <th>نوع ارز</th>
+                                <th>موجودی/حداقل فروش</th>
+                                <th>قیمت واحد</th>
+                                <th>تاریخ ثبت</th>
+                                <th>خرید</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($cu as $c)
+                                @if($currency->title === $c['currency']['title'])
+                                    <tr>
+                                        <td>{{$c['currency']['title']}} {{$c['currency']['symbol']}}</td>
+                                        <td>{{number_format($c['balance'])}}/ {{number_format($c['min_sale'])}}</td>
+                                        <td>{{number_format($c['unit_price'])}}</td>
+                                        <td>{{jdate($c['created_at'])->format('Y/m/d')}}</td>
+                                        <td>
+                                            <a href="" class="btn btn-sm btn-info custom-btn hidden-xs">
+                                                <i class="fa fa-shopping-basket"></i>
+                                                خرید
+                                            </a>
+                                            <i class="fa fa-shopping-basket hidden-md hidden-lg btn btn-sm btn-info custom-btn"></i>
+                                        </td>
+                                    </tr>
+                                @endif
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 </section>
@@ -424,7 +450,7 @@
 <section id="about-us" class="about section-big">
     <div class="container">
         <div class="section-title">
-            <h2>درباره ی <span>فیبوکوین</span></h2>
+            <h2 class="title-class">درباره ی <span>فیبوکوین</span></h2>
         </div>
         <div class="row about-content">
             <div class="col-md-7 col-xs-12 col-sm-6 row-image">
@@ -458,7 +484,7 @@
         <div class="row">
             <!-- section-title -->
             <div class="section-title">
-                <h2>ویژگی های <span>فیبوکوین</span></h2>
+                <h2 class="title-class">ویژگی های <span>فیبوکوین</span></h2>
             </div>
         </div>
 
@@ -558,7 +584,7 @@
         <div class="row">
             <!-- section-title -->
             <div class="section-title">
-                <h2>Get in touch. Stay in touch.
+                <h2 class="title-class">Get in touch. Stay in touch.
                 </h2>
             </div>
         </div>
@@ -578,12 +604,12 @@
                 </div>
                 <div class="col-md-3">
                     <img src="/site-assets/images/community.svg" alt="community">
-                    <h4 style="color:#000;padding: 5px">انجمن</h4>
+                    <h4 style="color:#000;padding: 5px">نظرات کاربران</h4>
                     <p style="color:#3c3c3c;padding: 5px">متن مورد نظر اینجا قرار میگیرد.</p>
                 </div>
                 <div class="col-md-3">
                     <img src="/site-assets/images/join-us.svg" alt="join-us">
-                    <h4 style="color:#000;padding: 5px">پیشتبانی 24 ساعته</h4>
+                    <h4 style="color:#000;padding: 5px">همکاری با فیبوکوین</h4>
                     <p style="color:#3c3c3c;padding: 5px">متن مورد نظر اینجا قرار میگیرد.</p>
                 </div>
             </div>
@@ -674,34 +700,6 @@
 --}}
 
 <!-- Contact  area Start -->
-<section id="contact" class="our-contact section-big">
-    <div class="container">
-        <div class="row">
-            <div class="section-title">
-                <h2>با ما در <span>ارتباط </span>باشید</h2>
-            </div>
-            <div class="col-xl-6 col-lg-6 col-sm-6 contact-img">
-                <img src="/site-assets/images/contact-mobile.png" class="img-responsive con-phone" alt="img">
-            </div>
-            <div class="col-xl-6 col-lg-6 col-sm-6">
-                <div class="contact-form form3">
-                    <div id="form-messages"></div>
-                    <form id="contact-form" action="http://demo.jamalgh.ir/appto/demo/php/contact.php" method="post">
-                        <input name="name" type="text" required placeholder="نام شما:">
-                        <input name="email" type="email" required placeholder="ایمیل:">
-
-                        <textarea name="message" required id="message" cols="30" rows="10"
-                                  placeholder="متن پیام :"></textarea>
-                        <div class="store-buttons text-center">
-                            <button type="submit" class='bttn-default' name="submit" value="ارسال">ارسال</button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <section id="sub-contact" class="section-big">
     <div class="container">
         <div class="row">
@@ -791,6 +789,10 @@
 <script src="/site-assets/js/jquery.ajaxchimp.min.js"></script>
 <!-- swiper js -->
 <!-- main js -->
+
+<script src="/site-assets/js/jquery.dataTables.min.js"></script>
+<script src="/site-assets/js/jquery.ajaxchimp.min.js"></script>
+
 <script src="/site-assets/js/custom.js"></script>
 
 <script>
@@ -823,7 +825,11 @@
         $('.slider-container').toggleClass('col-md-2').toggleClass('col-md-7');
         $(this).toggleClass('fa-arrow-right').toggleClass('fa-arrow-left');
     });
-
+    $(document).ready(function () {
+        for(i=1;i<3;i++) {
+            $('#orders_table+i').DataTable({searching: false, paging: false, info: false});
+        }
+    });
 </script>
 </body>
 

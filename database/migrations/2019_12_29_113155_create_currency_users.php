@@ -21,7 +21,7 @@ class CreateCurrencyUsers extends Migration
             $table->foreign('currency_id')->references('id')->on('currencies')->onDelete('cascade');
             $table->string('balance');
             $table->string('min_sale');
-            $table->string('unit_price');
+            $table->double('unit_price');
             $table->timestamps();
         });
     }

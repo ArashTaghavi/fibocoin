@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Currency;
 use App\Models\CurrencyUser;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -55,12 +56,13 @@ class SiteController extends Controller
         }
 
         // ========== Currency Users ==========
-        $cu = CurrencyUser::with(['user:users.id,users.mobile', 'currency:currencies.title,currencies.id,currencies.symbol'])
-            ->get();
+        $cu = CurrencyUser::with(['currency:currencies.title,currencies.id,currencies.symbol'])
+           ->orderBy('unit_price','asc')->get()->toArray();
+        $currencies = Currency::where('active',1)->get();
         // ========== Currency Users ==========
 
 
-        return view('site', compact('panel_address', 'cu','prices'));
+        return view('site', compact('panel_address', 'cu','prices','currencies'));
     }
 
     public function blog()
