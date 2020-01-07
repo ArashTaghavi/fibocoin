@@ -43,6 +43,12 @@ import CurrencyUserEdit from './Components/CurrencyUsers/Edit';
 import CurrencyUserPayment from './Components/CurrencyUsers/Payment';
 // =================== Currency Users ===================
 
+// =================== Payment Requests ===================
+import PaymentRequests from './Components/PaymentRequests/Index';
+import PaymentRequestCreate from './Components/PaymentRequests/Create';
+// =================== Payment Requests ===================
+
+
 export default [
     {path: '/', name: 'احراز هویت', component: Dashboard},
     {path: '/profile', name: 'پروفایل', component: Profile},
@@ -80,6 +86,11 @@ export default [
     {path: '/currency-users/:id/edit', name: 'ویرایش پیشنهاد فروش', component: CurrencyUserEdit},
     {path: '/currency-users/:id/payment', name: 'پرداخت ها', component: CurrencyUserPayment},
     // =================== Currency Users ===================
+
+    // =================== Payment Requests ===================
+    {path: '/payment-requests', name: 'لیست درخواست ها واریز وجه', component: PaymentRequests},
+    {path: '/payment-requests/create', name: 'ثبت درخواست واریز وجه', component: PaymentRequestCreate},
+    // =================== Payment Requests ===================
 
     {path: '/notifications', name: 'پیام های مدیر', component: Notifications},
     {path: '/wallets/add', name: 'افزایش موجودی کیف پول', component: WalletAdd},

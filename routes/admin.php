@@ -23,13 +23,16 @@ Route::middleware(['web', 'auth:web', 'IsAdmin'])->group(function () {
             Route::get('/detail/{id}', 'UserController@detail')->name('detail');
             Route::get('/buy-orders/{id}', 'UserController@buy_orders')->name('buy-orders');
             Route::get('/sell-orders/{id}', 'UserController@sell_orders')->name('sell-orders');
+            Route::get('/payment-requests/{id}', 'UserController@payment_requests')->name('payment-requests');
             Route::get('/cards/{id}', 'UserController@cards')->name('cards');
             Route::get('/card-search/{id}/{approved}', 'UserController@card_search')->name('card-search');
             Route::get('/card-approved/{id}/{confirmation}', 'UserController@card_approved')->name('card-approved');
             Route::get('/buy-order-search/{id}/{status}', 'UserController@buy_order_search')->name('buy-order-search');
             Route::get('/sell-order-search/{id}/{status}', 'UserController@sell_order_search')->name('sell-order-search');
+            Route::get('/payment-request-search/{id}/{status}', 'UserController@payment_request_search')->name('payment-requests-search');
             Route::get('/buy-order-status/{id}/{status}', 'UserController@buy_order_status')->name('buy-order-status');
             Route::put('/sell-order-status/{id}', 'UserController@sell_order_status')->name('sell-order-status');
+            Route::put('/payment-request-status/{id}', 'UserController@payment_request_status')->name('payment-request-status');
             Route::get('/documents/{id}', 'UserController@documents')->name('documents');
             Route::get('/document-approved/{id}/{confirmation}', 'UserController@document_approved')->name('document-approved');
         });

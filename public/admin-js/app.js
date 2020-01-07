@@ -3421,6 +3421,135 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Users/PaymentRequests.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Users/PaymentRequests.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      payment_requests: []
+    };
+  },
+  created: function created() {
+    this.getPaymentRequest();
+    this.form.description = [];
+  },
+  methods: {
+    getPaymentRequest: function getPaymentRequest() {
+      var _this = this;
+
+      axios.get("/users/payment-requests/".concat(this.$route.params.id)).then(function (response) {
+        return _this.payment_requests = response.data;
+      })["catch"](function (error) {
+        return _this.errorNotify(error);
+      });
+    },
+    status: function status(_status) {
+      switch (_status) {
+        case 0:
+          return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';
+
+        case 1:
+          return '<span class="badge badge-info btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار پرداخت </span>';
+
+        case 2:
+          return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار بررسی </span>';
+
+        default:
+          return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> پرداخت شده </span>';
+      }
+    },
+    search: function search(status) {
+      var _this2 = this;
+
+      axios.get("/users/payment-request-search/".concat(this.$route.params.id, "/").concat(status)).then(function (response) {
+        return _this2.payment_requests = response.data;
+      })["catch"](function (error) {
+        return _this2.errorNotify(error);
+      });
+    },
+    handleStatus: function handleStatus(id, status) {
+      var _this3 = this;
+
+      var _data = {
+        status: status,
+        description: this.form.description[id]
+      };
+      axios.put("/users/payment-request-status/".concat(id), _data).then(function (response) {
+        _this3.getPaymentRequest();
+
+        _this3.form.description[id] = '';
+      })["catch"](function (error) {
+        return _this3.errorNotify(error);
+      });
+    },
+    jDate: function jDate(date) {
+      return moment(date).format('jYYYY/jM/jD');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Users/SellOrders.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Users/SellOrders.vue?vue&type=script&lang=js& ***!
@@ -28761,6 +28890,284 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Users/PaymentRequests.vue?vue&type=template&id=5e88c2ee&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Users/PaymentRequests.vue?vue&type=template&id=5e88c2ee& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "card",
+    { attrs: { title: "" + _vm.$route.name } },
+    [
+      _c("div", { staticClass: "row mb-2" }, [
+        _c(
+          "div",
+          { staticClass: "col-md-2" },
+          [
+            _c(
+              "icon-btn",
+              {
+                staticStyle: { width: "100%" },
+                attrs: { type: "info" },
+                on: {
+                  click: function($event) {
+                    return _vm.search(1)
+                  }
+                }
+              },
+              [_vm._v("در انتظار پرداخت")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-md-2" },
+          [
+            _c(
+              "icon-btn",
+              {
+                staticStyle: { width: "100%" },
+                attrs: { type: "danger" },
+                on: {
+                  click: function($event) {
+                    return _vm.search(0)
+                  }
+                }
+              },
+              [_vm._v("تایید نشده")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-md-2" },
+          [
+            _c(
+              "icon-btn",
+              {
+                staticStyle: { width: "100%" },
+                attrs: { type: "warning" },
+                on: {
+                  click: function($event) {
+                    return _vm.search(2)
+                  }
+                }
+              },
+              [_vm._v("در انتظار بررسی")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-md-2" },
+          [
+            _c(
+              "icon-btn",
+              {
+                staticStyle: { width: "100%" },
+                attrs: { type: "success" },
+                on: {
+                  click: function($event) {
+                    return _vm.search(3)
+                  }
+                }
+              },
+              [_vm._v("پرداخت شده")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-md-2" },
+          [
+            _c(
+              "icon-btn",
+              {
+                staticStyle: { width: "100%" },
+                attrs: { type: "info" },
+                on: {
+                  click: function($event) {
+                    return _vm.getPaymentRequest()
+                  }
+                }
+              },
+              [_vm._v("همه")]
+            )
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _vm.payment_requests.length > 0
+        ? _c(
+            "div",
+            { staticClass: "row" },
+            _vm._l(_vm.payment_requests, function(payment_request, index) {
+              return _c("div", { key: index, staticClass: "col-md-4" }, [
+                _c(
+                  "div",
+                  { staticClass: "card" },
+                  [
+                    payment_request.status === 2
+                      ? _c(
+                          "icon-btn",
+                          {
+                            staticStyle: {
+                              position: "absolute",
+                              left: "5px",
+                              top: "5px"
+                            },
+                            attrs: { type: "success", icon: "check" },
+                            on: {
+                              click: function($event) {
+                                return _vm.handleStatus(payment_request.id, 1)
+                              }
+                            }
+                          },
+                          [_vm._v("تایید\n                ")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    payment_request.status === 2
+                      ? _c(
+                          "icon-btn",
+                          {
+                            staticStyle: {
+                              position: "absolute",
+                              left: "70px",
+                              top: "5px"
+                            },
+                            attrs: { type: "danger", icon: "close" },
+                            on: {
+                              click: function($event) {
+                                return _vm.handleStatus(payment_request.id, 0)
+                              }
+                            }
+                          },
+                          [_vm._v("رد\n                ")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    payment_request.status === 1
+                      ? _c(
+                          "icon-btn",
+                          {
+                            staticStyle: {
+                              position: "absolute",
+                              left: "5px",
+                              top: "5px"
+                            },
+                            attrs: { type: "info", icon: "check" },
+                            on: {
+                              click: function($event) {
+                                return _vm.handleStatus(payment_request.id, 3)
+                              }
+                            }
+                          },
+                          [_vm._v("پرداخت\n                ")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("p", [
+                        _vm._v(
+                          "مبلغ درخواست شده : " +
+                            _vm._s(payment_request.amount) +
+                            " تومان"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "تاریخ درخواست :\n                        " +
+                            _vm._s(_vm.jDate(payment_request.created_date)) +
+                            "\n                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", {
+                        staticClass: "text-center",
+                        domProps: {
+                          innerHTML: _vm._s(_vm.status(payment_request.status))
+                        }
+                      }),
+                      _vm._v(" "),
+                      payment_request.status == 1 || payment_request.status == 2
+                        ? _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.description[payment_request.id],
+                                expression:
+                                  "form.description[payment_request.id]"
+                              }
+                            ],
+                            staticClass: "form-control form-control-sm",
+                            attrs: {
+                              name: "",
+                              id: "",
+                              cols: "5",
+                              rows: "5",
+                              placeholder: "توضیحات"
+                            },
+                            domProps: {
+                              value: _vm.form.description[payment_request.id]
+                            },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form.description,
+                                  payment_request.id,
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        : _vm._e()
+                    ])
+                  ],
+                  1
+                )
+              ])
+            }),
+            0
+          )
+        : _c("not-found")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Users/SellOrders.vue?vue&type=template&id=e733e1fa&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Users/SellOrders.vue?vue&type=template&id=e733e1fa& ***!
@@ -45202,6 +45609,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/Admin/Components/Users/PaymentRequests.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Users/PaymentRequests.vue ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PaymentRequests_vue_vue_type_template_id_5e88c2ee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PaymentRequests.vue?vue&type=template&id=5e88c2ee& */ "./resources/assets/Admin/Components/Users/PaymentRequests.vue?vue&type=template&id=5e88c2ee&");
+/* harmony import */ var _PaymentRequests_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PaymentRequests.vue?vue&type=script&lang=js& */ "./resources/assets/Admin/Components/Users/PaymentRequests.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PaymentRequests_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PaymentRequests_vue_vue_type_template_id_5e88c2ee___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PaymentRequests_vue_vue_type_template_id_5e88c2ee___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/Admin/Components/Users/PaymentRequests.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Users/PaymentRequests.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Users/PaymentRequests.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PaymentRequests_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./PaymentRequests.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Users/PaymentRequests.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PaymentRequests_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Users/PaymentRequests.vue?vue&type=template&id=5e88c2ee&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Users/PaymentRequests.vue?vue&type=template&id=5e88c2ee& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaymentRequests_vue_vue_type_template_id_5e88c2ee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./PaymentRequests.vue?vue&type=template&id=5e88c2ee& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Users/PaymentRequests.vue?vue&type=template&id=5e88c2ee&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaymentRequests_vue_vue_type_template_id_5e88c2ee___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PaymentRequests_vue_vue_type_template_id_5e88c2ee___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/assets/Admin/Components/Users/SellOrders.vue":
 /*!****************************************************************!*\
   !*** ./resources/assets/Admin/Components/Users/SellOrders.vue ***!
@@ -45340,7 +45816,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.router = router; //  ================== Components  ==================
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('submit', function () {
-  return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./../common/Components/SubmitButton */ "./resources/assets/common/Components/SubmitButton.vue"));
+  return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./../common/Components/SubmitButton */ "./resources/assets/common/Components/SubmitButton.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('card', function () {
   return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./../common/Components/Card */ "./resources/assets/common/Components/Card.vue"));
@@ -45349,22 +45825,22 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('cropper-portlet', function
   return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./../common/Components/CropperPortlet */ "./resources/assets/common/Components/CropperPortlet.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('portlet-button', function () {
-  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./../common/Components/PortletButton */ "./resources/assets/common/Components/PortletButton.vue"));
+  return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./../common/Components/PortletButton */ "./resources/assets/common/Components/PortletButton.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('portlet-file-input', function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(10), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ./../common/Components/PortletFileInput */ "./resources/assets/common/Components/PortletFileInput.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(12), __webpack_require__.e(14)]).then(__webpack_require__.bind(null, /*! ./../common/Components/PortletFileInput */ "./resources/assets/common/Components/PortletFileInput.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('cropper-tools', function () {
   return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./../common/Components/CropperTools */ "./resources/assets/common/Components/CropperTools.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('ui-button', function () {
-  return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./../common/Components/UiButton */ "./resources/assets/common/Components/UiButton.vue"));
+  return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./../common/Components/UiButton */ "./resources/assets/common/Components/UiButton.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('loading', function () {
-  return Promise.all(/*! import() */[__webpack_require__.e(10), __webpack_require__.e(14)]).then(__webpack_require__.bind(null, /*! ./../common/Components/Loading */ "./resources/assets/common/Components/Loading.vue"));
+  return Promise.all(/*! import() */[__webpack_require__.e(12), __webpack_require__.e(16)]).then(__webpack_require__.bind(null, /*! ./../common/Components/Loading */ "./resources/assets/common/Components/Loading.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('not-found', function () {
-  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./../common/Components/NotFound */ "./resources/assets/common/Components/NotFound.vue"));
+  return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./../common/Components/NotFound */ "./resources/assets/common/Components/NotFound.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('edit-btn', function () {
   return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./../common/Components/EditButton */ "./resources/assets/common/Components/EditButton.vue"));
@@ -45376,13 +45852,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('add-btn', function () {
   return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./../common/Components/AddButton */ "./resources/assets/common/Components/AddButton.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('detail-btn', function () {
-  return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./../common/Components/DetailButton */ "./resources/assets/common/Components/DetailButton.vue"));
+  return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./../common/Components/DetailButton */ "./resources/assets/common/Components/DetailButton.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('icon-btn', function () {
-  return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./../common/Components/IconButton */ "./resources/assets/common/Components/IconButton.vue"));
+  return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./../common/Components/IconButton */ "./resources/assets/common/Components/IconButton.vue"));
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('link-btn', function () {
-  return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./../common/Components/LinkButton */ "./resources/assets/common/Components/LinkButton.vue"));
+  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./../common/Components/LinkButton */ "./resources/assets/common/Components/LinkButton.vue"));
 }); //  ================== Run Application  ==================
 
 
@@ -45422,13 +45898,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Users_SellOrders__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Components/Users/SellOrders */ "./resources/assets/Admin/Components/Users/SellOrders.vue");
 /* harmony import */ var _Components_Users_Cards__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Components/Users/Cards */ "./resources/assets/Admin/Components/Users/Cards.vue");
 /* harmony import */ var _Components_Users_Documents__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Components/Users/Documents */ "./resources/assets/Admin/Components/Users/Documents.vue");
-/* harmony import */ var _Components_Users_Create__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Components/Users/Create */ "./resources/assets/Admin/Components/Users/Create.vue");
-/* harmony import */ var _Components_Currencies_Index__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Components/Currencies/Index */ "./resources/assets/Admin/Components/Currencies/Index.vue");
-/* harmony import */ var _Components_Currencies_Create__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Components/Currencies/Create */ "./resources/assets/Admin/Components/Currencies/Create.vue");
-/* harmony import */ var _Components_Currencies_Edit__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Components/Currencies/Edit */ "./resources/assets/Admin/Components/Currencies/Edit.vue");
+/* harmony import */ var _Components_Users_PaymentRequests__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Components/Users/PaymentRequests */ "./resources/assets/Admin/Components/Users/PaymentRequests.vue");
+/* harmony import */ var _Components_Users_Create__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Components/Users/Create */ "./resources/assets/Admin/Components/Users/Create.vue");
+/* harmony import */ var _Components_Currencies_Index__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Components/Currencies/Index */ "./resources/assets/Admin/Components/Currencies/Index.vue");
+/* harmony import */ var _Components_Currencies_Create__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Components/Currencies/Create */ "./resources/assets/Admin/Components/Currencies/Create.vue");
+/* harmony import */ var _Components_Currencies_Edit__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Components/Currencies/Edit */ "./resources/assets/Admin/Components/Currencies/Edit.vue");
 
 
  // ================= Users =================
+
 
 
 
@@ -45481,23 +45959,27 @@ __webpack_require__.r(__webpack_exports__);
   name: 'مدارک',
   component: _Components_Users_Documents__WEBPACK_IMPORTED_MODULE_8__["default"]
 }, {
+  path: '/user/:id/payment-requests',
+  name: 'درخواست های واریز',
+  component: _Components_Users_PaymentRequests__WEBPACK_IMPORTED_MODULE_9__["default"]
+}, {
   path: '/user/create',
   name: 'ایجاد کاربر',
-  component: _Components_Users_Create__WEBPACK_IMPORTED_MODULE_9__["default"]
+  component: _Components_Users_Create__WEBPACK_IMPORTED_MODULE_10__["default"]
 }, // ============================ Users ============================
 // ============================ Currencies ============================
 {
   path: '/currencies',
   name: 'لیست ارزها',
-  component: _Components_Currencies_Index__WEBPACK_IMPORTED_MODULE_10__["default"]
+  component: _Components_Currencies_Index__WEBPACK_IMPORTED_MODULE_11__["default"]
 }, {
   path: '/currencies/create',
   name: 'ثبت ارز',
-  component: _Components_Currencies_Create__WEBPACK_IMPORTED_MODULE_11__["default"]
+  component: _Components_Currencies_Create__WEBPACK_IMPORTED_MODULE_12__["default"]
 }, {
   path: '/currencies/:id/edit',
   name: 'ویرایش ارز',
-  component: _Components_Currencies_Edit__WEBPACK_IMPORTED_MODULE_12__["default"]
+  component: _Components_Currencies_Edit__WEBPACK_IMPORTED_MODULE_13__["default"]
 } // ============================ Currencies ============================
 ]);
 

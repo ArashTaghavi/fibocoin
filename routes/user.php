@@ -97,6 +97,15 @@ Route::middleware(['web', 'auth:web', 'IsUser'])->group(function () {
         });
         // ================================ Sell Orders ================================
 
+
+        // ================================ Payment Requests ================================
+        Route::prefix('payment-requests')->name('payment-requests.')->group(function () {
+            Route::get('/', 'PaymentRequestController@index')->name('index');
+            Route::post('/', 'PaymentRequestController@store')->name('store');
+        });
+        // ================================ Payment Requests ================================
+
+
         // ================================ Currency User Payments ================================
         Route::prefix('currency-user-payments')->name('currency-user-payments.')->group(function () {
             Route::get('/{id}', 'CurrencyUserPaymentController@index')->name('index');

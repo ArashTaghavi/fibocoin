@@ -10,10 +10,12 @@ use App\Models\CurrencyUserPayment;
 use App\Models\Document;
 use App\Models\Notification;
 use App\Models\NotificationDetail;
+use App\Models\PaymentRequest;
 use App\Models\SellOrder;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use function foo\func;
 
 class UserController extends Controller
@@ -52,13 +54,21 @@ class UserController extends Controller
         }])->get();
     }
 
+
+    public function payment_requests($id)
+    {
+
+        return PaymentRequest::where('user_id', $id)->get();
+    }
+
     public function search($search_value)
     {
         $users = User::where('is_admin', '!=', 1)->where(function ($q) use ($search_value) {
             $q->where('first_name', 'like', "%{$search_value}%")
                 ->orWhere('first_name', 'like', "%{$search_value}%")
                 ->orWhere('last_name', 'like', "%{$search_value}%")
-                ->orWhere('email', 'like', "%{$search_value}%");
+                ->orWhere('email', 'like', "%{$search_value}%")
+                ->orWhere('mobile', 'like', "%{$search_value}%");
         })->get();
 
         return $users;
@@ -95,6 +105,11 @@ class UserController extends Controller
         return SellOrder::with('currency')->where('user_id', $id)->where('status', $status)->get();
     }
 
+    public function payment_request_search($id, $status)
+    {
+        return PaymentRequest::where('user_id', $id)->where('status', $status)->get();
+    }
+
     public function buy_order_status($id, $status)
     {
         BuyOrder::where('id', $id)->where('status', '!=', BuyOrder::REJECT)->update(['status' => $status]);
@@ -109,6 +124,18 @@ class UserController extends Controller
         $cup->status = $request->status;
         $cup->save();
         CurrencyUserPayment::where('id', $id)->update(['updated_at' => Carbon::now()]);
+    }
+
+    public function payment_request_status(Request $request, $id)
+    {
+        $payment_request = PaymentRequest::where('id', $id)->where('status', '!=', PaymentRequest::REJECT)->first();
+        if (!empty($request->description)) {
+            $payment_request->description = $request->description;
+        }
+        $payment_request->status = $request->status;
+        $payment_request->reply_at = date(Carbon::now());
+        $payment_request->save();
+        PaymentRequest::where('id', $id)->update(['reply_at' => Carbon::now()]);
     }
 
     public function documents($id)

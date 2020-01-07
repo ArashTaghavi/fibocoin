@@ -53,6 +53,12 @@
                         سفارشات فروش
                     </router-link>
                 </li>
+                <li class="@@widgetactive">
+                    <router-link to="/payment-requests">
+                        <i class="zmdi zmdi-collection-text"></i>
+                        درخواست واریز وجه
+                    </router-link>
+                </li>
                <!-- <li class="@@widgetactive">
                     <router-link to="/buy-orders">
                         <i class="zmdi zmdi-collection-text"></i>

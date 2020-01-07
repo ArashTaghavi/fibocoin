@@ -5,6 +5,7 @@ namespace App;
 use App\Models\Card;
 use App\Models\CurrencyUser;
 use App\Models\Document;
+use App\Models\PaymentRequest;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -60,5 +61,10 @@ class User extends Authenticatable
     public function currencies()
     {
         return $this->hasMany(CurrencyUser::class);
+    }
+
+    public function paymentRequests()
+    {
+        return $this->hasMany(PaymentRequest::class);
     }
 }

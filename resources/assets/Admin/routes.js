@@ -11,6 +11,7 @@ import UserBuyOrders from './Components/Users/BuyOrders';
 import UserSellOrders from './Components/Users/SellOrders';
 import UserCards from './Components/Users/Cards';
 import UserDocuments from './Components/Users/Documents';
+import UserPaymentRequests from './Components/Users/PaymentRequests';
 import UserCreate from './Components/Users/Create';
 // ================= Users =================
 
@@ -34,6 +35,7 @@ export default [
     {path: '/user/:id/sell-orders', name: 'گزارش فروش کاربر', component: UserSellOrders},
     {path: '/user/:id/cards', name: 'کارت ها', component: UserCards},
     {path: '/user/:id/documents', name: 'مدارک', component: UserDocuments},
+    {path: '/user/:id/payment-requests', name: 'درخواست های واریز', component: UserPaymentRequests},
     {path: '/user/create', name: 'ایجاد کاربر', component: UserCreate},
     // ============================ Users ============================
 
