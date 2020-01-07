@@ -2058,6 +2058,76 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/BuyOrders/CreateForUse.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/User/Components/BuyOrders/CreateForUse.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      currencies: []
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/helper/currencies').then(function (response) {
+      return _this.currencies = response.data;
+    })["catch"](function (error) {
+      return _this.errorNotify(error);
+    });
+  },
+  methods: {
+    handleSubmit: function handleSubmit() {
+      var _this2 = this;
+
+      axios.post('/buy-orders', this.form).then(function (response) {
+        _this2.successNotify(response);
+
+        _this2.$router.push('/buy-orders');
+      })["catch"](function (error) {
+        return _this2.errorNotify(error);
+      });
+    },
+    handleChange: function handleChange(event) {
+      this.$parent.$parent.getCurrenciesTable(event);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/BuyOrders/Detail.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/User/Components/BuyOrders/Detail.vue?vue&type=script&lang=js& ***!
@@ -2185,6 +2255,99 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      buy_orders: []
+    };
+  },
+  created: function created() {
+    this.getBuyOrders();
+  },
+  methods: {
+    handleDelete: function handleDelete(id) {
+      var _this = this;
+
+      axios["delete"]("/buy-orders/".concat(id)).then(function (response) {
+        _this.successNotify(response);
+
+        _this.getBuyOrders();
+      })["catch"](function (error) {
+        return _this.errorNotify(error);
+      });
+    },
+    getBuyOrders: function getBuyOrders() {
+      var _this2 = this;
+
+      axios.get('/buy-orders').then(function (response) {
+        return _this2.buy_orders = response.data;
+      })["catch"](function (error) {
+        return _this2.errorNotify(error);
+      });
+    },
+    status: function status(_status) {
+      switch (_status) {
+        case 0:
+          return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';
+
+        case 1:
+          return '<span class="badge badge-info btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار پرداخت </span>';
+
+        case 2:
+          return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار بررسی </span>';
+
+        default:
+          return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> پرداخت شده </span>';
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/BuyOrders/IndexForUse.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/User/Components/BuyOrders/IndexForUse.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -2518,6 +2681,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _User_Components_BuyOrders_CreateForUse__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../User/Components/BuyOrders/CreateForUse */ "./resources/assets/User/Components/BuyOrders/CreateForUse.vue");
 //
 //
 //
@@ -2558,15 +2722,87 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      currencies: []
+      currencies: [],
+      currencies_table: {},
+      is_verified_user: true,
+      buy_component: false,
+      show_buy_or_sell_component: false,
+      show_currencies_table: false
     };
   },
   created: function created() {
     var _this = this;
 
+    axios.get('/profile/is-verified-user').then(function (response) {
+      return _this.is_verified_user = response.data;
+    })["catch"](function (error) {
+      return _this.errorNotify(error);
+    });
     axios.get('/helper/currencies').then(function (response) {
       return _this.currencies = response.data;
     })["catch"](function (error) {
@@ -2578,13 +2814,34 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.post('/currency-users', this.form).then(function (response) {
-        _this2.successNotify(response);
+        _this2.successNotify(response); //this.$router.push('/currency-users');
 
-        _this2.$router.push('/currency-users');
       })["catch"](function (error) {
         return _this2.errorNotify(error);
       });
+    },
+    getCurrenciesTable: function getCurrenciesTable(event) {
+      var _this3 = this;
+
+      axios.get("/currency-users/currencies-user-list/".concat(event.target.value)).then(function (response) {
+        _this3.currencies_table = response.data;
+        _this3.show_currencies_table = true;
+      })["catch"](function (error) {
+        return _this3.errorNotify(error);
+      });
+    },
+    jDate: function jDate(date) {
+      return moment(date).format('jYYYY/jM/jD');
+    },
+    buyOrCell: function buyOrCell(val) {
+      this.buy_component = val;
+      this.show_buy_or_sell_component = true;
+      this.show_currencies_table = false;
+      this.form = {};
     }
+  },
+  components: {
+    BuyOrders: _User_Components_BuyOrders_CreateForUse__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -2685,6 +2942,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _User_Components_BuyOrders_IndexForUse__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../User/Components/BuyOrders/IndexForUse */ "./resources/assets/User/Components/BuyOrders/IndexForUse.vue");
 //
 //
 //
@@ -2693,6 +2951,114 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      currency_users: [],
+      is_verified_user: true,
+      buy: true
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/profile/is-verified-user').then(function (response) {
+      return _this.is_verified_user = response.data;
+    })["catch"](function (error) {
+      return _this.errorNotify(error);
+    });
+    this.getCurrencyUsers();
+  },
+  methods: {
+    handleDelete: function handleDelete(id) {
+      var _this2 = this;
+
+      axios["delete"]("/currency-users/".concat(id)).then(function (response) {
+        _this2.successNotify(response);
+
+        _this2.getCurrencyUsers();
+      })["catch"](function (error) {
+        return _this2.errorNotify(error);
+      });
+    },
+    getCurrencyUsers: function getCurrencyUsers() {
+      var _this3 = this;
+
+      axios.get('/currency-users').then(function (response) {
+        return _this3.currency_users = response.data;
+      })["catch"](function (error) {
+        return _this3.errorNotify(error);
+      });
+    }
+  },
+  components: {
+    BuyOrders: _User_Components_BuyOrders_IndexForUse__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/CurrencyUsers/Payment.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/User/Components/CurrencyUsers/Payment.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -2723,32 +3089,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      currency_users: []
+      payments: []
     };
   },
   created: function created() {
-    this.getCurrencyUsers();
+    this.getPayments();
   },
   methods: {
-    handleDelete: function handleDelete(id) {
+    getPayments: function getPayments() {
       var _this = this;
 
-      axios["delete"]("/currency-users/".concat(id)).then(function (response) {
-        _this.successNotify(response);
-
-        _this.getCurrencyUsers();
+      axios.get("/currency-user-payments/".concat(this.$route.params.id)).then(function (response) {
+        return _this.payments = response.data.currency_user_payments;
       })["catch"](function (error) {
         return _this.errorNotify(error);
       });
     },
-    getCurrencyUsers: function getCurrencyUsers() {
-      var _this2 = this;
+    status: function status(_status) {
+      switch (_status) {
+        case 0:
+          return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';
 
-      axios.get('/currency-users').then(function (response) {
-        return _this2.currency_users = response.data;
-      })["catch"](function (error) {
-        return _this2.errorNotify(error);
-      });
+        case 1:
+          return '<span class="badge badge-info btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار پرداخت </span>';
+
+        case 2:
+          return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار بررسی </span>';
+
+        default:
+          return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> پرداخت شده </span>';
+      }
+    },
+    jDate: function jDate(date) {
+      return moment(date).format('jYYYY/jM/jD (H:m:s)');
     }
   }
 });
@@ -27606,6 +27979,132 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/BuyOrders/CreateForUse.vue?vue&type=template&id=984d1692&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/User/Components/BuyOrders/CreateForUse.vue?vue&type=template&id=984d1692& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "row" },
+    [
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "amount" } }, [_vm._v("مبلغ")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.amount,
+                expression: "form.amount"
+              }
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: {
+              type: "number",
+              id: "amount",
+              placeholder: "مبلغ را به تومان وارد نمایید.."
+            },
+            domProps: { value: _vm.form.amount },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form, "amount", $event.target.value)
+              }
+            }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "currency_id" } }, [_vm._v("نوع ارز")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.currency_id,
+                  expression: "form.currency_id"
+                }
+              ],
+              staticClass: "form-control form-control-sm",
+              attrs: { id: "currency_id" },
+              on: {
+                change: [
+                  function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "currency_id",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  },
+                  function($event) {
+                    return _vm.handleChange($event)
+                  }
+                ]
+              }
+            },
+            [
+              _c("option", [_vm._v("یک گزینه را انتخاب نمایید")]),
+              _vm._v(" "),
+              _vm._l(_vm.currencies, function(currency, index) {
+                return _c(
+                  "option",
+                  { key: index, domProps: { value: currency.id } },
+                  [
+                    _vm._v(
+                      _vm._s(currency.title) +
+                        "\n                    (" +
+                        _vm._s(currency.symbol) +
+                        ")\n                "
+                    )
+                  ]
+                )
+              })
+            ],
+            2
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("submit", { on: { click: _vm.handleSubmit } })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/BuyOrders/Detail.vue?vue&type=template&id=66ab012e&":
 /*!****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/User/Components/BuyOrders/Detail.vue?vue&type=template&id=66ab012e& ***!
@@ -27893,6 +28392,116 @@ var render = function() {
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/BuyOrders/IndexForUse.vue?vue&type=template&id=1555133a&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/User/Components/BuyOrders/IndexForUse.vue?vue&type=template&id=1555133a& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.buy_orders.length > 0
+    ? _c("table", { staticClass: "table table-hover mb-0 table-responsive" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.buy_orders, function(buy_order) {
+            return _c("tr", [
+              _c("td", [_vm._v(_vm._s(buy_order.amount))]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  _vm._s(buy_order.currency.title) +
+                    " (" +
+                    _vm._s(buy_order.currency.symbol) +
+                    ")"
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", {
+                domProps: { innerHTML: _vm._s(_vm.status(buy_order.status)) }
+              }),
+              _vm._v(" "),
+              _c(
+                "td",
+                [
+                  buy_order.status !== 3
+                    ? _c(
+                        "div",
+                        [
+                          _c("edit-btn", {
+                            attrs: { to: "buy-orders/" + buy_order.id }
+                          }),
+                          _vm._v(" "),
+                          _c("delete-btn", { attrs: { id: buy_order.id } })
+                        ],
+                        1
+                      )
+                    : _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: "buy-orders/" + buy_order.id + "/detail"
+                          }
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn btn-sm btn-outline-primary btn--icon-text m-1"
+                            },
+                            [
+                              _c("i", { staticClass: "zmdi zmdi-file-text" }),
+                              _vm._v(
+                                "\n                    جزییات\n                "
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                ],
+                1
+              )
+            ])
+          }),
+          0
+        )
+      ])
+    : _c("not-found")
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("مبلغ پرداختی")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("نوع ارز")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("وضعیت")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("عملیات")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -28351,182 +28960,348 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "card",
-    { attrs: { title: "" + _vm.$route.name, active_loading: false } },
-    [
-      _c(
-        "div",
-        { staticClass: "row" },
+  return _vm.is_verified_user
+    ? _c(
+        "card",
+        { attrs: { title: "" + _vm.$route.name, active_loading: false } },
         [
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "currency_id" } }, [
-                _vm._v("نوع ارز")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.currency_id,
-                      expression: "form.currency_id"
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              { staticClass: "col-md-3" },
+              [
+                _c(
+                  "icon-btn",
+                  {
+                    staticStyle: { width: "100%" },
+                    attrs: { type: "info" },
+                    on: {
+                      click: function($event) {
+                        return _vm.buyOrCell(false)
+                      }
                     }
-                  ],
-                  staticClass: "form-control form-control-sm",
-                  attrs: { id: "currency_id" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.form,
-                        "currency_id",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
+                  },
+                  [_vm._v("خرید")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-md-3" },
+              [
+                _c(
+                  "icon-btn",
+                  {
+                    staticStyle: { width: "100%" },
+                    attrs: { type: "success" },
+                    on: {
+                      click: function($event) {
+                        return _vm.buyOrCell(true)
+                      }
                     }
-                  }
-                },
+                  },
+                  [_vm._v("فروش")]
+                )
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _vm.buy_component && _vm.show_buy_or_sell_component
+            ? _c(
+                "div",
+                { staticClass: "row" },
                 [
-                  _c("option", [_vm._v("یک گزینه را انتخاب نمایید")]),
+                  _c("div", { staticClass: "col-md-3" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "currency_id" } }, [
+                        _vm._v("نوع ارز")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.currency_id,
+                              expression: "form.currency_id"
+                            }
+                          ],
+                          staticClass: "form-control form-control-sm",
+                          attrs: { id: "currency_id" },
+                          on: {
+                            change: [
+                              function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "currency_id",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              },
+                              function($event) {
+                                return _vm.getCurrenciesTable($event)
+                              }
+                            ]
+                          }
+                        },
+                        [
+                          _c("option", [_vm._v("یک گزینه را انتخاب نمایید")]),
+                          _vm._v(" "),
+                          _vm._l(_vm.currencies, function(currency, index) {
+                            return _c(
+                              "option",
+                              { key: index, domProps: { value: currency.id } },
+                              [
+                                _vm._v(
+                                  _vm._s(currency.title) +
+                                    "\n                        (" +
+                                    _vm._s(currency.symbol) +
+                                    ")\n                    "
+                                )
+                              ]
+                            )
+                          })
+                        ],
+                        2
+                      )
+                    ])
+                  ]),
                   _vm._v(" "),
-                  _vm._l(_vm.currencies, function(currency, index) {
-                    return _c(
-                      "option",
-                      { key: index, domProps: { value: currency.id } },
-                      [
-                        _vm._v(
-                          _vm._s(currency.title) +
-                            "\n                        (" +
-                            _vm._s(currency.symbol) +
-                            ")\n                    "
-                        )
-                      ]
-                    )
-                  })
+                  _c("div", { staticClass: "col-md-3" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "balance" } }, [
+                        _vm._v("موجودی")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.balance,
+                            expression: "form.balance"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: {
+                          type: "text",
+                          id: "balance",
+                          placeholder: "موجودی را اینجا وارد نمایید..."
+                        },
+                        domProps: { value: _vm.form.balance },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "balance", $event.target.value)
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-3" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "min_sale" } }, [
+                        _vm._v("حداقل میزان فروش")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.min_sale,
+                            expression: "form.min_sale"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: {
+                          type: "text",
+                          id: "min_sale",
+                          placeholder:
+                            "حداقل میزان فروش را اینجا وارد نمایید..."
+                        },
+                        domProps: { value: _vm.form.min_sale },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "min_sale", $event.target.value)
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-3" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "unit_price" } }, [
+                        _vm._v("قیمت واحد")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.unit_price,
+                            expression: "form.unit_price"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: {
+                          type: "text",
+                          id: "unit_price",
+                          placeholder: "قیمت واحد را اینجا وارد نمایید..."
+                        },
+                        domProps: { value: _vm.form.unit_price },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "unit_price",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("submit", { on: { click: _vm.handleSubmit } })
                 ],
-                2
+                1
               )
-            ])
-          ]),
+            : _vm._e(),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "balance" } }, [_vm._v("موجودی")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.balance,
-                    expression: "form.balance"
-                  }
-                ],
-                staticClass: "form-control form-control-sm",
-                attrs: {
-                  type: "text",
-                  id: "balance",
-                  placeholder: "موجودی را اینجا وارد نمایید..."
-                },
-                domProps: { value: _vm.form.balance },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "balance", $event.target.value)
-                  }
-                }
-              })
-            ])
-          ]),
+          !_vm.buy_component && _vm.show_buy_or_sell_component
+            ? _c("BuyOrders")
+            : _vm._e(),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "min_sale" } }, [
-                _vm._v("حداقل میزان فروش")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.min_sale,
-                    expression: "form.min_sale"
-                  }
-                ],
-                staticClass: "form-control form-control-sm",
-                attrs: {
-                  type: "text",
-                  id: "min_sale",
-                  placeholder: "حداقل میزان فروش را اینجا وارد نمایید..."
-                },
-                domProps: { value: _vm.form.min_sale },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "min_sale", $event.target.value)
-                  }
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "unit_price" } }, [
-                _vm._v("قیمت واحد")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.unit_price,
-                    expression: "form.unit_price"
-                  }
-                ],
-                staticClass: "form-control form-control-sm",
-                attrs: {
-                  type: "text",
-                  id: "unit_price",
-                  placeholder: "قیمت واحد را اینجا وارد نمایید..."
-                },
-                domProps: { value: _vm.form.unit_price },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "unit_price", $event.target.value)
-                  }
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("submit", { on: { click: _vm.handleSubmit } })
+          Object.entries(_vm.currencies_table).length > 0 &&
+          _vm.show_currencies_table
+            ? _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("h5", [_vm._v("پیشنهادات فروش")]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c(
+                    "table",
+                    { staticClass: "table table-responsive orders_table" },
+                    [
+                      _c("thead", [
+                        _c("tr", [
+                          _c("th", [_vm._v("موجودی")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("حداقل فروش")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("قیمت واحد")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("تاریخ ثبت")])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.currencies_table.sell, function(
+                          currency_table
+                        ) {
+                          return _c("tr", [
+                            _c("td", [_vm._v(_vm._s(currency_table.balance))]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(currency_table.min_sale))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(_vm._s(currency_table.unit_price))
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(_vm.jDate(currency_table.created_at))
+                              )
+                            ])
+                          ])
+                        }),
+                        0
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("h5", [_vm._v("پیشنهادات خرید")]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c(
+                    "table",
+                    { staticClass: "table table-responsive orders_table" },
+                    [
+                      _c("thead", [
+                        _c("tr", [
+                          _c("th", [_vm._v("قیمت درخواست")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("تاریخ ثبت")])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.currencies_table.buy, function(
+                          currency_table
+                        ) {
+                          return _c("tr", [
+                            _c("td", [_vm._v(_vm._s(currency_table.amount))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(_vm.jDate(currency_table.created_at))
+                              )
+                            ])
+                          ])
+                        }),
+                        0
+                      )
+                    ]
+                  )
+                ])
+              ])
+            : _vm._e()
         ],
         1
       )
-    ]
-  )
+    : _c("card", { attrs: { title: "" + _vm.$route.name } }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12 text-center" }, [
+            _c("h5", { staticClass: "alert alert-warning" }, [
+              _vm._v(
+                "تا زمان تکمیل نشدن احراز هویت، مجاز به خرید و فروش نیستید."
+              )
+            ])
+          ])
+        ])
+      ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -28550,182 +29325,174 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "card",
-    { attrs: { title: "" + _vm.$route.name, active_loading: false } },
-    [
-      _c(
-        "div",
-        { staticClass: "row" },
-        [
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "currency_id" } }, [
-                _vm._v("نوع ارز")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.currency_id,
-                      expression: "form.currency_id"
-                    }
-                  ],
-                  staticClass: "form-control form-control-sm",
-                  attrs: { id: "currency_id" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.form,
-                        "currency_id",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
+  return _c("card", { attrs: { title: "" + _vm.$route.name } }, [
+    _c(
+      "div",
+      { staticClass: "row" },
+      [
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "currency_id" } }, [_vm._v("نوع ارز")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.currency_id,
+                    expression: "form.currency_id"
                   }
-                },
-                [
-                  _c("option", [_vm._v("یک گزینه را انتخاب نمایید")]),
-                  _vm._v(" "),
-                  _vm._l(_vm.currencies, function(currency, index) {
-                    return _c(
-                      "option",
-                      { key: index, domProps: { value: currency.id } },
-                      [
-                        _vm._v(
-                          _vm._s(currency.title) +
-                            "\n                        (" +
-                            _vm._s(currency.symbol) +
-                            ")\n                    "
-                        )
-                      ]
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: { id: "currency_id" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "currency_id",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                     )
-                  })
-                ],
-                2
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "balance" } }, [_vm._v("موجودی")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.balance,
-                    expression: "form.balance"
-                  }
-                ],
-                staticClass: "form-control form-control-sm",
-                attrs: {
-                  type: "text",
-                  id: "balance",
-                  placeholder: "موجودی را اینجا وارد نمایید..."
-                },
-                domProps: { value: _vm.form.balance },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "balance", $event.target.value)
                   }
                 }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "min_sale" } }, [
-                _vm._v("حداقل میزان فروش")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.min_sale,
-                    expression: "form.min_sale"
-                  }
-                ],
-                staticClass: "form-control form-control-sm",
-                attrs: {
-                  type: "text",
-                  id: "min_sale",
-                  placeholder: "حداقل میزان فروش را اینجا وارد نمایید..."
-                },
-                domProps: { value: _vm.form.min_sale },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "min_sale", $event.target.value)
-                  }
+              },
+              [
+                _c("option", [_vm._v("یک گزینه را انتخاب نمایید")]),
+                _vm._v(" "),
+                _vm._l(_vm.currencies, function(currency, index) {
+                  return _c(
+                    "option",
+                    { key: index, domProps: { value: currency.id } },
+                    [
+                      _vm._v(
+                        _vm._s(currency.title) +
+                          "\n                        (" +
+                          _vm._s(currency.symbol) +
+                          ")\n                    "
+                      )
+                    ]
+                  )
+                })
+              ],
+              2
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "balance" } }, [_vm._v("موجودی")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.balance,
+                  expression: "form.balance"
                 }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "unit_price" } }, [
-                _vm._v("قیمت واحد")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.unit_price,
-                    expression: "form.unit_price"
+              ],
+              staticClass: "form-control form-control-sm",
+              attrs: {
+                type: "text",
+                id: "balance",
+                placeholder: "موجودی را اینجا وارد نمایید..."
+              },
+              domProps: { value: _vm.form.balance },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
                   }
-                ],
-                staticClass: "form-control form-control-sm",
-                attrs: {
-                  type: "text",
-                  id: "unit_price",
-                  placeholder: "قیمت واحد را اینجا وارد نمایید..."
-                },
-                domProps: { value: _vm.form.unit_price },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.form, "unit_price", $event.target.value)
-                  }
+                  _vm.$set(_vm.form, "balance", $event.target.value)
                 }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("submit", { on: { click: _vm.handleSubmit } })
-        ],
-        1
-      )
-    ]
-  )
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "min_sale" } }, [
+              _vm._v("حداقل میزان فروش")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.min_sale,
+                  expression: "form.min_sale"
+                }
+              ],
+              staticClass: "form-control form-control-sm",
+              attrs: {
+                type: "text",
+                id: "min_sale",
+                placeholder: "حداقل میزان فروش را اینجا وارد نمایید..."
+              },
+              domProps: { value: _vm.form.min_sale },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "min_sale", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "unit_price" } }, [
+              _vm._v("قیمت واحد")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.unit_price,
+                  expression: "form.unit_price"
+                }
+              ],
+              staticClass: "form-control form-control-sm",
+              attrs: {
+                type: "text",
+                id: "unit_price",
+                placeholder: "قیمت واحد را اینجا وارد نمایید..."
+              },
+              domProps: { value: _vm.form.unit_price },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "unit_price", $event.target.value)
+                }
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("submit", { on: { click: _vm.handleSubmit } })
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -28749,13 +29516,206 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  return _vm.is_verified_user
+    ? _c(
+        "card",
+        { attrs: { title: "" + _vm.$route.name } },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              { staticClass: "col-md-3" },
+              [
+                _c(
+                  "icon-btn",
+                  {
+                    staticStyle: { width: "100%" },
+                    attrs: { type: "info" },
+                    on: {
+                      click: function($event) {
+                        _vm.buy = true
+                      }
+                    }
+                  },
+                  [_vm._v("خرید")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-md-3" },
+              [
+                _c(
+                  "icon-btn",
+                  {
+                    staticStyle: { width: "100%" },
+                    attrs: { type: "success" },
+                    on: {
+                      click: function($event) {
+                        _vm.buy = false
+                      }
+                    }
+                  },
+                  [_vm._v("فروش")]
+                )
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _vm.is_verified_user
+            ? _c("add-btn", { attrs: { to: "/currency-users" } })
+            : _vm._e(),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            !_vm.buy
+              ? _c("div", { staticClass: "col-md-12" }, [
+                  _c("h5", [_vm._v("پیشنهادات فروش")]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c(
+                    "table",
+                    { staticClass: "table table-hover mb-0 table-responsive" },
+                    [
+                      _c("thead", [
+                        _c("tr", [
+                          _c("th", [_vm._v("نوع ارز")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("موجودی")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("حداقل میزان فروش")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("قیمت واحد")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("عملیات")])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.currency_users, function(currency_user) {
+                          return _c("tr", [
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(currency_user.currency.title) +
+                                  " (" +
+                                  _vm._s(currency_user.currency.symbol) +
+                                  ")"
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(currency_user.balance))]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(currency_user.min_sale))]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(_vm._s(currency_user.unit_price))
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              currency_user.status !== 3
+                                ? _c(
+                                    "div",
+                                    [
+                                      _c(
+                                        "link-btn",
+                                        {
+                                          attrs: {
+                                            to:
+                                              "currency-users/" +
+                                              currency_user.id +
+                                              "/payment",
+                                            type: "warning",
+                                            icon: "money"
+                                          }
+                                        },
+                                        [_vm._v("پرداخت ها")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("edit-btn", {
+                                        attrs: {
+                                          to:
+                                            "currency-users/" + currency_user.id
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("delete-btn", {
+                                        attrs: { id: currency_user.id }
+                                      })
+                                    ],
+                                    1
+                                  )
+                                : _vm._e()
+                            ])
+                          ])
+                        }),
+                        0
+                      )
+                    ]
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.buy
+              ? _c(
+                  "div",
+                  { staticClass: "col-md-12" },
+                  [
+                    _c("h5", [_vm._v("پیشنهادات خرید")]),
+                    _vm._v(" "),
+                    _c("hr"),
+                    _vm._v(" "),
+                    _c("BuyOrders")
+                  ],
+                  1
+                )
+              : _vm._e()
+          ])
+        ],
+        1
+      )
+    : _c("card", { attrs: { title: "" + _vm.$route.name } }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12 text-center " }, [
+            _c("h5", { staticClass: "alert alert-warning" }, [
+              _vm._v(
+                "تا زمان تکمیل نشدن احراز هویت، مجاز به خرید و فروش نیستید."
+              )
+            ])
+          ])
+        ])
+      ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/CurrencyUsers/Payment.vue?vue&type=template&id=8bb82d36&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/User/Components/CurrencyUsers/Payment.vue?vue&type=template&id=8bb82d36& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
   return _c(
     "card",
     { attrs: { title: "" + _vm.$route.name } },
     [
-      _c("add-btn", { attrs: { to: "/currency-users" } }),
-      _vm._v(" "),
-      _vm.currency_users.length > 0
+      _vm.payments.length > 0
         ? _c("div", { staticClass: "row" }, [
             _c(
               "table",
@@ -28763,56 +29723,31 @@ var render = function() {
               [
                 _c("thead", [
                   _c("tr", [
-                    _c("th", [_vm._v("نوع ارز")]),
+                    _c("th", [_vm._v("مبلغ پرداخت شده")]),
                     _vm._v(" "),
-                    _c("th", [_vm._v("موجودی")]),
+                    _c("th", [_vm._v("وضعیت")]),
                     _vm._v(" "),
-                    _c("th", [_vm._v("حداقل میزان فروش")]),
+                    _c("th", [_vm._v("توضیحات")]),
                     _vm._v(" "),
-                    _c("th", [_vm._v("قیمت واحد")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("عملیات")])
+                    _c("th", [_vm._v("تاریخ")])
                   ])
                 ]),
                 _vm._v(" "),
                 _c(
                   "tbody",
-                  _vm._l(_vm.currency_users, function(currency_user) {
+                  _vm._l(_vm.payments, function(payment) {
                     return _c("tr", [
-                      _c("td", [
-                        _vm._v(
-                          _vm._s(currency_user.currency.title) +
-                            " (" +
-                            _vm._s(currency_user.currency.title) +
-                            ")"
-                        )
-                      ]),
+                      _c("td", [_vm._v(_vm._s(payment.amount))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(currency_user.balance))]),
+                      _c("td", {
+                        domProps: {
+                          innerHTML: _vm._s(_vm.status(payment.status))
+                        }
+                      }),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(currency_user.min_sale))]),
+                      _c("td", [_vm._v(_vm._s(payment.description))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(currency_user.unit_price))]),
-                      _vm._v(" "),
-                      _c("td", [
-                        currency_user.status !== 3
-                          ? _c(
-                              "div",
-                              [
-                                _c("edit-btn", {
-                                  attrs: {
-                                    to: "currency-users/" + currency_user.id
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("delete-btn", {
-                                  attrs: { id: currency_user.id }
-                                })
-                              ],
-                              1
-                            )
-                          : _vm._e()
-                      ])
+                      _c("td", [_vm._v(_vm._s(_vm.jDate(payment.updated_at)))])
                     ])
                   }),
                   0
@@ -47219,6 +48154,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/User/Components/BuyOrders/CreateForUse.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/assets/User/Components/BuyOrders/CreateForUse.vue ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CreateForUse_vue_vue_type_template_id_984d1692___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateForUse.vue?vue&type=template&id=984d1692& */ "./resources/assets/User/Components/BuyOrders/CreateForUse.vue?vue&type=template&id=984d1692&");
+/* harmony import */ var _CreateForUse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateForUse.vue?vue&type=script&lang=js& */ "./resources/assets/User/Components/BuyOrders/CreateForUse.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CreateForUse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CreateForUse_vue_vue_type_template_id_984d1692___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CreateForUse_vue_vue_type_template_id_984d1692___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/User/Components/BuyOrders/CreateForUse.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/User/Components/BuyOrders/CreateForUse.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/assets/User/Components/BuyOrders/CreateForUse.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateForUse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CreateForUse.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/BuyOrders/CreateForUse.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateForUse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/User/Components/BuyOrders/CreateForUse.vue?vue&type=template&id=984d1692&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/assets/User/Components/BuyOrders/CreateForUse.vue?vue&type=template&id=984d1692& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateForUse_vue_vue_type_template_id_984d1692___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CreateForUse.vue?vue&type=template&id=984d1692& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/BuyOrders/CreateForUse.vue?vue&type=template&id=984d1692&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateForUse_vue_vue_type_template_id_984d1692___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateForUse_vue_vue_type_template_id_984d1692___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/assets/User/Components/BuyOrders/Detail.vue":
 /*!***************************************************************!*\
   !*** ./resources/assets/User/Components/BuyOrders/Detail.vue ***!
@@ -47421,6 +48425,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_033421f6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_033421f6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/User/Components/BuyOrders/IndexForUse.vue":
+/*!********************************************************************!*\
+  !*** ./resources/assets/User/Components/BuyOrders/IndexForUse.vue ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _IndexForUse_vue_vue_type_template_id_1555133a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./IndexForUse.vue?vue&type=template&id=1555133a& */ "./resources/assets/User/Components/BuyOrders/IndexForUse.vue?vue&type=template&id=1555133a&");
+/* harmony import */ var _IndexForUse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IndexForUse.vue?vue&type=script&lang=js& */ "./resources/assets/User/Components/BuyOrders/IndexForUse.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _IndexForUse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _IndexForUse_vue_vue_type_template_id_1555133a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _IndexForUse_vue_vue_type_template_id_1555133a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/User/Components/BuyOrders/IndexForUse.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/User/Components/BuyOrders/IndexForUse.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/assets/User/Components/BuyOrders/IndexForUse.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexForUse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./IndexForUse.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/BuyOrders/IndexForUse.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexForUse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/User/Components/BuyOrders/IndexForUse.vue?vue&type=template&id=1555133a&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/assets/User/Components/BuyOrders/IndexForUse.vue?vue&type=template&id=1555133a& ***!
+  \***************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexForUse_vue_vue_type_template_id_1555133a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./IndexForUse.vue?vue&type=template&id=1555133a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/BuyOrders/IndexForUse.vue?vue&type=template&id=1555133a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexForUse_vue_vue_type_template_id_1555133a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IndexForUse_vue_vue_type_template_id_1555133a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -47835,6 +48908,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_cae8401e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_cae8401e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/User/Components/CurrencyUsers/Payment.vue":
+/*!********************************************************************!*\
+  !*** ./resources/assets/User/Components/CurrencyUsers/Payment.vue ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Payment_vue_vue_type_template_id_8bb82d36___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Payment.vue?vue&type=template&id=8bb82d36& */ "./resources/assets/User/Components/CurrencyUsers/Payment.vue?vue&type=template&id=8bb82d36&");
+/* harmony import */ var _Payment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Payment.vue?vue&type=script&lang=js& */ "./resources/assets/User/Components/CurrencyUsers/Payment.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Payment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Payment_vue_vue_type_template_id_8bb82d36___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Payment_vue_vue_type_template_id_8bb82d36___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/User/Components/CurrencyUsers/Payment.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/User/Components/CurrencyUsers/Payment.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/assets/User/Components/CurrencyUsers/Payment.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Payment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/CurrencyUsers/Payment.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/User/Components/CurrencyUsers/Payment.vue?vue&type=template&id=8bb82d36&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/assets/User/Components/CurrencyUsers/Payment.vue?vue&type=template&id=8bb82d36& ***!
+  \***************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_template_id_8bb82d36___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Payment.vue?vue&type=template&id=8bb82d36& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/CurrencyUsers/Payment.vue?vue&type=template&id=8bb82d36&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_template_id_8bb82d36___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_template_id_8bb82d36___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -49359,6 +50501,12 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('delete-btn', function () {
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('add-btn', function () {
   return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./../common/Components/AddButton */ "./resources/assets/common/Components/AddButton.vue"));
+});
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('icon-btn', function () {
+  return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./../common/Components/IconButton */ "./resources/assets/common/Components/IconButton.vue"));
+});
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('link-btn', function () {
+  return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./../common/Components/LinkButton */ "./resources/assets/common/Components/LinkButton.vue"));
 }); //  ================== Run Application  ==================
 
 
@@ -49412,6 +50560,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_CurrencyUsers_Index__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./Components/CurrencyUsers/Index */ "./resources/assets/User/Components/CurrencyUsers/Index.vue");
 /* harmony import */ var _Components_CurrencyUsers_Create__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./Components/CurrencyUsers/Create */ "./resources/assets/User/Components/CurrencyUsers/Create.vue");
 /* harmony import */ var _Components_CurrencyUsers_Edit__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./Components/CurrencyUsers/Edit */ "./resources/assets/User/Components/CurrencyUsers/Edit.vue");
+/* harmony import */ var _Components_CurrencyUsers_Payment__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./Components/CurrencyUsers/Payment */ "./resources/assets/User/Components/CurrencyUsers/Payment.vue");
 
 
 
@@ -49440,6 +50589,7 @@ __webpack_require__.r(__webpack_exports__);
 
  // =================== Sell Orders ===================
 // =================== Currency Users ===================
+
 
 
 
@@ -49534,6 +50684,10 @@ __webpack_require__.r(__webpack_exports__);
   path: '/currency-users/:id/edit',
   name: 'ویرایش پیشنهاد فروش',
   component: _Components_CurrencyUsers_Edit__WEBPACK_IMPORTED_MODULE_22__["default"]
+}, {
+  path: '/currency-users/:id/payment',
+  name: 'پرداخت ها',
+  component: _Components_CurrencyUsers_Payment__WEBPACK_IMPORTED_MODULE_23__["default"]
 }, // =================== Currency Users ===================
 {
   path: '/notifications',

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\BuyOrder;
 use App\Models\CurrencyUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -66,5 +67,15 @@ class CurrencyUserController extends Controller
         $cu = $this->getByID($id);
         $cu->delete();
         return ['message' => __('messages.delete_success')];
+    }
+
+    public function currencies_user_list($currency_id)
+    {
+
+        $sell = CurrencyUser::where('currency_id', $currency_id)->orderBy('unit_price', 'ASC')->get();
+        $buy = BuyOrder::where('currency_id', $currency_id)->orderBy('created_at', 'ASC')->get();
+        
+        return compact('sell', 'buy');
+
     }
 }

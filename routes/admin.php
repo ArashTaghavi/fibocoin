@@ -29,7 +29,7 @@ Route::middleware(['web', 'auth:web', 'IsAdmin'])->group(function () {
             Route::get('/buy-order-search/{id}/{status}', 'UserController@buy_order_search')->name('buy-order-search');
             Route::get('/sell-order-search/{id}/{status}', 'UserController@sell_order_search')->name('sell-order-search');
             Route::get('/buy-order-status/{id}/{status}', 'UserController@buy_order_status')->name('buy-order-status');
-            Route::get('/sell-order-status/{id}/{status}', 'UserController@sell_order_status')->name('sell-order-status');
+            Route::put('/sell-order-status/{id}', 'UserController@sell_order_status')->name('sell-order-status');
             Route::get('/documents/{id}', 'UserController@documents')->name('documents');
             Route::get('/document-approved/{id}/{confirmation}', 'UserController@document_approved')->name('document-approved');
         });

@@ -40,6 +40,7 @@ import SellOrderDetail from './Components/SellOrders/Detail';
 import CurrencyUsers from './Components/CurrencyUsers/Index';
 import CurrencyUserCreate from './Components/CurrencyUsers/Create';
 import CurrencyUserEdit from './Components/CurrencyUsers/Edit';
+import CurrencyUserPayment from './Components/CurrencyUsers/Payment';
 // =================== Currency Users ===================
 
 export default [
@@ -77,6 +78,7 @@ export default [
     {path: '/currency-users', name: 'لیست پیشنهادات فروش', component: CurrencyUsers},
     {path: '/currency-users/create', name: 'ثبت پیشنهاد فروش', component: CurrencyUserCreate},
     {path: '/currency-users/:id/edit', name: 'ویرایش پیشنهاد فروش', component: CurrencyUserEdit},
+    {path: '/currency-users/:id/payment', name: 'پرداخت ها', component: CurrencyUserPayment},
     // =================== Currency Users ===================
 
     {path: '/notifications', name: 'پیام های مدیر', component: Notifications},

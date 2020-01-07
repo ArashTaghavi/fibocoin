@@ -17,6 +17,7 @@ Route::middleware(['web', 'auth:web', 'IsUser'])->group(function () {
         // ================================ Profile ================================
         Route::prefix('profile')->name('profile.')->group(function () {
             Route::get('/', 'ProfileController@index')->name('index');
+            Route::get('/is-verified-user', 'ProfileController@is_verified_user')->name('is-verified-user');
             Route::put('/', 'ProfileController@update')->name('update');
             Route::post('/change-password', 'ProfileController@change_password')->name('change-password');
         });
@@ -88,10 +89,17 @@ Route::middleware(['web', 'auth:web', 'IsUser'])->group(function () {
         // ================================ Sell Orders ================================
         Route::prefix('currency-users')->name('currency-users.')->group(function () {
             Route::get('/', 'CurrencyUserController@index')->name('index');
+            Route::get('/currencies-user-list/{currency_id}', 'CurrencyUserController@currencies_user_list')->name('currencies-user-list');
             Route::post('/', 'CurrencyUserController@store')->name('store');
             Route::get('/{id}', 'CurrencyUserController@getByID')->name('get-by-id');
             Route::put('/{id}', 'CurrencyUserController@update')->name('update');
             Route::delete('/{id}', 'CurrencyUserController@destroy')->name('destroy');
+        });
+        // ================================ Sell Orders ================================
+
+        // ================================ Currency User Payments ================================
+        Route::prefix('currency-user-payments')->name('currency-user-payments.')->group(function () {
+            Route::get('/{id}', 'CurrencyUserPaymentController@index')->name('index');
         });
         // ================================ Sell Orders ================================
 

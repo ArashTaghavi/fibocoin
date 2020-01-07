@@ -3478,6 +3478,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3486,6 +3492,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getSellOrders();
+    this.form.description = [];
   },
   methods: {
     getSellOrders: function getSellOrders() {
@@ -3524,8 +3531,14 @@ __webpack_require__.r(__webpack_exports__);
     handleStatus: function handleStatus(id, status) {
       var _this3 = this;
 
-      axios.get("/users/sell-order-status/".concat(id, "/").concat(status)).then(function (response) {
-        return _this3.getSellOrders();
+      var _data = {
+        status: status,
+        description: this.form.description[id]
+      };
+      axios.put("/users/sell-order-status/".concat(id), _data).then(function (response) {
+        _this3.getSellOrders();
+
+        _this3.form.description[id] = '';
       })["catch"](function (error) {
         return _this3.errorNotify(error);
       });
@@ -28656,6 +28669,38 @@ var render = function() {
                                   "link-btn",
                                   {
                                     attrs: {
+                                      type: "warning",
+                                      icon: "money",
+                                      to: "/user/" + user.id + "/buy-orders"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      " خرید ها\n                            "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "link-btn",
+                                  {
+                                    attrs: {
+                                      type: "success",
+                                      icon: "money",
+                                      to: "/user/" + user.id + "/sell-orders"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      " فروش ها\n                            "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "link-btn",
+                                  {
+                                    attrs: {
                                       type: "info",
                                       icon: "card",
                                       to: "/user/" + user.id + "/cards"
@@ -28916,9 +28961,9 @@ var render = function() {
                       _c("p", [
                         _vm._v(
                           "نوع ارز : " +
-                            _vm._s(sell_order.currency.title) +
-                            " (" +
-                            _vm._s(sell_order.currency.symbol) +
+                            _vm._s(sell_order.currencies_user.currency.title) +
+                            "\n                        (" +
+                            _vm._s(sell_order.currencies_user.currency.symbol) +
                             ")"
                         )
                       ]),
@@ -28944,7 +28989,43 @@ var render = function() {
                         domProps: {
                           innerHTML: _vm._s(_vm.status(sell_order.status))
                         }
-                      })
+                      }),
+                      _vm._v(" "),
+                      sell_order.status == 1 || sell_order.status == 2
+                        ? _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.description[sell_order.id],
+                                expression: "form.description[sell_order.id]"
+                              }
+                            ],
+                            staticClass: "form-control form-control-sm",
+                            attrs: {
+                              name: "",
+                              id: "",
+                              cols: "5",
+                              rows: "5",
+                              placeholder: "توضیحات"
+                            },
+                            domProps: {
+                              value: _vm.form.description[sell_order.id]
+                            },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form.description,
+                                  sell_order.id,
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          })
+                        : _vm._e()
                     ])
                   ],
                   1
@@ -45246,7 +45327,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin(_common_Mixins_NotifyHandler__W
 
 moment_jalali__WEBPACK_IMPORTED_MODULE_5___default.a.locale('fa');
 window.moment = moment_jalali__WEBPACK_IMPORTED_MODULE_5___default.a;
- // ================== Use  ==================
+ // ================== Use ==================
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(axios);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]); // ================== VueRouter Config ==================

@@ -5,12 +5,16 @@ namespace App\Http\Controllers\Api\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\BuyOrder;
 use App\Models\Card;
+use App\Models\CurrencyUser;
+use App\Models\CurrencyUserPayment;
 use App\Models\Document;
 use App\Models\Notification;
 use App\Models\NotificationDetail;
 use App\Models\SellOrder;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use function foo\func;
 
 class UserController extends Controller
 {
@@ -41,7 +45,11 @@ class UserController extends Controller
 
     public function sell_orders($id)
     {
-        return SellOrder::with('currency')->where('user_id', $id)->get();
+        return CurrencyUserPayment::whereHas('currenciesUser', function ($query) use ($id) {
+            $query->where('currency_user_id', $id);
+        })->with(['currenciesUser' => function ($query) {
+            $query->with('currency');
+        }])->get();
     }
 
     public function search($search_value)
@@ -92,9 +100,15 @@ class UserController extends Controller
         BuyOrder::where('id', $id)->where('status', '!=', BuyOrder::REJECT)->update(['status' => $status]);
     }
 
-    public function sell_order_status($id, $status)
+    public function sell_order_status(Request $request, $id)
     {
-        SellOrder::where('id', $id)->where('status', '!=', BuyOrder::REJECT)->update(['status' => $status]);
+        $cup = CurrencyUserPayment::where('id', $id)->where('status', '!=', CurrencyUserPayment::REJECT)->first();
+        if (!empty($request->description)) {
+            $cup->description = $request->description;
+        }
+        $cup->status = $request->status;
+        $cup->save();
+        CurrencyUserPayment::where('id', $id)->update(['updated_at' => Carbon::now()]);
     }
 
     public function documents($id)

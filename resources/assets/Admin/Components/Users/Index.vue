@@ -47,10 +47,10 @@
                                 </icon-btn>
                                 <link-btn type="secondary" icon="file" :to="`/user/${user.id}/documents`"> مدارک
                                 </link-btn>
-                                <!-- <link-btn type="warning" icon="money" :to="`/user/${user.id}/buy-orders`"> خرید ها
-                                 </link-btn>
-                                 <link-btn type="success" icon="money" :to="`/user/${user.id}/sell-orders`"> فروش ها
-                                 </link-btn>-->
+                                <link-btn type="warning" icon="money" :to="`/user/${user.id}/buy-orders`"> خرید ها
+                                </link-btn>
+                                <link-btn type="success" icon="money" :to="`/user/${user.id}/sell-orders`"> فروش ها
+                                </link-btn>
                                 <link-btn type="info" icon="card" :to="`/user/${user.id}/cards`">کارت ها
                                 </link-btn>
                                 <icon-btn type="success" icon="pause" v-if="user.verify_phone==0"

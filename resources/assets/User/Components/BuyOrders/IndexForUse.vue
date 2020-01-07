@@ -1,40 +1,38 @@
 <template>
-    <card title="لیست سفارشات خرید">
-        <add-btn to="buy-orders"/>
-        <div class="row" v-if="buy_orders.length>0">
-            <table class="table table-hover mb-0 table-responsive">
-                <thead>
-                <tr>
-                    <th>مبلغ پرداختی</th>
-                    <th>نوع ارز</th>
-                    <th>وضعیت</th>
-                    <th>عملیات</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-for="buy_order in buy_orders">
-                    <td>{{buy_order.amount}}</td>
-                    <td>{{buy_order.currency.title}} ({{buy_order.currency.symbol}})</td>
-                    <td v-html=status(buy_order.status)></td>
-                    <td>
-                        <div v-if="buy_order.status !==3">
-                            <edit-btn :to="`buy-orders/${buy_order.id}`"/>
-                            <delete-btn :id=buy_order.id></delete-btn>
-                        </div>
-                        <router-link v-else :to="`buy-orders/${buy_order.id}/detail`">
-                            <button class="btn btn-sm btn-outline-primary btn--icon-text m-1">
-                                <i class="zmdi zmdi-file-text"></i>
-                                جزییات
-                            </button>
-                        </router-link>
+    <table class="table table-hover mb-0 table-responsive" v-if="buy_orders.length>0">
+        <thead>
+        <tr>
+            <th>مبلغ پرداختی</th>
+            <th>نوع ارز</th>
+            <th>وضعیت</th>
+            <th>عملیات</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="buy_order in buy_orders">
+            <td>{{buy_order.amount}}</td>
+            <td>{{buy_order.currency.title}} ({{buy_order.currency.symbol}})</td>
+            <td v-html=status(buy_order.status)></td>
+            <td>
+                <div v-if="buy_order.status !==3">
+                    <edit-btn :to="`buy-orders/${buy_order.id}`"/>
+                    <delete-btn :id=buy_order.id></delete-btn>
+                </div>
+                <router-link v-else :to="`buy-orders/${buy_order.id}/detail`">
+                    <button class="btn btn-sm btn-outline-primary btn--icon-text m-1">
+                        <i class="zmdi zmdi-file-text"></i>
+                        جزییات
+                    </button>
+                </router-link>
 
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <not-found v-else/>
-    </card>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <not-found v-else/>
+
+
 </template>
 <script>
     export default {

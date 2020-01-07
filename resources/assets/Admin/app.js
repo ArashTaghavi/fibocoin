@@ -17,7 +17,7 @@ window.moment = moment;
 
 import routes from './routes';
 
-// ================== Use  ==================
+// ================== Use ==================
 Vue.use(axios);
 Vue.use(VueRouter);
 

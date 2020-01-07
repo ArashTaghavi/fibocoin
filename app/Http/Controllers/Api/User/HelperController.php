@@ -12,4 +12,5 @@ class HelperController extends Controller
     {
         return Currency::whereActive(1)->get();
     }
+
 }

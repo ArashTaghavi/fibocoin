@@ -20,4 +20,9 @@ class CurrencyUser extends Model
 
         return $this->belongsTo(Currency::class);
     }
+
+    public function currencyUserPayments()
+    {
+        return $this->hasMany(CurrencyUserPayment::class);
+    }
 }

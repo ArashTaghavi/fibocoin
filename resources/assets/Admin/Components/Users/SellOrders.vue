@@ -30,13 +30,19 @@
                               icon="check" @click="handleStatus(sell_order.id,3)">پرداخت
                     </icon-btn>
                     <div class="card-body">
-                        <p>نوع ارز : {{sell_order.currency.title}} ({{sell_order.currency.symbol}})</p>
+                        <p>نوع ارز : {{sell_order.currencies_user.currency.title}}
+                            ({{sell_order.currencies_user.currency.symbol}})</p>
                         <p>مبلغ خریداری شده : {{sell_order.amount}} تومان</p>
                         <p>تاریخ درخواست :
                             {{jDate(sell_order.created_date)}}
                         </p>
                         <p v-html=status(sell_order.status) class="text-center">
                         </p>
+                        <textarea v-if="sell_order.status==1 || sell_order.status==2" name="" class="form-control form-control-sm"
+                                  v-model="form.description[sell_order.id]"
+                                  id="" cols="5" rows="5"
+                                  placeholder="توضیحات"
+                        ></textarea>
                     </div>
                 </div>
             </div>
@@ -55,6 +61,7 @@
         },
         created() {
             this.getSellOrders();
+            this.form.description = [];
         },
         methods: {
             getSellOrders() {
@@ -80,8 +87,15 @@
                     .catch(error => this.errorNotify(error));
             },
             handleStatus(id, status) {
-                axios.get(`/users/sell-order-status/${id}/${status}`)
-                    .then(response => this.getSellOrders())
+                let _data = {
+                    status,
+                    description: this.form.description[id]
+                };
+                axios.put(`/users/sell-order-status/${id}`, _data)
+                    .then(response => {
+                        this.getSellOrders();
+                        this.form.description[id] = '';
+                    })
                     .catch(error => this.errorNotify(error));
             },
             jDate(date) {

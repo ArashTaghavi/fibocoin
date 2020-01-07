@@ -44,7 +44,8 @@ Vue.component('not-found', () => import('./../common/Components/NotFound'));
 Vue.component('edit-btn', () => import('./../common/Components/EditButton'));
 Vue.component('delete-btn', () => import('./../common/Components/DeleteButton'));
 Vue.component('add-btn', () => import('./../common/Components/AddButton'));
-
+Vue.component('icon-btn', () => import('./../common/Components/IconButton'));
+Vue.component('link-btn', () => import('./../common/Components/LinkButton'));
 
 //  ================== Run Application  ==================
 import App from './App.vue';

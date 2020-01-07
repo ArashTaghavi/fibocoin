@@ -1,5 +1,5 @@
 <template>
-    <card :title="`${$route.name}`" :active_loading=false>
+    <card :title="`${$route.name}`">
         <div class="row">
             <div class="col-md-3">
                 <div class="form-group">
