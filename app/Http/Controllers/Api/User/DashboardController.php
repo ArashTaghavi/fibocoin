@@ -10,7 +10,6 @@ use App\Models\RequirementUser;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use PhpParser\Comment\Doc;
 
 class DashboardController extends Controller
 {
@@ -41,7 +40,7 @@ class DashboardController extends Controller
     {
         $user_info = User::with(['cards', 'documents'])->where('id', Auth::id())->first();
         $phone_status = $user_info->verify_phone ? true : false;
-        $document_status = true;
+        $document_status = count($user_info->documents) == 0 ? false : true;
         $card_status = false;
         if ($user_info->is_admin_define) {
             $phone_status = true;

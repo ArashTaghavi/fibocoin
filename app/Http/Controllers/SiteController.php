@@ -61,6 +61,7 @@ class SiteController extends Controller
         $currencies = Currency::where('active',1)->get();
         // ========== Currency Users ==========
 
+        $prices = array_slice($prices,1,5);
 
         return view('site', compact('panel_address', 'cu','prices','currencies'));
     }

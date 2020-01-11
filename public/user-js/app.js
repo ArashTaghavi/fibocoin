@@ -31816,7 +31816,7 @@ var render = function() {
           [
             _c("router-link", { attrs: { to: "/currency-users" } }, [
               _c("i", { staticClass: "zmdi zmdi-collection-text" }),
-              _vm._v("\n                    سفارشات فروش\n                ")
+              _vm._v("\n                    سفارشات\n                ")
             ])
           ],
           1

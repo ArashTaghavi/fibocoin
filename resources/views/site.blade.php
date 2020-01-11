@@ -46,10 +46,6 @@
             text-align: center !important;
         }
 
-        .prices_container {
-            height: 400px;
-            overflow: auto;
-        }
     </style>
     <style>
         html, body {
@@ -109,7 +105,7 @@
                                     <li><a class="smooth_scroll" href="#orders">سفارشات</a></li>
                                     <li><a class="smooth_scroll" href="#feature">بلاگ</a></li>
                                     <li><a class="smooth_scroll" href="#questions">ماشین حساب</a></li>
-                                    <li><a href="/blog">چرا فیبوکوین</a></li>
+                                    <li><a class="smooth_scroll" href="#why-fibocoin">چرا فیبوکوین</a></li>
                                     <li><a class="smooth_scroll" href="#contact">پشتیبانی</a></li>
                                     <li><a class="smooth_scroll" href="#contact">سوالات متداول</a></li>
                                     {{--      @if(!Auth::check())
@@ -373,6 +369,11 @@
                             </td>
                         </tr>
                     @endforeach
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            <h5>مشاهده همه بازار ها</h5>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -450,7 +451,7 @@
 <section id="about-us" class="about section-big">
     <div class="container">
         <div class="section-title">
-            <h2 class="title-class">درباره ی <span>فیبوکوین</span></h2>
+            <h2 class="title-class">درباره <span>فیبوکوین</span></h2>
         </div>
         <div class="row about-content">
             <div class="col-md-7 col-xs-12 col-sm-6 row-image">
@@ -463,10 +464,13 @@
                 <div class="common-pera about-text">
                     <div class="common-pera about-span">
                         <p style="color:#3c3c3c !important;">
-                            اکسچنج غیرمتمرکز بیت کوین ایران نسخه اولیه ای از پروژه ای بلند مدت و با قابلیت هایی فراتر از
-                            یک پلتفرم خرید و فروش ساده است؛ تیم بیت کوین ایران بصورت مداوم با آپدیت های نرم افزاری در
-                            راستای رسیدن به این مهم قدم بر میدارد و امیدواریم قادر به ایجاد یک پلتفرم غیرمتمرکز جامع در
-                            سطح بین المللی و برای استفاده تمام کاربران باشیم.
+                            فیبوکوین یک پلتفرم معامله ایمن ارزهای دیجیتال در ایران است که با حذف واسطه‌ها شرایط معامله
+                            در بستری مطمئن و بدون پرداخت هزینه های ناشی از واسطه‌گری را ایجاد نموده است.
+                            فیبوکوین معتقد است ، تکنولوژی بلاک چین و ارزهای دیجیتال می تواند در شرایط تحریم های اقتصادی
+                            ناجوانمردانه علیه کشورمان مراودات مالی هم وطنان عزیزمان را تسهیل نموده و ارتباط آنان را با
+                            بازارهای مالی جهانی فراهم نماید .ما تلاش میکنیم که با بهره گیری از توان فنی متخصصان داخلی،
+                            کشور عزیزمان را به قطب اصلی تکنولوژی بلاک چین و ارزهای دیجیتال در خاورمیانه مبدل سازیم.
+
                         </p>
                     </div>
                 </div>
@@ -500,11 +504,12 @@
                                 <img src="/site-assets/images/clean-design-.png" alt="">
                             </div>
                         </div>
-                        <h3>تنوع ارزهای پشتیبانی شده
+                        <h3>
+                            سریع و آسان
                         </h3>
                         <p>
-                            شبکه بیت کوین ایران از تکنولوژی جدیدی تحت عنوان "اینترنت بلاکچین ها" در هسته خود استفاده می
-                            کند که امکان پشتیبانی از تعداد بیشماری رمزارز را برای شبکه بیت کوین ایران فراهم می سازد.
+                            فیبو کوین با ایجاد شرایط آسان معامله و پرداخت سریع تجربه‌ای متفاوت را در بازار معاملات رمز
+                            ارز ها برای شما به ارمغان می آورد.
                         </p>
                     </div>
                 </div>
@@ -517,25 +522,12 @@
                                 <img src="/site-assets/images/retina-ready.png" alt="">
                             </div>
                         </div>
-                        <h3>اپلیکیشن</h3>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="col-md-6 mb-1">
-                                    <img src="/site-assets/images/qrcode.png" class="mb-3" alt="qrcode">
-                                </div>
-                                <div class="col-md-6 ">
-                                    <a href="">
-                                        <img src="/site-assets/images/google-play.png" class="img-fluid mb-2"
-                                             width="120" alt="">
-                                    </a>
-                                    <a href="">
-                                        <img class="img-fluid " width="120" src="/site-assets/images/app-store.png"
-                                             alt="">
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
+                        <h3>
+                            ارزان
+                        </h3>
+                        <p>
+                            فیبوکوین بستری است که در آن فروشنده و خریدار به دنبال قیمت توافقی با حداقل کارمزد های جهانی
+                            معامله هم را تجربه خواهند کرد. </p>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-3">
@@ -547,11 +539,10 @@
                                 <img src="/site-assets/images/pixel-perfect.png" alt="">
                             </div>
                         </div>
-                        <h3>کنترل بر دارایی</h3>
+                        <h3>مطمئن</h3>
                         <p>
-                            کیف پول کاربر فقط با عبارت seed که فقط در اختیار خود کاربر قرار داده شده است قابل استفاده
-                            است و در صورت نگهداری صحیح از این عبارت حتی مدیریت بیت کوین ایرام نیز به دارایی های کاربر
-                            دسترسی نخواهند داشت.
+                            فیبوکوین با ایجاد شرایط پرداخت امن و رهیابی معاملات تا زمان حصول نتیجه شرایط مطمئن را برای
+                            کلیه معامله‌گران فراهم می‌کند.
                         </p>
                     </div>
                 </div>
@@ -564,10 +555,10 @@
                                 <img src="/site-assets/images/responsive.png" alt="">
                             </div>
                         </div>
-                        <h3>انتقال داخلی</h3>
+                        <h3>بی واسطه</h3>
                         <p>
-                            امکان انتقال موجودی بدون کسر کارمزد و بصورت آنی بین کاربران بیت کوین ایران یکی دیگر از
-                            مزایای استفاده از "اینترنت بلاکچین ها" در شبکه بیت کوین ایران می باشد.
+                            فیبو کوین با حذف واسطه ها و ایجاد ارتباط مستقیم بین خریدار و فروشنده در بستری امن، شرایط
+                            معامله در بازار رقابتی را فراهم می کند.
                         </p>
                     </div>
                 </div>
@@ -584,7 +575,8 @@
         <div class="row">
             <!-- section-title -->
             <div class="section-title">
-                <h2 class="title-class">Get in touch. Stay in touch.
+                <h2 class="title-class">
+                    ترید به وقت فیبو کوین
                 </h2>
             </div>
         </div>
@@ -618,137 +610,141 @@
 </section>
 <!-- feature area ends -->
 
-{{--
-<!-- Questions -->
-<section id="questions" style="background: #f5f9fc" class="feature-area section-big">
+<!-- Why Fibocoin -->
+<section id="why-fibocoin" style="background: #f5f9fc" class="feature-area section-big">
     <div class="container">
         <div class="section-title">
-            <h2>سوالات متداول</h2>
+            <h2 class="title-class">چرا فیبوکوین؟</h2>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                    <span class="glyphicon glyphicon glyphicon-minus">
-                            </span>آیا میتوانیم در اندروید استفاده کنیم؟</a>
-                            </h4>
-                        </div>
-                        <div id="collapseOne" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <p>در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت
-                                    تایپ به پایان رسد .</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                    <span class="glyphicon glyphicon glyphicon-plus">
-                            </span>چگونه برنامه را دریافت کنیم؟</a>
-                            </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p>زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود
-                                    طراحی اساسا مورد استفاده قرار گیرد.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                    <span class="glyphicon glyphicon-plus">
-                            </span>آیا پشتیبانی آنلاین وجود دارد؟</a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p>زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود
-                                    طراحی اساسا مورد استفاده قرار گیرد.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                                    <span class="glyphicon glyphicon-plus"></span>
-                                    آیا برای استفاده نیاز به خرید لایسنس است؟
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseFour" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p>زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود
-                                    طراحی اساسا مورد استفاده قرار گیرد.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                <p style="line-height:35px">
+                    فیبوکوین بزرگترین سامانه خرید و فروش ارز های دیجیتال با پرداخت ضمانت شده در ایران
+                    <br>
+                    در فیبوکوین ابتدا فروشنده و خریدار رمز ارزهای مورد عرضه و تقاضای خود را در سایت ثبت میکنند
+                    <br>
+                    در مرحله بعد کاربر( خریدار یا فروشنده )با توجه به جدول سفارشات یک و یا چند پیشنهاد را انتخاب می‌کند
+                    <br>
+                    سپس خریدار مبلغ ریالی معامله مورد نظر را به حساب فیبوکوین واریز کرده و پس از تایید انجام پرداخت امن
+                    توسط فیبوکوین فروشنده رمز ارز مورد معامله را به آدرس کیف پول الکترونیکی (ولت) انتقال می‌دهد و در
+                    مرحله نهایی فیبو کوین پس از تایید تراکنش، مبلغ ریالی را به حساب فروشنده واریز می‌کند
+                </p>
             </div>
         </div>
     </div>
 
 </section>
 <!-- Questions -->
---}}
 
 <!-- Contact  area Start -->
-<section id="sub-contact" class="section-big">
-    <div class="container">
+<section id="footer" class="section-big" style="background: #0B0E11;color:#fff">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-                <div class="contact-logo">
-                    <img src="/site-assets/images/logo.png" class="img-responsive" alt="img">
-                </div>
+            <div class="col-md-2">
+                <a href="">خدمات</a>
             </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="text-icon-box">
-                        <div class="box-icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <h4>تماس با ما</h4>
-                        <p>+009 123 456 789</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12 col-xs-12">
-                    <div class="text-icon-box">
-                        <div class="box-icon">
-                            <i class="fa fa-map-marker"></i>
-                        </div>
-                        <h4>مکان</h4>
-                        <p>ایران - تهران - خیابان انقلاب</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12 col-xs-12">
-                    <div class="text-icon-box">
-                        <div class="box-icon">
-                            <i class="fa fa-envelope"></i>
-                        </div>
-                        <h4>ایمیل</h4>
-                        <p>appt@gmail.com</p>
-                    </div>
-                </div>
+            <div class="col-md-2">
+                <a href="">آموزش</a>
             </div>
-            <div class="col-md-8 col-md-offset-2 col-xs-12 text-center">
-                <div class="cont-icon">
-                    <h4>ما را دنبال کنید</h4>
-                    <ul>
-                        <li><a href="/site-assets/#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="/site-assets/#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="/site-assets/#"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="/site-assets/#"><i class="fa fa-behance"></i></a></li>
-                        <li><a href="/site-assets/#"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
+            <div class="col-md-2">
+                <a href="#" data-toggle="modal" data-target="#terms">قوانین و مقررات</a>
+                <div class="modal" id="terms" style="z-index:9999999">
+                    <div class="modal-dialog modal-xl" style="x-index:9999999">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">قوانین و مقررات</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body" style="font-size:12px;line-height:30px;color:#3c3c3c !important;">
+                                <p>تمامی فعالیت های سامانه «فیبوکوین» تابع قوانین جمهوری اسلامی ایران و تجارت
+                                    الکترونیک می باشد. لازمه استفاده از خدمات سامانه «فیبوکوین» قبول قوانین آن بوده
+                                    و تمام کاربران باید این قوانین را رعایت کنند.
+                                </p>
+
+                                <div style="font-size: 12px">
+                                    <h5> قوانین خرید و فروش</h5>
+                                    <hr>
+                                    - «فیبوکوین» هیچ گونه دخالتی در تعیین قیمت ارزهای دیجیتال نداشته و قیمت توسط خود
+                                    کاربران پیشنهاد می شود.
+                                    <br>
+                                    - قبل از انجام معامله تمام جوانب آن از جمله قیمت پیشنهادی را بررسی کرده و تنها
+                                    پس از کسب اطمینان کامل اقدام به خرید یا فروش کنید، پس از پرداخت وجه و انتقال ارز
+                                    دیجیتال، معامله نهایی تلقی شده و به هیچ عنوان امکان لغو آن وجود نخواهد داشت.
+                                    <br>
+                                    - ما به هیچ عنوان معاملاتی را که از روال معمول سامانه پیروی نکرده باشند و یا از
+                                    طریق پرداخت ضمانت شده پرداخت را انجام نداده باشند ضمانت نمی کنیم و تمامی عواقب
+                                    آن بر عهده خودتان خواهد بود.
+                                    <br>
+                                    - اگر فروشنده گزینه «بروز رسانی خودکار قیمت پیشنهادی، نسبت به قیمت جهانی» را
+                                    انتخاب کند، قیمت ارز دیجیتالی که برای فروش ثبت کرده است به نسبت تغییر قیمت جهانی
+                                    همان ارز تغییر خواهد کرد. این تغییرات تا لحظه ارسال درخواست خرید توسط خریدار و
+                                    قبل از واریز وجه لحاظ خواهد شد و با تائید درخواست خرید توسط فروشنده قیمت نهایی
+                                    شده و هر دو طرف معامله ملزم به پیروی از آن خواهند بود.
+                                    <h5>قوانین احراز هویت و محرمانگی اطلاعات کاربران</h5>
+                                    <hr>
+                                    - تمامی کاربران ملزم به ارسال مدارک شناسایی مورد نیاز وتائید اطلاعات تماس مانند
+                                    شماره همراه، ایمیل جهت احراز هویت هستند.
+                                    <br>
+                                    - تمامی مدارک ارسالی و سایر اطلاعات کاربران نزد سامانه «فیبوکوین» محفوظ بوده و
+                                    به هیچ عنوان در اختیار شخص یا سازمان دیگری قرار نخواهد گرفت مگر با دستور قضایی و
+                                    حکم دادگاه.
+                                    <br>
+                                    ـ استفاده از مدارک یا اطلاعات شخص دیگر جهت ثبت نام و هر گونه فعالیت در
+                                    «فیبوکوین» ممنوع بوده و سامانه «فیبوکوین» این حق را برای خود محفوظ می دارد تا در
+                                    صورت مشاهده آن مورد را از طریق مراجع قضایی پیگیری کند.
+                                    <br>
+                                    - هر گونه دستکاری و تغییر در مدارک ارسالی که با هدف گمراه کردن تیم پشتیبانی صورت
+                                    بگیرد ممنوع بوده و سامانه «فیبوکوین» این حق را برای خود محفوظ می دارد تا در صورت
+                                    مشاهده آن را از طریق مراجع قضایی پیگیری کند.
+                                    <br>
+                                    ـ «فیبوکوین» این حق را برای خود محفوظ می دارد بدون الزام به توضیح مدارک ارسالی
+                                    جهت احراز هویت را رد کرده و احراز هویت کاربر را تائید نکند.
+                                    <br>
+                                    <b>قوانین مربوط به امور مالی</b>
+                                    - تمامی تراکنش های مالی در سامانه «فیبوکوین» باید تنها از طریق حساب بانکی خود
+                                    کاربر که قبلا در سامانه تاید شده است انجام گردد. در صورت استفاده از حساب بانکی
+                                    شخصی دیگر و یا حساب بانکی تائید نشده اکانت کاربر مسدود شده و تمام عواقب آن بر
+                                    عهده ایشان خواهد بود.
+                                    <br>
+                                    ـ تسویه حساب موجودی تنها به حساب بانکی ای که به نام خود کاربر بوده و قبلا در
+                                    سامانه «فیبوکوین» ثبت و تائید شده باشد واریز خواهد شد.
+                                    <br>
+                                    - مسئولیت تاخیر که در اثر اختلالات احتمالی در شبکه بانکی یا پایا صورت پذیرد بر
+                                    عهده «فیبوکوین» نخواهد بود.
+                                    <br>
+                                    ـ عواقب و مسئولیت ارائه اطلاعات بانکی نا صحیح بر عهده کاربر است.
+                                    <h5>تغییرات</h5>
+                                    <hr>
+                                    «فیبوکوین» این حق را برای خود محفوظ می دارد که در صورت نیاز قوانین فعلی را تغییر
+                                    داده و یا موارد جدید به آن اضافه کند. تغییرات احتمالی قوانین پس از اطلاع رسانی
+                                    از طریق ایمیل و پنل کاربری به کاربران، برای تمامی افرادی که از خدمات این سامانه
+                                    استفاده می کنند لازم الاجرا خواهد بود.
+                                </div>
+                            </div>
+
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">بستن</button>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
+            </div>
+            <div class="col-md-2">
+                <a href="">شبکه های اجتماعی</a>
+            </div>
+            <div class="col-md-2">
+                <a href="">ارتباط با ما</a>
+            </div>
+            <div class="col-md-2">
+                <li><a class="smooth_scroll" href="#about-us">درباره ما</a></li>
             </div>
         </div>
     </div>
@@ -756,19 +752,6 @@
 <!-- Contact  area end -->
 
 <!-- copyright area starts -->
-<footer class="copyright-area" style="background: #000;color:#fff">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="copyright-text text-center">
-                    <p>کپی رایت &copy; 2020. تمامی حقوق محفوط است</p>
-                </div>
-            </div>
-            <a class="smooth_scroll" href="/site-assets/#home" id="scroll-to-top"><i class="fa fa-angle-up"></i></a>
-        </div>
-    </div>
-</footer>
-<!-- copyright area ends -->
 
 <!-- all js here -->
 <script src="/site-assets/js/jquery-1.12.4.min.js"></script>
@@ -826,7 +809,7 @@
         $(this).toggleClass('fa-arrow-right').toggleClass('fa-arrow-left');
     });
     $(document).ready(function () {
-        for(i=1;i<3;i++) {
+        for (i = 1; i < 100; i++) {
             $('#orders_table+i').DataTable({searching: false, paging: false, info: false});
         }
     });

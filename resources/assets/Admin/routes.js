@@ -43,7 +43,6 @@ export default [
     {path: '/currencies', name: 'لیست ارزها', component: Currencies},
     {path: '/currencies/create', name: 'ثبت ارز', component: CurrencyCreate},
     {path: '/currencies/:id/edit', name: 'ویرایش ارز', component: CurrencyEdit},
-
     // ============================ Currencies ============================
 
 

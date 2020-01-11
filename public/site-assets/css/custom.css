@@ -194,7 +194,28 @@
     font-weight: normal !important;
     border-radius: 3px;
 }
+h2, p {
+    font-family: IRANSans !important;
+}
 
+#footer hr {
+    margin: 10px !important;
+}
+
+#footer a {
+    color: #fff
+}
+
+#footer h5 {
+    color: rgb(33, 40, 51) !important;
+    padding: 10px;
+}
+#footer {
+    text-align: center !important;
+}
+.menu-area.navbar-fixed-top .col-md-12{
+    background: #1E2126 !important;
+}
 
 
 /*=================================== Site Template ===================================*/

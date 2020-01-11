@@ -50,7 +50,7 @@
                 <li class="@@widgetactive">
                     <router-link to="/currency-users">
                         <i class="zmdi zmdi-collection-text"></i>
-                        سفارشات فروش
+                        سفارشات
                     </router-link>
                 </li>
                 <li class="@@widgetactive">
