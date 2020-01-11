@@ -172,9 +172,10 @@
     cursor: pointer;
 }
 
-.single-feature{
+.single-feature {
 }
-.single-feature p{
+
+.single-feature p {
     font-size: 13px;
     text-align: justify;
 }
@@ -184,37 +185,53 @@
     font-weight: bold !important;
     font-size: 20px !important;
 }
-#orders table th , #orders table td{
+
+#orders table th, #orders table td {
     font-size: 13px;
     text-align: center;
 }
+
 .custom-btn {
     padding: 5px !important;
     font-size: 13px;
     font-weight: normal !important;
     border-radius: 3px;
 }
+
 h2, p {
     font-family: IRANSans !important;
 }
 
-#footer hr {
+.footer {
+    background: #0B0E11;
+    color: #fff;
+}
+
+.footer hr {
     margin: 10px !important;
 }
 
-#footer a {
+.footer a {
     color: #fff
 }
 
-#footer h5 {
+.footer h5 {
     color: rgb(33, 40, 51) !important;
     padding: 10px;
 }
+
 #footer {
     text-align: center !important;
 }
-.menu-area.navbar-fixed-top .col-md-12{
+
+.navbar-collapse.collapse.in {
     background: #1E2126 !important;
+}
+#footer-xs .panel-default, #footer-xs .panel-heading{
+    background-color: transparent !important;
+}
+#footer-xs .panel-body{
+    text-align: center !important;
 }
 
 

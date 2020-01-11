@@ -16,7 +16,11 @@
 
 
     <script src="/dashboard-assets/vendors/sweetalert/dist/sweetalert.min.js"></script>
-
+    <style>
+        h2,p {
+            font-family: IRANSans !important;
+        }
+    </style>
 </head>
 
 <body data-sa-theme="2">
@@ -143,7 +147,7 @@ route('doRegister') : route('verify')}}" method="POST">
                     <p style="font-size: 11px;">تمامی
                         <a href="#" data-toggle="modal" data-target="#terms">قوانین و مقررات</a>
                         سایت را میپذریم.
-                        <input type="checkbox" name="confirm">
+                        <input type="checkbox" name="terms">
                     </p>
                 @else
                     <div class="form-group">

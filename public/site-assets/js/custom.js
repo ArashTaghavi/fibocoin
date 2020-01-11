@@ -93,28 +93,6 @@ URL:            http://theme.bitspecksolutions.com/App/
                       05. Slider carosoul JS
      *-------------------------------------------------------------------------*/
 
-    $(".slider-full-carousel").owlCarousel({
-        loop:true,
-        animateOut: 'fadeOut',
-		      rtl: true,
-        animateIn: 'fadeIn',
-        smartSpeed: 2500,
-        nav:true,
-        navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
-        items:1,
-		dots:true,
-        responsive:{
-            0:{
-                items:1
-            },
-            600:{
-                items:1
-            },
-            1000:{
-                items:1
-            }
-        }
-    });
 
     /*-------------------------------------------------------------------------*
                       06. Review Js
@@ -123,35 +101,7 @@ URL:            http://theme.bitspecksolutions.com/App/
 /*---------------------------
         TESTMONIAL SLIDER
     -----------------------------*/
-    var $testmonialCarousel = $('.testmonial-slider');
-    $testmonialCarousel.owlCarousel({
-        merge: true,
-        smartSpeed: 1000,
-        loop: true,
-		rtl: true,
-        nav: true,
-        center: false,
-        dots: false,
-        navText: ['<i class="fa fa-angle-right"></i>', '<i class="fa fa-angle-left"></i>'],
-        autoplay: true,
-        autoplayTimeout: 3000,
-        margin: 20,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 2
-            },
-            1000: {
-                items: 2
-            },
-            1200: {
-                items: 2
-            }
-        }
-    });
+
     /*-------------------------------------------------------------------------*
      *              07. screenshot js                                     *
      *-------------------------------------------------------------------------*/

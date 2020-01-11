@@ -47,7 +47,12 @@ class RegisterController extends Controller
      */
     protected function validator(Request $request)
     {
-        return $request->validate(['mobile' => ['required', 'min:11', 'unique:users']]);
+        return $request->validate([
+            'mobile' => ['required', 'min:11', 'unique:users'],
+            'terms' => 'required'
+        ], [
+            'terms.required' => 'براس ثبت، لازم است قوانین استفاده از سایت را بپذیرید.'
+        ]);
 
     }
 
