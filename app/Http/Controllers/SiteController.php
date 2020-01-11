@@ -70,6 +70,11 @@ class SiteController extends Controller
         return view('site.questions');
     }
 
+    public function why_fibocoin()
+    {
+        return view('site.why-fibocoin');
+    }
+
     public function blog()
     {
         return view('blog');
