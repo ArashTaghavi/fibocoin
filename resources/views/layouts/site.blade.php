@@ -104,7 +104,7 @@
                                     <li><a class="smooth_scroll" href="#orders">سفارشات</a></li>
                                     <li><a class="smooth_scroll" href="#feature">بلاگ</a></li>
                                     <li><a class="smooth_scroll" href="/questions">ماشین حساب</a></li>
-                                    <li><a class="smooth_scroll" href="#why-fibocoin">چرا فیبوکوین</a></li>
+                                    <li><a class="why-fibocoin" href="/why-fibocoin">چرا فیبوکوین</a></li>
                                     <li><a class="smooth_scroll" href="#contact">پشتیبانی</a></li>
                                     <li><a href="/questions">سوالات متداول</a></li>
                                     {{--      @if(!Auth::check())
