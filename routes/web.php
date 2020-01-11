@@ -9,4 +9,5 @@ Route::middleware(['web'])->group(function () {
     Route::post('/register', 'Auth\RegisterController@create')->name('doRegister');
     Route::post('/verify', 'Auth\RegisterController@verify')->name('verify');
     Route::get('/questions', 'SiteController@questions')->name('verify');
+    Route::get('/why-fibocoin', 'SiteController@questions')->name('verify');
 });
