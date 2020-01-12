@@ -16,7 +16,6 @@
                 </div>
 
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="default.htm">مشاهده پروفایل</a>
                     <a class="dropdown-item" href="default.htm">تنظیمات</a>
                     <a class="dropdown-item" href="/logout">خروج</a>
                 </div>
@@ -28,12 +27,12 @@
                 </li>
 
 
-                <li class="@@typeactive">
+              <!--  <li class="@@typeactive">
                     <router-link to="/profile">
                         <i class="zmdi zmdi-account"></i>
                         پروفایل
                     </router-link>
-                </li>
+                </li>-->
 
                 <li class="@@widgetactive">
                     <router-link to="/documents">

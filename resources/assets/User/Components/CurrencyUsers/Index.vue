@@ -1,6 +1,7 @@
 <template>
     <card :title="`${$route.name}`" v-if="is_verified_user">
         <div class="row">
+            <div class="col-md-3"> </div>
             <div class="col-md-3">
                 <icon-btn style="width:100%" type="info" @click="buy=true">خرید</icon-btn>
             </div>

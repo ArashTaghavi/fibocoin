@@ -81,9 +81,9 @@ export default [
     // =================== Sell Orders ===================
 
     // =================== Currency Users ===================
-    {path: '/currency-users', name: 'لیست پیشنهادات فروش', component: CurrencyUsers},
-    {path: '/currency-users/create', name: 'ثبت پیشنهاد فروش', component: CurrencyUserCreate},
-    {path: '/currency-users/:id/edit', name: 'ویرایش پیشنهاد فروش', component: CurrencyUserEdit},
+    {path: '/currency-users', name: 'لیست پیشنهادات', component: CurrencyUsers},
+    {path: '/currency-users/create', name: 'ثبت پیشنهاد', component: CurrencyUserCreate},
+    {path: '/currency-users/:id/edit', name: 'ویرایش پیشنهاد', component: CurrencyUserEdit},
     {path: '/currency-users/:id/payment', name: 'پرداخت ها', component: CurrencyUserPayment},
     // =================== Currency Users ===================
 

@@ -2,14 +2,14 @@
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">
-                <label for="amount">مبلغ</label>
+                <label for="amount" class="required">مبلغ</label>
                 <input type="number" v-model="form.amount" id="amount"
                        class="form-control form-control-sm" placeholder="مبلغ را به تومان وارد نمایید..">
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="currency_id">نوع ارز</label>
+                <label for="currency_id" class="required">نوع ارز</label>
                 <select
                         @change="handleChange($event)"
                         class="form-control form-control-sm" v-model="form.currency_id" id="currency_id">

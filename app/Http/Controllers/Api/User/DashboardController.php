@@ -16,7 +16,11 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('layouts.user-dashboard');
+        $user = Auth::user();
+
+        $set_password = $user->password == null ? 1 : 0;
+
+        return view('layouts.user-dashboard', compact('set_password'));
     }
 
     public function requirements()
@@ -48,7 +52,6 @@ class DashboardController extends Controller
             $card_status = true;
             return compact('phone_status', 'document_status', 'card_status');
         }
-
         if ($user_info->cards != null) {
             foreach ($user_info->cards as $card) {
                 if ($card->approved == Card::CONFIRM) {
@@ -57,7 +60,6 @@ class DashboardController extends Controller
                 }
             }
         }
-
         if ($user_info->documents != null) {
             foreach ($user_info->documents as $document) {
                 if ($document->approved == Document::WAITING || $document->approved == Document::REJECT) {
@@ -66,7 +68,6 @@ class DashboardController extends Controller
                 }
             }
         }
-
         return compact('phone_status', 'document_status', 'card_status');
     }
 }

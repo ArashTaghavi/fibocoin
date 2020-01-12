@@ -164,6 +164,13 @@ return [
 
     'attributes' => [
         'username' => 'نام کاربری',
+        'first_name' => 'نان',
+        'last_name' => 'نام خانوادگی',
+        'father_name' => 'نام پدر',
+        'national_code' => 'کد ملی',
+        'email' => 'ایمیل',
+        'sos_phone' => 'تلفن ضروری',
+        'address' => 'آدرس',
         'password' => 'کلمه ی عبور',
         'profile_image' => 'تصویر',
         'title' => 'عنوان',

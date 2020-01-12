@@ -23,6 +23,7 @@ class ProfileController extends Controller
         $status = $this->is_verified_user() == 1 ? true : false;
 
         if (!$status) {
+            $this->handleValidate($request);
             $user = Auth::user();
             $user->fill($request->except('profile_image'));
             $user->fillImage($request);
@@ -34,6 +35,7 @@ class ProfileController extends Controller
 
     public function change_password(Request $request)
     {
+
         $this->handleChangePasswordValidation($request);
         $user = Auth::user();
         $user->password = Hash::make($request->password);
@@ -91,5 +93,24 @@ class ProfileController extends Controller
         }
 
         return $status;
+    }
+
+    public function handleValidate($request)
+    {
+        $validator = \Validator::make($request->all(), [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'father_name' => 'required',
+            'national_code' => 'required',
+            'email' => 'required|email',
+            'sos_phone' => 'required',
+            'address' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            abort(422, $validator->errors()->first());
+        }
+
+        return $validator->getData();
     }
 }

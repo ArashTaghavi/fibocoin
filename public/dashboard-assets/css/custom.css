@@ -14,3 +14,7 @@ option {
     color: #000 !important;
 }
 
+.required:after {
+    content:" *";
+    color: red !important;
+}

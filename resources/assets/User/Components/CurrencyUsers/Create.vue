@@ -1,6 +1,8 @@
 <template>
     <card :title="`${$route.name}`" :active_loading=false v-if="is_verified_user">
         <div class="row">
+            <div class="col-md-3"> </div>
+
             <div class="col-md-3">
                 <icon-btn style="width:100%" type="info" @click="buyOrCell(false)">خرید</icon-btn>
             </div>
@@ -11,7 +13,7 @@
         <div class="row" v-if="buy_component && show_buy_or_sell_component">
             <div class="col-md-3">
                 <div class="form-group">
-                    <label for="currency_id">نوع ارز</label>
+                    <label for="currency_id" class="required">نوع ارز</label>
                     <select @change="getCurrenciesTable($event)" class="form-control form-control-sm"
                             v-model="form.currency_id" id="currency_id">
                         <option>یک گزینه را انتخاب نمایید</option>
@@ -23,21 +25,21 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <label for="balance">موجودی</label>
+                    <label for="balance" class="required">موجودی</label>
                     <input type="text" v-model="form.balance" id="balance"
                            class="form-control form-control-sm" placeholder="موجودی را اینجا وارد نمایید...">
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <label for="min_sale">حداقل میزان فروش</label>
+                    <label for="min_sale" class="required">حداقل میزان فروش</label>
                     <input type="text" v-model="form.min_sale" id="min_sale"
                            class="form-control form-control-sm" placeholder="حداقل میزان فروش را اینجا وارد نمایید...">
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <label for="unit_price">قیمت واحد</label>
+                    <label for="unit_price" class="required">قیمت واحد</label>
                     <input type="text" v-model="form.unit_price" id="unit_price"
                            class="form-control form-control-sm" placeholder="قیمت واحد را اینجا وارد نمایید...">
                 </div>

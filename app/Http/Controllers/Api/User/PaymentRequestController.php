@@ -23,7 +23,7 @@ class PaymentRequestController extends Controller
         $payment_request->user_id = Auth::id();
         $payment_request->save();
 
-        return ['messages' => __('messages.save_success')];
+        return ['message' => __('messages.save_success')];
     }
 
 

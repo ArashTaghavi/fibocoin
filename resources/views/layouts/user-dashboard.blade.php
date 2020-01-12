@@ -13,14 +13,48 @@
     <link rel="stylesheet" href="/dashboard-assets/vendors/bower_components/jquery.scrollbar/jquery.scrollbar.css">
     <link rel="stylesheet" href="/dashboard-assets/vendors/bower_components/fullcalendar/dist/fullcalendar.min.css">
 
+    <link rel="stylesheet" href="/dashboard-assets/vendors/sweetalert/dist/sweetalert.css">
+    <script src="/dashboard-assets/vendors/sweetalert/dist/sweetalert.min.js"></script>
+
     <!-- App styles -->
     <link rel="stylesheet" href="/dashboard-assets/css/app.min.css">
     <link rel="stylesheet" href="/dashboard-assets/css/custom.css">
+    <style>
+        h2, p {
+            font-family: IRANSans !important;
+        }
+        .sweet-alert{
+            text-align: right !important;
+            direction: rtl !important;
+        }
+    </style>
 
 </head>
 
 <body data-sa-theme="2">
+@if($set_password==1)
 
+    <script type="text/javascript">
+        swal({
+            title: "تنظیم کلمه عبور",
+            text: "لطفا کلمه عبور مورد نظر خود را وارد نمایید...",
+            type: "input",
+            closeOnConfirm: false,
+            inputPlaceholder: "کلمه عبور..."
+        }, function (inputValue) {
+            var data = {'password': inputValue, 'password_confirmation': inputValue};
+            if (inputValue === false) return false;
+            if (inputValue === "") {
+                swal.showInputError("لطفا رمز عبور را وارد نمایید.");
+                return false
+            }
+            axios.post('/profile/change-password', data)
+                .then(response => {
+                    swal("عملیات با موفقیت انجام شد!", "کلمه عبور: " + inputValue, "success");
+                }).catch(error => false)
+        });
+    </script>
+@endif
 <div id="app"></div>
 
 <!-- Javascript -->

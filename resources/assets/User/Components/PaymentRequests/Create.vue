@@ -5,7 +5,7 @@
                 <div class="form-group">
                     <label for="amount">مبلغ</label>
                     <input type="number" v-model="form.amount" id="amount"
-                           class="form-control form-control-sm" placeholder="مبلغ را وارد نمایید.">
+                           class="form-control form-control-sm" placeholder="مبلغ را به ریال وارد نمایید.">
                 </div>
             </div>
             <submit @click="handleSubmit"/>

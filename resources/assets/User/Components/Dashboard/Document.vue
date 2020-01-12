@@ -44,7 +44,6 @@
             </card>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -73,7 +72,8 @@
                 this.getDocuments();
                 this.form = {
                     profile_image: null
-                }
+                };
+                this.$parent.$parent.selected_component = 'Phone';
             },
             handleDelete(id) {
                 this.deleteConfirm()

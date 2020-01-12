@@ -8,7 +8,7 @@
                     <th>مبلغ</th>
                     <th>وضعیت</th>
                     <th>توضیحات</th>
-                    <td>تاریخ پاسخ</td>
+                    <th>تاریخ پاسخ</th>
                     <th>تاریخ ثبت</th>
                 </tr>
                 </thead>
@@ -17,7 +17,8 @@
                     <td>{{payment_request.amount}}</td>
                     <td v-html=status(payment_request.status)></td>
                     <td>{{payment_request.description}}</td>
-                    <td>{{jDate(payment_request.reply_at)}}</td>
+                    <td v-if="payment_request.reply_at!=null">{{jDate(payment_request.reply_at)}}</td>
+                    <td v-else>-</td>
                     <td>{{jDate(payment_request.created_at)}}</td>
                 </tr>
                 </tbody>

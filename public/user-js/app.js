@@ -2506,7 +2506,7 @@ __webpack_require__.r(__webpack_exports__);
     handleChange: function handleChange() {
       var cn = this.form.card_no;
       var dir = '/site-assets/images/bank-icon/';
-      if (cn == 627353) return this.bank_logo = "".concat(dir, "tejarat.ico");else if (cn == 589210) return this.bank_logo = "".concat(dir, "sepah.ico");else if (cn == 627648) return this.bank_logo = "".concat(dir, "saderat.ico");else if (cn == 636214) return this.bank_logo = "".concat(dir, "ayande.ico");else if (cn == 627884) return this.bank_logo = "".concat(dir, "tose-e.png");else if (cn == 610433) return this.bank_logo = "".concat(dir, "mellat.png");else if (cn == 603770) return this.bank_logo = "".concat(dir, "keshavarzi.ico");else if (cn == 622106) return this.bank_logo = "".concat(dir, "parsian.ico");else if (cn == 621986) return this.bank_logo = "".concat(dir, "saman.ico");else return this.bank_logo = '';
+      if (cn.search(627353) != -1) return this.bank_logo = "".concat(dir, "tejarat.ico");else if (cn.search(589210) != -1) return this.bank_logo = "".concat(dir, "sepah.ico");else if (cn.search(627648) != -1) return this.bank_logo = "".concat(dir, "saderat.ico");else if (cn.search(636214) != -1) return this.bank_logo = "".concat(dir, "ayande.ico");else if (cn.search(627884) != -1) return this.bank_logo = "".concat(dir, "tose-e.png");else if (cn.search(610433) != -1) return this.bank_logo = "".concat(dir, "mellat.png");else if (cn.search(603770) != -1) return this.bank_logo = "".concat(dir, "keshavarzi.ico");else if (cn.search(622106) != -1) return this.bank_logo = "".concat(dir, "parsian.ico");else if (cn.search(621986) != -1) return this.bank_logo = "".concat(dir, "saman.ico");else return this.bank_logo = '';
     }
   }
 });
@@ -2682,6 +2682,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _User_Components_BuyOrders_CreateForUse__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../User/Components/BuyOrders/CreateForUse */ "./resources/assets/User/Components/BuyOrders/CreateForUse.vue");
+//
+//
 //
 //
 //
@@ -3002,6 +3004,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3224,6 +3227,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3265,6 +3273,11 @@ __webpack_require__.r(__webpack_exports__);
         default:
           return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار تایید </span>';
       }
+    },
+    handleChange: function handleChange() {
+      var cn = this.form.card_no;
+      var dir = '/site-assets/images/bank-icon/';
+      if (cn.search(627353) != -1) return this.bank_logo = "".concat(dir, "tejarat.ico");else if (cn.search(589210) != -1) return this.bank_logo = "".concat(dir, "sepah.ico");else if (cn.search(627648) != -1) return this.bank_logo = "".concat(dir, "saderat.ico");else if (cn.search(636214) != -1) return this.bank_logo = "".concat(dir, "ayande.ico");else if (cn.search(627884) != -1) return this.bank_logo = "".concat(dir, "tose-e.png");else if (cn.search(610433) != -1) return this.bank_logo = "".concat(dir, "mellat.png");else if (cn.search(603770) != -1) return this.bank_logo = "".concat(dir, "keshavarzi.ico");else if (cn.search(622106) != -1) return this.bank_logo = "".concat(dir, "parsian.ico");else if (cn.search(621986) != -1) return this.bank_logo = "".concat(dir, "saman.ico");else return this.bank_logo = '';
     }
   }
 });
@@ -3280,7 +3293,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -3363,6 +3375,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form = {
         profile_image: null
       };
+      this.$parent.$parent.selected_component = 'Phone';
     },
     handleDelete: function handleDelete(id) {
       var _this3 = this;
@@ -3607,7 +3620,129 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      status: true
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/profile').then(function (response) {
+      _this.form = response.data.user;
+      _this.status = response.data.status;
+    })["catch"](function (error) {
+      return _this.errorNotify(error);
+    });
+  },
+  methods: {
+    handleSubmit: function handleSubmit() {
+      var _this2 = this;
+
+      axios.put('/profile', this.form).then(function (response) {
+        _this2.$parent.$parent.selected_component = 'Account';
+
+        _this2.successNotify(response);
+      })["catch"](function (error) {
+        return _this2.errorNotify(error);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -4256,7 +4391,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4458,6 +4592,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -28135,7 +28270,9 @@ var render = function() {
     [
       _c("div", { staticClass: "col-md-3" }, [
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "amount" } }, [_vm._v("مبلغ")]),
+          _c("label", { staticClass: "required", attrs: { for: "amount" } }, [
+            _vm._v("مبلغ")
+          ]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -28167,7 +28304,11 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "col-md-3" }, [
         _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "currency_id" } }, [_vm._v("نوع ارز")]),
+          _c(
+            "label",
+            { staticClass: "required", attrs: { for: "currency_id" } },
+            [_vm._v("نوع ارز")]
+          ),
           _vm._v(" "),
           _c(
             "select",
@@ -28668,9 +28809,11 @@ var render = function() {
         [
           _c("div", { staticClass: "col-md-3" }, [
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "bank_name" } }, [
-                _vm._v("نام بانک")
-              ]),
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "bank_name" } },
+                [_vm._v("نام بانک")]
+              ),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -28702,9 +28845,11 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "col-md-3" }, [
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "card_no" } }, [
-                _vm._v("شماره کارت")
-              ]),
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "card_no" } },
+                [_vm._v("شماره کارت")]
+              ),
               _vm._v(" "),
               _vm.bank_logo !== ""
                 ? _c("img", {
@@ -28752,9 +28897,11 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "col-md-3" }, [
             _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "account_no" } }, [
-                _vm._v("شماره حساب")
-              ]),
+              _c(
+                "label",
+                { staticClass: "required", attrs: { for: "account_no" } },
+                [_vm._v("شماره حساب")]
+              ),
               _vm._v(" "),
               _c("input", {
                 directives: [
@@ -29101,6 +29248,8 @@ var render = function() {
         { attrs: { title: "" + _vm.$route.name, active_loading: false } },
         [
           _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-3" }),
+            _vm._v(" "),
             _c(
               "div",
               { staticClass: "col-md-3" },
@@ -29151,9 +29300,14 @@ var render = function() {
                 [
                   _c("div", { staticClass: "col-md-3" }, [
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "currency_id" } }, [
-                        _vm._v("نوع ارز")
-                      ]),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "required",
+                          attrs: { for: "currency_id" }
+                        },
+                        [_vm._v("نوع ارز")]
+                      ),
                       _vm._v(" "),
                       _c(
                         "select",
@@ -29218,9 +29372,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-3" }, [
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "balance" } }, [
-                        _vm._v("موجودی")
-                      ]),
+                      _c(
+                        "label",
+                        { staticClass: "required", attrs: { for: "balance" } },
+                        [_vm._v("موجودی")]
+                      ),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -29252,9 +29408,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-3" }, [
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "min_sale" } }, [
-                        _vm._v("حداقل میزان فروش")
-                      ]),
+                      _c(
+                        "label",
+                        { staticClass: "required", attrs: { for: "min_sale" } },
+                        [_vm._v("حداقل میزان فروش")]
+                      ),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -29287,9 +29445,14 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-3" }, [
                     _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "unit_price" } }, [
-                        _vm._v("قیمت واحد")
-                      ]),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "required",
+                          attrs: { for: "unit_price" }
+                        },
+                        [_vm._v("قیمت واحد")]
+                      ),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
@@ -29657,6 +29820,8 @@ var render = function() {
         { attrs: { title: "" + _vm.$route.name } },
         [
           _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-3" }),
+            _vm._v(" "),
             _c(
               "div",
               { staticClass: "col-md-3" },
@@ -29942,9 +30107,11 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-3" }, [
                   _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "bank_name" } }, [
-                      _vm._v("نام بانک")
-                    ]),
+                    _c(
+                      "label",
+                      { staticClass: "required", attrs: { for: "bank_name" } },
+                      [_vm._v("نام بانک")]
+                    ),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -29976,9 +30143,26 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-3" }, [
                   _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "card_no" } }, [
-                      _vm._v("شماره کارت")
-                    ]),
+                    _c(
+                      "label",
+                      { staticClass: "required", attrs: { for: "card_no" } },
+                      [_vm._v("شماره کارت")]
+                    ),
+                    _vm._v(" "),
+                    _vm.bank_logo !== ""
+                      ? _c("img", {
+                          staticStyle: {
+                            position: "absolute",
+                            top: "25px",
+                            left: "0"
+                          },
+                          attrs: {
+                            src: _vm.bank_logo,
+                            width: "20px",
+                            alt: "bank_logo"
+                          }
+                        })
+                      : _vm._e(),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -29997,6 +30181,7 @@ var render = function() {
                       },
                       domProps: { value: _vm.form.card_no },
                       on: {
+                        keyup: _vm.handleChange,
                         input: function($event) {
                           if ($event.target.composing) {
                             return
@@ -30010,9 +30195,11 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-3" }, [
                   _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "account_no" } }, [
-                      _vm._v("شماره حساب")
-                    ]),
+                    _c(
+                      "label",
+                      { staticClass: "required", attrs: { for: "account_no" } },
+                      [_vm._v("شماره حساب")]
+                    ),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -30625,30 +30812,386 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12 text-center" }, [
-        _c("h4", { staticClass: "mt-3" }, [
-          _vm._v("احراز هویت حساب کاربری در سامانه فیبوکوین")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-12 mt-3 pd-2" }, [
-        _c("p", [
-          _vm._v(
-            "\n            برای استفاده از تمامی امکانات سامانه، لازم است مراحل احراز هویت را به درستی انجام دهید.این کار صرفا برای\n            حفظ\n            امنیت شما کاربران عزیز می باشد.\n        "
+  return _c(
+    "card",
+    { attrs: { title: "مشخصات فردی", active_loading: false } },
+    [
+      !_vm.status
+        ? _c(
+            "div",
+            { staticClass: "row" },
+            [
+              _c("div", { staticClass: "col-md-3" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    { staticClass: "required", attrs: { for: "first_name" } },
+                    [_vm._v("نام")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.first_name,
+                        expression: "form.first_name"
+                      }
+                    ],
+                    staticClass: "form-control form-control-sm",
+                    attrs: {
+                      type: "text",
+                      id: "first_name",
+                      placeholder: "نام"
+                    },
+                    domProps: { value: _vm.form.first_name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "first_name", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    { staticClass: "required", attrs: { for: "last_name" } },
+                    [_vm._v("نام خانوادگی")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.last_name,
+                        expression: "form.last_name"
+                      }
+                    ],
+                    staticClass: "form-control form-control-sm",
+                    attrs: {
+                      type: "text",
+                      id: "last_name",
+                      placeholder: "نام خانوادگی"
+                    },
+                    domProps: { value: _vm.form.last_name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "last_name", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    { staticClass: "required", attrs: { for: "father_name" } },
+                    [_vm._v("نام پدر")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.father_name,
+                        expression: "form.father_name"
+                      }
+                    ],
+                    staticClass: "form-control form-control-sm",
+                    attrs: {
+                      type: "text",
+                      id: "father_name",
+                      placeholder: "نام پدر"
+                    },
+                    domProps: { value: _vm.form.father_name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "father_name", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "required",
+                      attrs: { for: "national_code" }
+                    },
+                    [_vm._v("کد ملی")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.national_code,
+                        expression: "form.national_code"
+                      }
+                    ],
+                    staticClass: "form-control form-control-sm",
+                    attrs: {
+                      type: "text",
+                      id: "national_code",
+                      placeholder: "کد ملی"
+                    },
+                    domProps: { value: _vm.form.national_code },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "national_code", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    { staticClass: "required", attrs: { for: "email" } },
+                    [_vm._v("ایمیل")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.email,
+                        expression: "form.email"
+                      }
+                    ],
+                    staticClass: "form-control form-control-sm",
+                    attrs: { type: "text", id: "email", placeholder: "ایمیل" },
+                    domProps: { value: _vm.form.email },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "email", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "reference_code" } }, [
+                    _vm._v("کد معرف")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.reference_code,
+                        expression: "form.reference_code"
+                      }
+                    ],
+                    staticClass: "form-control form-control-sm",
+                    attrs: {
+                      type: "text",
+                      id: "reference_code",
+                      placeholder: "کد معرف"
+                    },
+                    domProps: { value: _vm.form.reference_code },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.form,
+                          "reference_code",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    { staticClass: "required", attrs: { for: "sos_phone" } },
+                    [
+                      _c("i", {
+                        staticClass: "zmdi zmdi-help-outline text-warning",
+                        attrs: {
+                          title:
+                            "وارد کردن تلفن ضروری برای زمانی است که شما به هر دلیلی توسط شماره موبایل یا ثابت در دسترس نباشید."
+                        }
+                      }),
+                      _vm._v(
+                        "\n                    تلفن ضروری\n                "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.sos_phone,
+                        expression: "form.sos_phone"
+                      }
+                    ],
+                    staticClass: "form-control form-control-sm",
+                    attrs: {
+                      type: "text",
+                      id: "sos_phone",
+                      placeholder: "تلفن ضروری"
+                    },
+                    domProps: { value: _vm.form.sos_phone },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "sos_phone", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-3" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    { staticClass: "required", attrs: { for: "address" } },
+                    [_vm._v("آدرس")]
+                  ),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.form.address,
+                        expression: "form.address"
+                      }
+                    ],
+                    staticClass: "form-control form-control-sm",
+                    attrs: { id: "address", placeholder: "آدرس" },
+                    domProps: { value: _vm.form.address },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.form, "address", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-12 text-right mt-3" }, [
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("cropper-portlet", {
+                      attrs: { title: "تصویر شاخص", place: "right" },
+                      model: {
+                        value: _vm.form.profile_image,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "profile_image", $$v)
+                        },
+                        expression: "form.profile_image"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("submit", { on: { click: _vm.handleSubmit } })
+            ],
+            1
           )
-        ])
-      ])
-    ])
-  }
-]
+        : _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("table", { staticClass: "table table-responsive" }, [
+                _c("thead", [
+                  _c("tr", [
+                    _c("th", [_vm._v("نام")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("نام خانوادگی")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("نام پدر")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("کد ملی")]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("ایمیل")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tbody", [
+                  _c("tr", [
+                    _c("td", [_vm._v(_vm._s(_vm.form.first_name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(_vm.form.last_name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(_vm.form.father_name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(_vm.form.national_code))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(_vm.form.email))])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                آدرس : " +
+                    _vm._s(_vm.form.address) +
+                    "\n            "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-4 offset-4" }, [
+                _c("img", {
+                  attrs: { src: _vm.form.profile_image, width: "100%", alt: "" }
+                })
+              ])
+            ])
+          ])
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -31776,18 +32319,6 @@ var render = function() {
         _vm._v(" "),
         _c(
           "li",
-          { staticClass: "@@typeactive" },
-          [
-            _c("router-link", { attrs: { to: "/profile" } }, [
-              _c("i", { staticClass: "zmdi zmdi-account" }),
-              _vm._v("\n                    پروفایل\n                ")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
           { staticClass: "@@widgetactive" },
           [
             _c("router-link", { attrs: { to: "/documents" } }, [
@@ -31871,12 +32402,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "dropdown-menu" }, [
-      _c(
-        "a",
-        { staticClass: "dropdown-item", attrs: { href: "default.htm" } },
-        [_vm._v("مشاهده پروفایل")]
-      ),
-      _vm._v(" "),
       _c(
         "a",
         { staticClass: "dropdown-item", attrs: { href: "default.htm" } },
@@ -32178,7 +32703,7 @@ var render = function() {
                 attrs: {
                   type: "number",
                   id: "amount",
-                  placeholder: "مبلغ را وارد نمایید."
+                  placeholder: "مبلغ را به ریال وارد نمایید."
                 },
                 domProps: { value: _vm.form.amount },
                 on: {
@@ -32242,7 +32767,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("th", [_vm._v("توضیحات")]),
                     _vm._v(" "),
-                    _c("td", [_vm._v("تاریخ پاسخ")]),
+                    _c("th", [_vm._v("تاریخ پاسخ")]),
                     _vm._v(" "),
                     _c("th", [_vm._v("تاریخ ثبت")])
                   ])
@@ -32262,9 +32787,11 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(payment_request.description))]),
                       _vm._v(" "),
-                      _c("td", [
-                        _vm._v(_vm._s(_vm.jDate(payment_request.reply_at)))
-                      ]),
+                      payment_request.reply_at != null
+                        ? _c("td", [
+                            _vm._v(_vm._s(_vm.jDate(payment_request.reply_at)))
+                          ])
+                        : _c("td", [_vm._v("-")]),
                       _vm._v(" "),
                       _c("td", [
                         _vm._v(_vm._s(_vm.jDate(payment_request.created_at)))
@@ -51117,15 +51644,15 @@ __webpack_require__.r(__webpack_exports__);
 // =================== Currency Users ===================
 {
   path: '/currency-users',
-  name: 'لیست پیشنهادات فروش',
+  name: 'لیست پیشنهادات',
   component: _Components_CurrencyUsers_Index__WEBPACK_IMPORTED_MODULE_20__["default"]
 }, {
   path: '/currency-users/create',
-  name: 'ثبت پیشنهاد فروش',
+  name: 'ثبت پیشنهاد',
   component: _Components_CurrencyUsers_Create__WEBPACK_IMPORTED_MODULE_21__["default"]
 }, {
   path: '/currency-users/:id/edit',
-  name: 'ویرایش پیشنهاد فروش',
+  name: 'ویرایش پیشنهاد',
   component: _Components_CurrencyUsers_Edit__WEBPACK_IMPORTED_MODULE_22__["default"]
 }, {
   path: '/currency-users/:id/payment',
