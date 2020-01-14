@@ -12,6 +12,7 @@ use App\Models\Notification;
 use App\Models\NotificationDetail;
 use App\Models\PaymentRequest;
 use App\Models\SellOrder;
+use App\Models\Wallet;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::where('is_admin', '!=', 1)->get();
+        $users = User::with('wallet')->where('is_admin', '!=', 1)->get();
 
         return $users;
     }
@@ -207,5 +208,17 @@ class UserController extends Controller
         return ['message' => __('messages.save_success')];
     }
 
+    public function wallet(Request $request, $id)
+    {
+        $wallet = Wallet::where('user_id', $id)->first();
 
+        if ($wallet == null || empty($wallet)) {
+            Wallet::create(['user_id' => $id, 'amount' => $request->amount]);
+        }
+        else{
+            Wallet::where('user_id',$id)->update(['amount'=>$wallet->amount + $request->amount]);
+        }
+
+        return ['message' => __('messages.save_success')];
+    }
 }

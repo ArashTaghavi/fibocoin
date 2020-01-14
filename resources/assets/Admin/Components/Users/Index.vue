@@ -16,7 +16,7 @@
                 <tr>
                     <th>نام</th>
                     <th>موبایل</th>
-                    <th>تلفن</th>
+                    <th>موجودی</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -25,9 +25,7 @@
                     <td>{{user.first_name}} {{user.last_name}}</td>
                     <td>{{user.mobile}}</td>
                     <td>
-                        <i class="zmdi zmdi-check text-success" v-if="user.verify_phone==1"></i>
-                        <i class="zmdi zmdi-stop text-warning" v-if="user.verify_phone==0"></i>
-                        {{user.phone}}
+                        {{user.wallet!=null ? user.wallet.amount : 0}} ریال
                     </td>
                     <td>
                         <div class="btn-group" role="group">
@@ -53,10 +51,8 @@
                                 </link-btn>
                                 <link-btn type="info" icon="card" :to="`/user/${user.id}/cards`">کارت ها
                                 </link-btn>
-                                <icon-btn type="success" icon="pause" v-if="user.verify_phone==0"
-                                          @click="handleVerifyPhone(user.id)">
-                                    تایید تلفن
-                                </icon-btn>
+                                <link-btn type="primary" icon="money" :to="`/user/${user.id}/wallet`">موجودی
+                                </link-btn>
                             </div>
                         </div>
                     </td>

@@ -95,7 +95,8 @@
     export default {
         data() {
             return {
-                cards: []
+                cards: [],
+                bank_logo:''
             }
         },
         created() {
@@ -140,7 +141,7 @@
                 else if (cn.search(627884)!=-1)
                     return this.bank_logo = `${dir}tose-e.png`;
                 else if (cn.search(610433)!=-1)
-                    return this.bank_logo = `${dir}mellat.png`;
+                    return this.bank_logo = `${dir}mellat.ico`;
                 else if (cn.search(603770)!=-1)
                     return this.bank_logo = `${dir}keshavarzi.ico`;
                 else if (cn.search(622106)!=-1)

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\PaymentRequest;
+use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,6 +44,13 @@ class PaymentRequestController extends Controller
             abort(403, $validator->errors()->first());
         }
 
-        return $validator->getData();
+        $wallet = Wallet::where('id', Auth::id())->first();
+
+        if ($wallet == null || empty($wallet) || $wallet->balance<$request->amount){
+            abort(403, 'درخواست از میزان موجودی شما بیشتر است.');
+
+        }
+
+            return $validator->getData();
     }
 }

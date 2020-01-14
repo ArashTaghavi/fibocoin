@@ -4,6 +4,7 @@ Route::middleware(['web', 'auth:web', 'IsUser'])->group(function () {
     Route::get('/user-dashboard/{all}', 'DashboardController@index')->where(['all' => '.*']);
 
     Route::prefix('api/user')->name('user.')->group(function () {
+        Route::get('/', 'DashboardController@index');
 
         // ================================ Dashboard ================================
         Route::prefix('dashboard')->name('dashboard.')->group(function () {

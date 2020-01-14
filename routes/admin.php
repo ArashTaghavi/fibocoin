@@ -4,6 +4,7 @@ Route::middleware(['web', 'auth:web', 'IsAdmin'])->group(function () {
     Route::get('/admin-dashboard/{all}', 'DashboardController@index')->where(['all' => '.*']);
 
     Route::prefix('api/admin')->name('admin.')->group(function () {
+        Route::get('/', 'DashboardController@index');
 
         // ================================ Profile ================================
         Route::prefix('profile')->name('profile.')->group(function () {
@@ -33,6 +34,7 @@ Route::middleware(['web', 'auth:web', 'IsAdmin'])->group(function () {
             Route::get('/buy-order-status/{id}/{status}', 'UserController@buy_order_status')->name('buy-order-status');
             Route::put('/sell-order-status/{id}', 'UserController@sell_order_status')->name('sell-order-status');
             Route::put('/payment-request-status/{id}', 'UserController@payment_request_status')->name('payment-request-status');
+            Route::post('/wallet/{id}', 'UserController@wallet')->name('wallet');
             Route::get('/documents/{id}', 'UserController@documents')->name('documents');
             Route::get('/document-approved/{id}/{confirmation}', 'UserController@document_approved')->name('document-approved');
         });

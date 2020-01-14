@@ -2506,7 +2506,7 @@ __webpack_require__.r(__webpack_exports__);
     handleChange: function handleChange() {
       var cn = this.form.card_no;
       var dir = '/site-assets/images/bank-icon/';
-      if (cn.search(627353) != -1) return this.bank_logo = "".concat(dir, "tejarat.ico");else if (cn.search(589210) != -1) return this.bank_logo = "".concat(dir, "sepah.ico");else if (cn.search(627648) != -1) return this.bank_logo = "".concat(dir, "saderat.ico");else if (cn.search(636214) != -1) return this.bank_logo = "".concat(dir, "ayande.ico");else if (cn.search(627884) != -1) return this.bank_logo = "".concat(dir, "tose-e.png");else if (cn.search(610433) != -1) return this.bank_logo = "".concat(dir, "mellat.png");else if (cn.search(603770) != -1) return this.bank_logo = "".concat(dir, "keshavarzi.ico");else if (cn.search(622106) != -1) return this.bank_logo = "".concat(dir, "parsian.ico");else if (cn.search(621986) != -1) return this.bank_logo = "".concat(dir, "saman.ico");else return this.bank_logo = '';
+      if (cn.search(627353) != -1) return this.bank_logo = "".concat(dir, "tejarat.ico");else if (cn.search(589210) != -1) return this.bank_logo = "".concat(dir, "sepah.ico");else if (cn.search(627648) != -1) return this.bank_logo = "".concat(dir, "saderat.ico");else if (cn.search(636214) != -1) return this.bank_logo = "".concat(dir, "ayande.ico");else if (cn.search(627884) != -1) return this.bank_logo = "".concat(dir, "tose-e.png");else if (cn.search(610433) != -1) return this.bank_logo = "".concat(dir, "mellat.ico");else if (cn.search(603770) != -1) return this.bank_logo = "".concat(dir, "keshavarzi.ico");else if (cn.search(622106) != -1) return this.bank_logo = "".concat(dir, "parsian.ico");else if (cn.search(621986) != -1) return this.bank_logo = "".concat(dir, "saman.ico");else return this.bank_logo = '';
     }
   }
 });
@@ -3235,7 +3235,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      cards: []
+      cards: [],
+      bank_logo: ''
     };
   },
   created: function created() {
@@ -3277,7 +3278,7 @@ __webpack_require__.r(__webpack_exports__);
     handleChange: function handleChange() {
       var cn = this.form.card_no;
       var dir = '/site-assets/images/bank-icon/';
-      if (cn.search(627353) != -1) return this.bank_logo = "".concat(dir, "tejarat.ico");else if (cn.search(589210) != -1) return this.bank_logo = "".concat(dir, "sepah.ico");else if (cn.search(627648) != -1) return this.bank_logo = "".concat(dir, "saderat.ico");else if (cn.search(636214) != -1) return this.bank_logo = "".concat(dir, "ayande.ico");else if (cn.search(627884) != -1) return this.bank_logo = "".concat(dir, "tose-e.png");else if (cn.search(610433) != -1) return this.bank_logo = "".concat(dir, "mellat.png");else if (cn.search(603770) != -1) return this.bank_logo = "".concat(dir, "keshavarzi.ico");else if (cn.search(622106) != -1) return this.bank_logo = "".concat(dir, "parsian.ico");else if (cn.search(621986) != -1) return this.bank_logo = "".concat(dir, "saman.ico");else return this.bank_logo = '';
+      if (cn.search(627353) != -1) return this.bank_logo = "".concat(dir, "tejarat.ico");else if (cn.search(589210) != -1) return this.bank_logo = "".concat(dir, "sepah.ico");else if (cn.search(627648) != -1) return this.bank_logo = "".concat(dir, "saderat.ico");else if (cn.search(636214) != -1) return this.bank_logo = "".concat(dir, "ayande.ico");else if (cn.search(627884) != -1) return this.bank_logo = "".concat(dir, "tose-e.png");else if (cn.search(610433) != -1) return this.bank_logo = "".concat(dir, "mellat.ico");else if (cn.search(603770) != -1) return this.bank_logo = "".concat(dir, "keshavarzi.ico");else if (cn.search(622106) != -1) return this.bank_logo = "".concat(dir, "parsian.ico");else if (cn.search(621986) != -1) return this.bank_logo = "".concat(dir, "saman.ico");else return this.bank_logo = '';
     }
   }
 });
@@ -3293,7 +3294,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -3409,7 +3409,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Start__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Start */ "./resources/assets/User/Components/Dashboard/Start.vue");
 /* harmony import */ var _Account__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Account */ "./resources/assets/User/Components/Dashboard/Account.vue");
 /* harmony import */ var _Document__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Document */ "./resources/assets/User/Components/Dashboard/Document.vue");
-/* harmony import */ var _Phone__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Phone */ "./resources/assets/User/Components/Dashboard/Phone.vue");
 //
 //
 //
@@ -3460,16 +3459,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 
 
@@ -3480,7 +3469,6 @@ __webpack_require__.r(__webpack_exports__);
       user_requirements: [],
       selected_component: 'Start',
       status: {
-        phone: false,
         card: false,
         document: false
       }
@@ -3524,7 +3512,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       axios.get('/dashboard/user-info').then(function (response) {
-        _this3.status['phone'] = response.data.phone_status;
         _this3.status['card'] = response.data.card_status;
         _this3.status['document'] = response.data.document_status;
       })["catch"](function (error) {
@@ -3535,62 +3522,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Start: _Start__WEBPACK_IMPORTED_MODULE_0__["default"],
     Account: _Account__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Document: _Document__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Phone: _Phone__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/Dashboard/Phone.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/User/Components/Dashboard/Phone.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  methods: {
-    handleSubmit: function handleSubmit() {
-      var _this = this;
-
-      axios.put("/dashboard/user-set-phone", this.form).then(function (response) {
-        return _this.successNotify(response);
-      })["catch"](function (error) {
-        return _this.errorNotify(error);
-      });
-    }
+    Document: _Document__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
 
@@ -4395,7 +4327,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       user: {},
-      wallet: {}
+      wallet: 0
     };
   },
   created: function created() {
@@ -4407,7 +4339,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/wallets/balance').then(function (response) {
-        return _this.wallet = response.data.amount;
+        return _this.wallet = response.data;
       })["catch"](function (error) {
         return _this.errorNotify(error);
       });
@@ -30532,7 +30464,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("li", { staticClass: "list-group-item" }, [
         _vm._v(
-          "\n                * در تصویر دوم متن احراز هویت به همراه سه کارت شناسایی شما باید بصورت واضح مشخص باشد. (کارت ملی ،\n                گواهینامه\n                رانندگی + کارت بانکی)\n            "
+          "\n                * در تصویر دوم متن احراز هویت به همراه سه کارت شناسایی شما باید بصورت واضح مشخص باشد. (کارت ملی ،\n                رانندگی + کارت بانکی)\n            "
         )
       ]),
       _vm._v(" "),
@@ -30660,42 +30592,6 @@ var render = function() {
                   _vm._v(" در انتظار تایید ")
                 ]
               )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-3 text-center" }, [
-          _c("img", {
-            staticStyle: { width: "20%" },
-            attrs: {
-              src: "/dashboard-assets/img/Phone.png",
-              id: "Phone1",
-              alt: "call"
-            },
-            on: {
-              click: function($event) {
-                return _vm.componentStyle("Phone", $event)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("p", { staticClass: "mt-2" }, [_vm._v("تلفن ثابت")]),
-          _vm._v(" "),
-          _vm.status.phone
-            ? _c(
-                "span",
-                { staticClass: "badge badge-success btn--icon-text" },
-                [
-                  _c("i", { staticClass: "zmdi zmdi-check" }),
-                  _vm._v(" تایید شده ")
-                ]
-              )
-            : _c(
-                "span",
-                { staticClass: "badge badge-warning btn--icon-text" },
-                [
-                  _c("i", { staticClass: "zmdi zmdi-alert-circle-o" }),
-                  _vm._v(" در انتظار تایید ")
-                ]
-              )
         ])
       ]),
       _vm._v(" "),
@@ -30706,88 +30602,6 @@ var render = function() {
         1
       )
     ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/Dashboard/Phone.vue?vue&type=template&id=1079502c&":
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/User/Components/Dashboard/Phone.vue?vue&type=template&id=1079502c& ***!
-  \***************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "col-md-12 text-center" },
-    [
-      _c("p", { staticClass: "mb-3" }, [
-        _vm._v(
-          "شماره ثابت خود را وارد کنید، سپس از طریق آن با شماره همراه پشتیبانی xxxxxxxx تماس بگیرید\n    "
-        )
-      ]),
-      _vm._v(" "),
-      _c("card", { attrs: { title: "تلفن ثابت", active_loading: false } }, [
-        _c(
-          "div",
-          { staticClass: "row" },
-          [
-            _c("div", { staticClass: "col-md-4" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "phone" } }, [
-                  _vm._v(
-                    "\n                        ورود شماره تلفن با کد شهرستان مانند نمونه\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.phone,
-                      expression: "form.phone"
-                    }
-                  ],
-                  staticClass: "form-control form-control-sm",
-                  attrs: {
-                    type: "text",
-                    id: "phone",
-                    placeholder: "مثال : 0214455667788"
-                  },
-                  domProps: { value: _vm.form.phone },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.form, "phone", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("submit", { on: { click: _vm.handleSubmit } })
-          ],
-          1
-        )
-      ])
-    ],
-    1
   )
 }
 var staticRenderFns = []
@@ -32284,14 +32098,14 @@ var render = function() {
                 "div",
                 { staticClass: "user__email bg-info m-2 p-2" },
                 [
-                  _vm._v("موجودی کیف پول :\n                       "),
+                  _vm._v("موجودی کیف پول :\n                        "),
                   _c("router-link", { attrs: { to: "/wallets/add" } }, [
                     _vm._v(
-                      "\n                           " +
+                      "\n                            " +
                         _vm._s(
                           new Intl.NumberFormat("en-US").format(_vm.wallet)
                         ) +
-                        " تومان\n                       "
+                        " ریال\n                        "
                     )
                   ])
                 ],
@@ -33762,7 +33576,7 @@ var render = function() {
               attrs: {
                 type: "number",
                 id: "amount",
-                placeholder: "مبلغ مورد نظر را وارد نمایید."
+                placeholder: "مبلغ مورد نظر را به ریال وارد نمایید."
               },
               domProps: { value: _vm.form.amount },
               on: {
@@ -50046,75 +49860,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_04f6f14e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_04f6f14e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/assets/User/Components/Dashboard/Phone.vue":
-/*!**************************************************************!*\
-  !*** ./resources/assets/User/Components/Dashboard/Phone.vue ***!
-  \**************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Phone_vue_vue_type_template_id_1079502c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Phone.vue?vue&type=template&id=1079502c& */ "./resources/assets/User/Components/Dashboard/Phone.vue?vue&type=template&id=1079502c&");
-/* harmony import */ var _Phone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Phone.vue?vue&type=script&lang=js& */ "./resources/assets/User/Components/Dashboard/Phone.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Phone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Phone_vue_vue_type_template_id_1079502c___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Phone_vue_vue_type_template_id_1079502c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/assets/User/Components/Dashboard/Phone.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/assets/User/Components/Dashboard/Phone.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************!*\
-  !*** ./resources/assets/User/Components/Dashboard/Phone.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Phone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Phone.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/Dashboard/Phone.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Phone_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/assets/User/Components/Dashboard/Phone.vue?vue&type=template&id=1079502c&":
-/*!*********************************************************************************************!*\
-  !*** ./resources/assets/User/Components/Dashboard/Phone.vue?vue&type=template&id=1079502c& ***!
-  \*********************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Phone_vue_vue_type_template_id_1079502c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Phone.vue?vue&type=template&id=1079502c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/User/Components/Dashboard/Phone.vue?vue&type=template&id=1079502c&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Phone_vue_vue_type_template_id_1079502c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Phone_vue_vue_type_template_id_1079502c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -2880,19 +2880,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     status: function status(_status) {
-      switch (_status) {
-        case 0:
-          return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';
-
-        case 1:
-          return '<span class="badge badge-info btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار پرداخت </span>';
-
-        case 2:
-          return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار بررسی </span>';
-
-        default:
-          return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> پرداخت شده </span>';
-      }
+      if (_status == 0) return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';else if (_status == 1) return '<span class="badge badge-info btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار پرداخت </span>';else if (_status == 2) return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار بررسی </span>';else return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> پرداخت شده </span>';
     },
     search: function search(status) {
       var _this2 = this;
@@ -3018,16 +3006,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     approved: function approved(_approved) {
-      switch (_approved) {
-        case 0:
-          return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';
-
-        case 1:
-          return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> تایید شده </span>';
-
-        default:
-          return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار تایید </span>';
-      }
+      if (_approved == 0) return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';else if (_approved == 1) return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> تایید شده </span>';else return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار تایید </span>';
     },
     jDate: function jDate(date) {
       return moment(date).format('jYYYY/jM/jD');
@@ -3214,6 +3193,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3243,16 +3223,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     approved: function approved(_approved) {
-      switch (_approved) {
-        case 0:
-          return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';
-
-        case 1:
-          return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> تایید شده </span>';
-
-        default:
-          return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار تایید </span>';
-      }
+      if (_approved == 0) return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';else if (_approved == 1) return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> تایید شده </span>';else return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار تایید </span>';
     },
     jDate: function jDate(date) {
       return moment(date).format('jYYYY/jM/jD');
@@ -3271,10 +3242,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
 //
 //
 //
@@ -3483,6 +3450,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3504,19 +3474,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     status: function status(_status) {
-      switch (_status) {
-        case 0:
-          return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';
-
-        case 1:
-          return '<span class="badge badge-info btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار پرداخت </span>';
-
-        case 2:
-          return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار بررسی </span>';
-
-        default:
-          return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> پرداخت شده </span>';
-      }
+      if (_status == 0) return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';else if (_status == 1) return '<span class="badge badge-info btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار پرداخت </span>';else if (_status == 2) return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار بررسی </span>';else return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> پرداخت شده </span>';
     },
     search: function search(status) {
       var _this2 = this;
@@ -3634,19 +3592,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     status: function status(_status) {
-      switch (_status) {
-        case 0:
-          return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';
-
-        case 1:
-          return '<span class="badge badge-info btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار پرداخت </span>';
-
-        case 2:
-          return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار بررسی </span>';
-
-        default:
-          return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> پرداخت شده </span>';
-      }
+      if (_status == 0) return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';else if (_status == 1) return '<span class="badge badge-info btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار پرداخت </span>';else if (_status == 2) return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار بررسی </span>';else return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> پرداخت شده </span>';
     },
     search: function search(status) {
       var _this2 = this;
@@ -3674,6 +3620,49 @@ __webpack_require__.r(__webpack_exports__);
     },
     jDate: function jDate(date) {
       return moment(date).format('jYYYY/jM/jD');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Users/Wallet.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Users/Wallet.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    handleSubmit: function handleSubmit() {
+      var _this = this;
+
+      axios.post("/users/wallet/".concat(this.$route.params.id), this.form).then(function (response) {
+        _this.successNotify(response);
+
+        _this.$router.push('/users');
+      })["catch"](function (error) {
+        return _this.errorNotify(error);
+      });
     }
   }
 });
@@ -27924,7 +27913,7 @@ var render = function() {
                   "div",
                   { staticClass: "card" },
                   [
-                    buy_order.status === 2
+                    buy_order.status == 2
                       ? _c(
                           "icon-btn",
                           {
@@ -27944,7 +27933,7 @@ var render = function() {
                         )
                       : _vm._e(),
                     _vm._v(" "),
-                    buy_order.status === 2
+                    buy_order.status == 2
                       ? _c(
                           "icon-btn",
                           {
@@ -27964,7 +27953,7 @@ var render = function() {
                         )
                       : _vm._e(),
                     _vm._v(" "),
-                    buy_order.status === 1
+                    buy_order.status == 1
                       ? _c(
                           "icon-btn",
                           {
@@ -28152,7 +28141,7 @@ var render = function() {
                   "div",
                   { staticClass: "card" },
                   [
-                    card.approved === 2
+                    card.approved == 2
                       ? _c(
                           "icon-btn",
                           {
@@ -28172,7 +28161,7 @@ var render = function() {
                         )
                       : _vm._e(),
                     _vm._v(" "),
-                    card.approved === 2
+                    card.approved == 2
                       ? _c(
                           "icon-btn",
                           {
@@ -28465,7 +28454,7 @@ var render = function() {
                   "div",
                   { staticClass: "card" },
                   [
-                    document.approved === 2
+                    document.approved == 2
                       ? _c(
                           "icon-btn",
                           {
@@ -28485,7 +28474,7 @@ var render = function() {
                         )
                       : _vm._e(),
                     _vm._v(" "),
-                    document.approved === 2
+                    document.approved == 2
                       ? _c(
                           "icon-btn",
                           {
@@ -28656,7 +28645,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("th", [_vm._v("موبایل")]),
                     _vm._v(" "),
-                    _c("th", [_vm._v("تلفن")]),
+                    _c("th", [_vm._v("موجودی")]),
                     _vm._v(" "),
                     _c("th")
                   ])
@@ -28675,21 +28664,12 @@ var render = function() {
                       _c("td", [_vm._v(_vm._s(user.mobile))]),
                       _vm._v(" "),
                       _c("td", [
-                        user.verify_phone == 1
-                          ? _c("i", {
-                              staticClass: "zmdi zmdi-check text-success"
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        user.verify_phone == 0
-                          ? _c("i", {
-                              staticClass: "zmdi zmdi-stop text-warning"
-                            })
-                          : _vm._e(),
                         _vm._v(
                           "\n                    " +
-                            _vm._s(user.phone) +
-                            "\n                "
+                            _vm._s(
+                              user.wallet != null ? user.wallet.amount : 0
+                            ) +
+                            " ریال\n                "
                         )
                       ]),
                       _vm._v(" "),
@@ -28842,29 +28822,21 @@ var render = function() {
                                   ]
                                 ),
                                 _vm._v(" "),
-                                user.verify_phone == 0
-                                  ? _c(
-                                      "icon-btn",
-                                      {
-                                        attrs: {
-                                          type: "success",
-                                          icon: "pause"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.handleVerifyPhone(
-                                              user.id
-                                            )
-                                          }
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                تایید تلفن\n                            "
-                                        )
-                                      ]
+                                _c(
+                                  "link-btn",
+                                  {
+                                    attrs: {
+                                      type: "primary",
+                                      icon: "money",
+                                      to: "/user/" + user.id + "/wallet"
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "موجودی\n                            "
                                     )
-                                  : _vm._e()
+                                  ]
+                                )
                               ],
                               1
                             )
@@ -29304,7 +29276,7 @@ var render = function() {
                   "div",
                   { staticClass: "card" },
                   [
-                    sell_order.status === 2
+                    sell_order.status == 2
                       ? _c(
                           "icon-btn",
                           {
@@ -29324,7 +29296,7 @@ var render = function() {
                         )
                       : _vm._e(),
                     _vm._v(" "),
-                    sell_order.status === 2
+                    sell_order.status == 2
                       ? _c(
                           "icon-btn",
                           {
@@ -29344,7 +29316,7 @@ var render = function() {
                         )
                       : _vm._e(),
                     _vm._v(" "),
-                    sell_order.status === 1
+                    sell_order.status == 1
                       ? _c(
                           "icon-btn",
                           {
@@ -29444,6 +29416,77 @@ var render = function() {
         : _c("not-found")
     ],
     1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Users/Wallet.vue?vue&type=template&id=564ed325&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/Admin/Components/Users/Wallet.vue?vue&type=template&id=564ed325& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "card",
+    { attrs: { title: "" + _vm.$route.name, active_loading: false } },
+    [
+      _c(
+        "div",
+        { staticClass: "row" },
+        [
+          _c("div", { staticClass: "col-md-4" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "amount" } }, [
+                _vm._v("\n                   مبلغ\n               ")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.amount,
+                    expression: "form.amount"
+                  }
+                ],
+                staticClass: "form-control form-control-sm",
+                attrs: {
+                  type: "number",
+                  id: "amount",
+                  placeholder: "مبلغ مورد نظر را به ریال وارد نمایید."
+                },
+                domProps: { value: _vm.form.amount },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "amount", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("submit", { on: { click: _vm.handleSubmit } })
+        ],
+        1
+      )
+    ]
   )
 }
 var staticRenderFns = []
@@ -45747,6 +45790,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/Admin/Components/Users/Wallet.vue":
+/*!************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Users/Wallet.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Wallet_vue_vue_type_template_id_564ed325___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Wallet.vue?vue&type=template&id=564ed325& */ "./resources/assets/Admin/Components/Users/Wallet.vue?vue&type=template&id=564ed325&");
+/* harmony import */ var _Wallet_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Wallet.vue?vue&type=script&lang=js& */ "./resources/assets/Admin/Components/Users/Wallet.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Wallet_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Wallet_vue_vue_type_template_id_564ed325___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Wallet_vue_vue_type_template_id_564ed325___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/Admin/Components/Users/Wallet.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Users/Wallet.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Users/Wallet.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Wallet_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Wallet.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Users/Wallet.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Wallet_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/Admin/Components/Users/Wallet.vue?vue&type=template&id=564ed325&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/assets/Admin/Components/Users/Wallet.vue?vue&type=template&id=564ed325& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Wallet_vue_vue_type_template_id_564ed325___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Wallet.vue?vue&type=template&id=564ed325& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/Admin/Components/Users/Wallet.vue?vue&type=template&id=564ed325&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Wallet_vue_vue_type_template_id_564ed325___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Wallet_vue_vue_type_template_id_564ed325___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/assets/Admin/Helper/Axios.js":
 /*!************************************************!*\
   !*** ./resources/assets/Admin/Helper/Axios.js ***!
@@ -45892,17 +46004,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Dashboard_Index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/Dashboard/Index */ "./resources/assets/Admin/Components/Dashboard/Index.vue");
 /* harmony import */ var _Components_Profile_Index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/Profile/Index */ "./resources/assets/Admin/Components/Profile/Index.vue");
 /* harmony import */ var _Components_Profile_ChangePassword__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/Profile/ChangePassword */ "./resources/assets/Admin/Components/Profile/ChangePassword.vue");
-/* harmony import */ var _Components_Users_Index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/Users/Index */ "./resources/assets/Admin/Components/Users/Index.vue");
-/* harmony import */ var _Components_Users_Detail__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/Users/Detail */ "./resources/assets/Admin/Components/Users/Detail.vue");
-/* harmony import */ var _Components_Users_BuyOrders__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/Users/BuyOrders */ "./resources/assets/Admin/Components/Users/BuyOrders.vue");
-/* harmony import */ var _Components_Users_SellOrders__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Components/Users/SellOrders */ "./resources/assets/Admin/Components/Users/SellOrders.vue");
-/* harmony import */ var _Components_Users_Cards__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Components/Users/Cards */ "./resources/assets/Admin/Components/Users/Cards.vue");
-/* harmony import */ var _Components_Users_Documents__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Components/Users/Documents */ "./resources/assets/Admin/Components/Users/Documents.vue");
-/* harmony import */ var _Components_Users_PaymentRequests__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Components/Users/PaymentRequests */ "./resources/assets/Admin/Components/Users/PaymentRequests.vue");
-/* harmony import */ var _Components_Users_Create__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Components/Users/Create */ "./resources/assets/Admin/Components/Users/Create.vue");
-/* harmony import */ var _Components_Currencies_Index__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Components/Currencies/Index */ "./resources/assets/Admin/Components/Currencies/Index.vue");
-/* harmony import */ var _Components_Currencies_Create__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Components/Currencies/Create */ "./resources/assets/Admin/Components/Currencies/Create.vue");
-/* harmony import */ var _Components_Currencies_Edit__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Components/Currencies/Edit */ "./resources/assets/Admin/Components/Currencies/Edit.vue");
+/* harmony import */ var _Components_Users_Wallet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/Users/Wallet */ "./resources/assets/Admin/Components/Users/Wallet.vue");
+/* harmony import */ var _Components_Users_Index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/Users/Index */ "./resources/assets/Admin/Components/Users/Index.vue");
+/* harmony import */ var _Components_Users_Detail__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/Users/Detail */ "./resources/assets/Admin/Components/Users/Detail.vue");
+/* harmony import */ var _Components_Users_BuyOrders__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Components/Users/BuyOrders */ "./resources/assets/Admin/Components/Users/BuyOrders.vue");
+/* harmony import */ var _Components_Users_SellOrders__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Components/Users/SellOrders */ "./resources/assets/Admin/Components/Users/SellOrders.vue");
+/* harmony import */ var _Components_Users_Cards__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Components/Users/Cards */ "./resources/assets/Admin/Components/Users/Cards.vue");
+/* harmony import */ var _Components_Users_Documents__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Components/Users/Documents */ "./resources/assets/Admin/Components/Users/Documents.vue");
+/* harmony import */ var _Components_Users_PaymentRequests__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Components/Users/PaymentRequests */ "./resources/assets/Admin/Components/Users/PaymentRequests.vue");
+/* harmony import */ var _Components_Users_Create__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Components/Users/Create */ "./resources/assets/Admin/Components/Users/Create.vue");
+/* harmony import */ var _Components_Currencies_Index__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Components/Currencies/Index */ "./resources/assets/Admin/Components/Currencies/Index.vue");
+/* harmony import */ var _Components_Currencies_Create__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Components/Currencies/Create */ "./resources/assets/Admin/Components/Currencies/Create.vue");
+/* harmony import */ var _Components_Currencies_Edit__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Components/Currencies/Edit */ "./resources/assets/Admin/Components/Currencies/Edit.vue");
+
 
 
  // ================= Users =================
@@ -45937,51 +46051,55 @@ __webpack_require__.r(__webpack_exports__);
 {
   path: '/users',
   name: 'لیست کاربران',
-  component: _Components_Users_Index__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _Components_Users_Index__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
   path: '/user/:id/detail',
   name: 'جزییات کاربر',
-  component: _Components_Users_Detail__WEBPACK_IMPORTED_MODULE_4__["default"]
+  component: _Components_Users_Detail__WEBPACK_IMPORTED_MODULE_5__["default"]
 }, {
   path: '/user/:id/buy-orders',
   name: 'گزارش خرید کاربر',
-  component: _Components_Users_BuyOrders__WEBPACK_IMPORTED_MODULE_5__["default"]
+  component: _Components_Users_BuyOrders__WEBPACK_IMPORTED_MODULE_6__["default"]
 }, {
   path: '/user/:id/sell-orders',
   name: 'گزارش فروش کاربر',
-  component: _Components_Users_SellOrders__WEBPACK_IMPORTED_MODULE_6__["default"]
+  component: _Components_Users_SellOrders__WEBPACK_IMPORTED_MODULE_7__["default"]
 }, {
   path: '/user/:id/cards',
   name: 'کارت ها',
-  component: _Components_Users_Cards__WEBPACK_IMPORTED_MODULE_7__["default"]
+  component: _Components_Users_Cards__WEBPACK_IMPORTED_MODULE_8__["default"]
 }, {
   path: '/user/:id/documents',
   name: 'مدارک',
-  component: _Components_Users_Documents__WEBPACK_IMPORTED_MODULE_8__["default"]
+  component: _Components_Users_Documents__WEBPACK_IMPORTED_MODULE_9__["default"]
 }, {
   path: '/user/:id/payment-requests',
   name: 'درخواست های واریز',
-  component: _Components_Users_PaymentRequests__WEBPACK_IMPORTED_MODULE_9__["default"]
+  component: _Components_Users_PaymentRequests__WEBPACK_IMPORTED_MODULE_10__["default"]
 }, {
   path: '/user/create',
   name: 'ایجاد کاربر',
-  component: _Components_Users_Create__WEBPACK_IMPORTED_MODULE_10__["default"]
+  component: _Components_Users_Create__WEBPACK_IMPORTED_MODULE_11__["default"]
 }, // ============================ Users ============================
 // ============================ Currencies ============================
 {
   path: '/currencies',
   name: 'لیست ارزها',
-  component: _Components_Currencies_Index__WEBPACK_IMPORTED_MODULE_11__["default"]
+  component: _Components_Currencies_Index__WEBPACK_IMPORTED_MODULE_12__["default"]
 }, {
   path: '/currencies/create',
   name: 'ثبت ارز',
-  component: _Components_Currencies_Create__WEBPACK_IMPORTED_MODULE_12__["default"]
+  component: _Components_Currencies_Create__WEBPACK_IMPORTED_MODULE_13__["default"]
 }, {
   path: '/currencies/:id/edit',
   name: 'ویرایش ارز',
-  component: _Components_Currencies_Edit__WEBPACK_IMPORTED_MODULE_13__["default"]
-} // ============================ Currencies ============================
-]);
+  component: _Components_Currencies_Edit__WEBPACK_IMPORTED_MODULE_14__["default"]
+}, // ============================ Currencies ============================
+{
+  path: '/user/:id/wallet',
+  name: 'موجودی کاربر',
+  component: _Components_Users_Wallet__WEBPACK_IMPORTED_MODULE_3__["default"]
+}]);
 
 /***/ }),
 

@@ -6,6 +6,7 @@ use App\Models\Card;
 use App\Models\CurrencyUser;
 use App\Models\Document;
 use App\Models\PaymentRequest;
+use App\Models\Wallet;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -66,5 +67,10 @@ class User extends Authenticatable
     public function paymentRequests()
     {
         return $this->hasMany(PaymentRequest::class);
+    }
+
+    public function wallet()
+    {
+        return $this->hasOne(Wallet::class);
     }
 }

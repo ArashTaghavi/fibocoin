@@ -43,14 +43,12 @@ class DashboardController extends Controller
     public function user_info()
     {
         $user_info = User::with(['cards', 'documents'])->where('id', Auth::id())->first();
-        $phone_status = $user_info->verify_phone ? true : false;
         $document_status = count($user_info->documents) == 0 ? false : true;
         $card_status = false;
         if ($user_info->is_admin_define) {
-            $phone_status = true;
             $document_status = true;
             $card_status = true;
-            return compact('phone_status', 'document_status', 'card_status');
+            return compact( 'document_status', 'card_status');
         }
         if ($user_info->cards != null) {
             foreach ($user_info->cards as $card) {
@@ -61,13 +59,17 @@ class DashboardController extends Controller
             }
         }
         if ($user_info->documents != null) {
+            $i = 0;
             foreach ($user_info->documents as $document) {
                 if ($document->approved == Document::WAITING || $document->approved == Document::REJECT) {
                     $document_status = false;
                     break;
                 }
+                $i++;
+                if ($i < 2)
+                    $document_status = false;
             }
         }
-        return compact('phone_status', 'document_status', 'card_status');
+        return compact( 'document_status', 'card_status');
     }
 }

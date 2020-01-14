@@ -20,10 +20,12 @@
         <div class="row" v-if="payment_requests.length>0">
             <div class="col-md-4" v-for="(payment_request,index) in payment_requests" :key=index>
                 <div class="card">
-                    <icon-btn type="success" style="position:absolute;left:5px;top:5px" v-if="payment_request.status===2"
+                    <icon-btn type="success" style="position:absolute;left:5px;top:5px"
+                              v-if="payment_request.status===2"
                               icon="check" @click="handleStatus(payment_request.id,1)">تایید
                     </icon-btn>
-                    <icon-btn type="danger" style="position:absolute;left:70px;top:5px" v-if="payment_request.status===2"
+                    <icon-btn type="danger" style="position:absolute;left:70px;top:5px"
+                              v-if="payment_request.status===2"
                               icon="close" @click="handleStatus(payment_request.id,0)">رد
                     </icon-btn>
                     <icon-btn type="info" style="position:absolute;left:5px;top:5px" v-if="payment_request.status===1"
@@ -37,7 +39,8 @@
                         </p>
                         <p v-html=status(payment_request.status) class="text-center">
                         </p>
-                        <textarea v-if="payment_request.status==1 || payment_request.status==2" name="" class="form-control form-control-sm"
+                        <textarea v-if="payment_request.status==1 || payment_request.status==2" name=""
+                                  class="form-control form-control-sm"
                                   v-model="form.description[payment_request.id]"
                                   id="" cols="5" rows="5"
                                   placeholder="توضیحات"
@@ -69,16 +72,19 @@
                     .catch(error => this.errorNotify(error));
             },
             status(status) {
-                switch (status) {
-                    case 0:
-                        return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';
-                    case 1:
-                        return '<span class="badge badge-info btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار پرداخت </span>';
-                    case 2:
-                        return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار بررسی </span>';
-                    default :
-                        return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> پرداخت شده </span>';
-                }
+
+                if (status == 0)
+                    return '<span class="badge badge-danger btn--icon-text"><i class="zmdi zmdi-close-circle-o"></i> تایید نشده </span>';
+
+                else if (status == 1)
+                    return '<span class="badge badge-info btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار پرداخت </span>';
+
+                else if (status == 2)
+                    return '<span class="badge badge-warning btn--icon-text"><i class="zmdi zmdi-alert-circle-o"></i> در انتظار بررسی </span>';
+
+                else
+                    return '<span class="badge badge-success btn--icon-text"><i class="zmdi zmdi-assignment-check"></i> پرداخت شده </span>';
+
             },
             search(status) {
                 axios.get(`/users/payment-request-search/${this.$route.params.id}/${status}`)

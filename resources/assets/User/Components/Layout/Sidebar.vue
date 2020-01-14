@@ -8,9 +8,9 @@
                     <div>
                         <div class="user__name">{{user.first_name}} {{user.last_name}}</div>
                         <div class="user__email bg-info m-2 p-2">موجودی کیف پول :
-                           <router-link to="/wallets/add">
-                               {{new Intl.NumberFormat('en-US').format(wallet)}} تومان
-                           </router-link>
+                            <router-link to="/wallets/add">
+                                {{new Intl.NumberFormat('en-US').format(wallet)}} ریال
+                            </router-link>
                         </div>
                     </div>
                 </div>
@@ -27,12 +27,12 @@
                 </li>
 
 
-              <!--  <li class="@@typeactive">
-                    <router-link to="/profile">
-                        <i class="zmdi zmdi-account"></i>
-                        پروفایل
-                    </router-link>
-                </li>-->
+                <!--  <li class="@@typeactive">
+                      <router-link to="/profile">
+                          <i class="zmdi zmdi-account"></i>
+                          پروفایل
+                      </router-link>
+                  </li>-->
 
                 <li class="@@widgetactive">
                     <router-link to="/documents">
@@ -58,18 +58,18 @@
                         درخواست واریز وجه
                     </router-link>
                 </li>
-               <!-- <li class="@@widgetactive">
-                    <router-link to="/buy-orders">
-                        <i class="zmdi zmdi-collection-text"></i>
-                        سفارشات خرید
-                    </router-link>
-                </li>
-                <li class="@@widgetactive">
-                    <router-link to="/sell-orders">
-                        <i class="zmdi zmdi-collection-text"></i>
-                        سفارشات فروش
-                    </router-link>
-                </li>-->
+                <!-- <li class="@@widgetactive">
+                     <router-link to="/buy-orders">
+                         <i class="zmdi zmdi-collection-text"></i>
+                         سفارشات خرید
+                     </router-link>
+                 </li>
+                 <li class="@@widgetactive">
+                     <router-link to="/sell-orders">
+                         <i class="zmdi zmdi-collection-text"></i>
+                         سفارشات فروش
+                     </router-link>
+                 </li>-->
                 <li class="@@widgetactive">
                     <router-link to="/financial">
                         <i class="zmdi zmdi-trending-up"></i>
@@ -97,7 +97,7 @@
         data() {
             return {
                 user: {},
-                wallet:{}
+                wallet: 0
             }
         },
         created() {
@@ -107,11 +107,11 @@
         methods: {
             getBalance() {
                 axios.get('/wallets/balance')
-                    .then(response => this.wallet = response.data.amount)
+                    .then(response => this.wallet = response.data)
                     .catch(error => this.errorNotify(error));
             }
         },
-        currencyFormat(){
+        currencyFormat() {
             const formatter = new Intl.NumberFormat('en-US');
 
             return formatter;

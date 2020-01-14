@@ -40,15 +40,6 @@
                 <span class="badge badge-warning btn--icon-text" v-else><i class="zmdi zmdi-alert-circle-o"></i> در انتظار تایید </span>
 
             </div>
-            <div class="col-md-3 text-center">
-                <img src="/dashboard-assets/img/Phone.png" id="Phone1" @click="componentStyle('Phone',$event)"
-                     style="width:20%"
-                     alt="call">
-                <p class="mt-2">تلفن ثابت</p>
-                <span class="badge badge-success btn--icon-text" v-if="status.phone"><i class="zmdi zmdi-check"> </i> تایید شده </span>
-                <span class="badge badge-warning btn--icon-text" v-else><i class="zmdi zmdi-alert-circle-o"></i> در انتظار تایید </span>
-
-            </div>
         </div>
         <div class="row">
             <component :is="selected_component"></component>
@@ -61,7 +52,6 @@
     import Start from './Start';
     import Account from './Account';
     import Document from './Document';
-    import Phone from './Phone';
 
     export default {
         data() {
@@ -70,7 +60,6 @@
                 user_requirements: [],
                 selected_component: 'Start',
                 status: {
-                    phone: false,
                     card: false,
                     document: false
                 }
@@ -107,7 +96,6 @@
             },
             userInfo() {
                 axios.get('/dashboard/user-info').then(response => {
-                    this.status['phone'] = response.data.phone_status;
                     this.status['card'] = response.data.card_status;
                     this.status['document'] = response.data.document_status;
                 })
@@ -116,7 +104,7 @@
         },
 
         components: {
-            Start, Account, Document, Phone
+            Start, Account, Document
         }
 
 

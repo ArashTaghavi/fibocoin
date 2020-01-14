@@ -8,11 +8,9 @@ Primary use:    App Template.
 Author:         bitspeck
 URL:            http://theme.bitspecksolutions.com/Appt/
 ------------------------------------------------------------------------------*/
-
 /*
 This file contains the common info of this theme.
 */
-
 /*------------------------------------------------------------------------------
 [Table of contents]
     * General Area css
@@ -38,9 +36,7 @@ This file contains the common info of this theme.
     * Compatibility Area css
 
 ------------------------------------------------------------------------------*/
-
 /* load IRANSans font*/
-
 @import url("fontiran.css");
 
 /* ----------------------------------------------------------------------------------------
@@ -385,32 +381,34 @@ img {
     left: 0;
     right: 0;
     margin: auto;
-    animation: rotate 2s infinite;
+    animation: pulse 2s infinite;
     height: 150px;
     width: 150px;
 }
 
-/*.load-circle:before,
-.load-circle:after {
-    border-radius: 50%;
-    content: "";
-    display: block;
-    height: 20px;
-    width: 20px;
-}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1.1);
+    }
+    40% {
+        transform: scale(1);
+    }
 
-.load-circle:before {
-    animation: ball1 1s infinite;
-    background-color: #1e90e8;
-    box-shadow: 30px 0 0 #e29206;
-    margin-bottom: 10px;
-}
+    60% {
+        transform: scale(1.1);
+    }
+    80% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
 
-.load-circle:after {
-    animation: ball2 1s infinite;
-    background-color: #09c2e8;
-    box-shadow: 30px 0 0 #211de8;
-}*/
+
+}
 
 @keyframes rotate {
     0% {
@@ -1011,7 +1009,7 @@ img {
 }
 
 .single-feature:hover {
-   /* background-color: #14c393;*/
+    /* background-color: #14c393;*/
     /*color: #fff !important;*/
     box-shadow: 0px 4px 10px #373737;
 }
@@ -1022,7 +1020,7 @@ img {
 }
 
 .single-feature:hover h3 {
-   /* color: #fff;*/
+    /* color: #fff;*/
 }
 
 .single-feature h3 {
@@ -1418,8 +1416,8 @@ img {
 }
 
 .bttn-default:hover {
-   /* background-color: #14c393;
-    color: #ffffff;*/
+    /* background-color: #14c393;
+     color: #ffffff;*/
 }
 
 .bttn-sq {
@@ -1449,22 +1447,22 @@ img {
 
 .video:before {
     background: -moz-linear-gradient(
-        left,
-        rgba(9, 135, 244, 1) 0%,
-        rgba(0, 48, 115, 0.6) 48%,
-        rgba(41, 48, 115, 1) 100%
+            left,
+            rgba(9, 135, 244, 1) 0%,
+            rgba(0, 48, 115, 0.6) 48%,
+            rgba(41, 48, 115, 1) 100%
     );
     background: -webkit-linear-gradient(
-        left,
-        rgba(9, 135, 244, 1) 0%,
-        rgba(0, 48, 115, 0.6) 48%,
-        rgba(41, 48, 115, 1) 100%
+            left,
+            rgba(9, 135, 244, 1) 0%,
+            rgba(0, 48, 115, 0.6) 48%,
+            rgba(41, 48, 115, 1) 100%
     );
     background: linear-gradient(
-        to right,
-        rgba(9, 135, 244, 0.61) 0%,
-        rgba(0, 48, 115, 0.6) 48%,
-        rgba(41, 48, 115, 0.86) 100%
+            to right,
+            rgba(9, 135, 244, 0.61) 0%,
+            rgba(0, 48, 115, 0.6) 48%,
+            rgba(41, 48, 115, 0.86) 100%
     );
     content: "";
     height: 100%;
@@ -1525,22 +1523,22 @@ img {
 
 .team .team-hover {
     background: -moz-linear-gradient(
-        left,
-        rgba(9, 135, 244, 1) 0%,
-        rgba(0, 48, 115, 0.6) 48%,
-        rgba(41, 48, 115, 1) 100%
+            left,
+            rgba(9, 135, 244, 1) 0%,
+            rgba(0, 48, 115, 0.6) 48%,
+            rgba(41, 48, 115, 1) 100%
     );
     background: -webkit-linear-gradient(
-        left,
-        rgba(9, 135, 244, 1) 0%,
-        rgba(0, 48, 115, 0.6) 48%,
-        rgba(41, 48, 115, 1) 100%
+            left,
+            rgba(9, 135, 244, 1) 0%,
+            rgba(0, 48, 115, 0.6) 48%,
+            rgba(41, 48, 115, 1) 100%
     );
     background: linear-gradient(
-        to right,
-        rgba(9, 135, 244, 1) 0%,
-        rgba(0, 48, 115, 0.6) 48%,
-        rgba(41, 48, 115, 1) 100%
+            to right,
+            rgba(9, 135, 244, 1) 0%,
+            rgba(0, 48, 115, 0.6) 48%,
+            rgba(41, 48, 115, 1) 100%
     );
     position: absolute;
     width: 100%;
@@ -1613,22 +1611,22 @@ img {
 
 .download:before {
     background: -moz-linear-gradient(
-        left,
-        rgba(9, 135, 244, 1) 0%,
-        rgba(0, 48, 115, 0.6) 48%,
-        rgba(41, 48, 115, 1) 100%
+            left,
+            rgba(9, 135, 244, 1) 0%,
+            rgba(0, 48, 115, 0.6) 48%,
+            rgba(41, 48, 115, 1) 100%
     );
     background: -webkit-linear-gradient(
-        left,
-        rgba(9, 135, 244, 1) 0%,
-        rgba(0, 48, 115, 0.6) 48%,
-        rgba(41, 48, 115, 1) 100%
+            left,
+            rgba(9, 135, 244, 1) 0%,
+            rgba(0, 48, 115, 0.6) 48%,
+            rgba(41, 48, 115, 1) 100%
     );
     background: linear-gradient(
-        to right,
-        rgba(9, 135, 244, 1) 0%,
-        rgba(0, 48, 115, 0.6) 48%,
-        rgba(41, 48, 115, 1) 100%
+            to right,
+            rgba(9, 135, 244, 1) 0%,
+            rgba(0, 48, 115, 0.6) 48%,
+            rgba(41, 48, 115, 1) 100%
     );
     position: absolute;
     content: "";
@@ -1953,22 +1951,22 @@ img {
     z-index: 1;
     content: "";
     background: -moz-linear-gradient(
-        left,
-        rgba(9, 135, 244, 1) 0%,
-        rgba(0, 48, 115, 0.6) 48%,
-        rgba(41, 48, 115, 1) 100%
+            left,
+            rgba(9, 135, 244, 1) 0%,
+            rgba(0, 48, 115, 0.6) 48%,
+            rgba(41, 48, 115, 1) 100%
     );
     background: -webkit-linear-gradient(
-        left,
-        rgba(9, 135, 244, 1) 0%,
-        rgba(0, 48, 115, 0.6) 48%,
-        rgba(41, 48, 115, 1) 100%
+            left,
+            rgba(9, 135, 244, 1) 0%,
+            rgba(0, 48, 115, 0.6) 48%,
+            rgba(41, 48, 115, 1) 100%
     );
     background: linear-gradient(
-        to right,
-        rgba(9, 135, 244, 1) 0%,
-        rgba(0, 48, 115, 0.6) 48%,
-        rgba(41, 48, 115, 1) 100%
+            to right,
+            rgba(9, 135, 244, 1) 0%,
+            rgba(0, 48, 115, 0.6) 48%,
+            rgba(41, 48, 115, 1) 100%
     );
     z-index: 0;
 }
@@ -2174,8 +2172,8 @@ textarea {
 }
 
 .cont-icon ul li a:hover {
-  /*  color: #14c393;
-    background: #ffffff;*/
+    /*  color: #14c393;
+      background: #ffffff;*/
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
     -o-transform: rotate(360deg);

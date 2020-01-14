@@ -1,5 +1,5 @@
 <template>
-    <card :title="`${$route.name}`">
+    <card :title="`${$route.name}`" :active_loading="false">
         <div class="row">
            <div class="col-md-4">
                <div class="form-group">
@@ -18,8 +18,11 @@
     export default {
         methods: {
             handleSubmit() {
-                axios.post('/wallets/add', this.form)
-                    .then(response => this.successNotify(response))
+                axios.post(`/users/wallet/${this.$route.params.id}`, this.form)
+                    .then(response => {
+                        this.successNotify(response);
+                        this.$router.push('/users');
+                    })
                     .catch(error => this.errorNotify(error));
             }
         }

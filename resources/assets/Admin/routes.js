@@ -3,6 +3,8 @@ import Dashboard from './Components/Dashboard/Index';
 import Profile from './Components/Profile/Index';
 import ChangePassword from './Components/Profile/ChangePassword';
 
+import Wallet from './Components/Users/Wallet';
+
 
 // ================= Users =================
 import Users from './Components/Users/Index';
@@ -44,6 +46,8 @@ export default [
     {path: '/currencies/create', name: 'ثبت ارز', component: CurrencyCreate},
     {path: '/currencies/:id/edit', name: 'ویرایش ارز', component: CurrencyEdit},
     // ============================ Currencies ============================
+
+    {path: '/user/:id/wallet', name: 'موجودی کاربر', component: Wallet},
 
 
 ]

@@ -20,7 +20,8 @@ class WalletController extends Controller
 
     public function balance()
     {
-        return Wallet::where('user_id', Auth::id())->first();
+        $wallet = Wallet::where('user_id', Auth::id())->first();
+        return $wallet ? $wallet->amount : 0;
     }
 
 
