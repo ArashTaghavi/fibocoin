@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-body" style="height: 250px;overflow-y: auto">
+                    <div class="card-body" id="chat" style="height: 250px;overflow-y: auto">
                         <div class="row" v-for="(ticket,key) in tickets" :key=key>
                             <div class="col-md-12 text-right me" v-if="user.user.id==ticket.sender_id">
                                 <p>
@@ -50,17 +50,19 @@
         },
         created() {
             this.user = JSON.parse(localStorage.getItem('USER_INFORMATION'));
-
-                this.getTickets();
+            this.getTickets();
 
         },
         methods: {
             getTickets() {
-                setInterval(()=>{
+                setInterval(() => {
                     axios.get(`/tickets/list`)
-                        .then(response => this.tickets = response.data)
+                        .then(response => {
+                            this.tickets = response.data;
+                            this.scrollBottom();
+                        })
                         .catch(error => this.errorNotify(error));
-                },1000);
+                }, 1000);
             },
             handleSend() {
                 this.form.sender_id = this.user.user.id;
@@ -69,16 +71,16 @@
                 axios.post(`/tickets`, this.form)
                     .then(response => {
                         this.getTickets(this.receiver_id);
-                        /*  window.scroll({
-                              top: 0,
-                              left: 0,
-                          });*/
                         this.emptyForm();
                     })
                     .catch(error => this.errorNotify(error));
             },
             jDate(date) {
                 return moment(date).format('jYYYY/jM/jD H:m');
+            },
+            scrollBottom() {
+                let chat = document.getElementById("chat");
+                chat.scrollTop = chat.scrollHeight + 100;
             }
         }
     }

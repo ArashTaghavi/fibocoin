@@ -22,7 +22,7 @@
             </div>
             <div class="col-md-8">
                 <div class="card" v-if="receiver_id!=0">
-                    <div class="card-body" style="height: 250px;overflow-y: auto">
+                    <div class="card-body" id="chat" style="height: 250px;overflow-y: auto">
                         <div class="row" v-for="(ticket,key) in user_tickets" :key=key>
                             <div class="col-md-12 text-right me" v-if="user.id==ticket.sender_id">
                                 <p>
@@ -94,7 +94,10 @@
                 clearInterval(this.intervalID);
                 this.intervalID = setInterval(() => {
                     axios.get(`/tickets/get-by-user-id/${id}`)
-                        .then(response => this.user_tickets = response.data)
+                        .then(response => {
+                            this.user_tickets = response.data;
+                           this.scrollBottom();
+                        })
                         .catch(error => this.errorNotify(error));
                 }, 1000);
 
@@ -105,16 +108,16 @@
                 axios.post(`/tickets`, this.form)
                     .then(response => {
                         this.getUserTickets(this.receiver_id);
-                        /*  window.scroll({
-                              top: 0,
-                              left: 0,
-                          });*/
                         this.emptyForm();
                     })
                     .catch(error => this.errorNotify(error));
             },
             jDate(date) {
                 return moment(date).format('jYYYY/jM/jD H:m');
+            },
+            scrollBottom() {
+                let chat = document.getElementById("chat");
+                chat.scrollTop = chat.scrollHeight + 100;
             }
         }
     }

@@ -5119,7 +5119,9 @@ __webpack_require__.r(__webpack_exports__);
 
       setInterval(function () {
         axios.get("/tickets/list").then(function (response) {
-          return _this.tickets = response.data;
+          _this.tickets = response.data;
+
+          _this.scrollBottom();
         })["catch"](function (error) {
           return _this.errorNotify(error);
         });
@@ -5132,11 +5134,6 @@ __webpack_require__.r(__webpack_exports__);
       this.form.receiver_id = 1;
       axios.post("/tickets", this.form).then(function (response) {
         _this2.getTickets(_this2.receiver_id);
-        /*  window.scroll({
-              top: 0,
-              left: 0,
-          });*/
-
 
         _this2.emptyForm();
       })["catch"](function (error) {
@@ -5145,6 +5142,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     jDate: function jDate(date) {
       return moment(date).format('jYYYY/jM/jD H:m');
+    },
+    scrollBottom: function scrollBottom() {
+      var chat = document.getElementById("chat");
+      chat.scrollTop = chat.scrollHeight + 100;
     }
   }
 });
@@ -33700,7 +33701,8 @@ var render = function() {
             "div",
             {
               staticClass: "card-body",
-              staticStyle: { height: "250px", "overflow-y": "auto" }
+              staticStyle: { height: "250px", "overflow-y": "auto" },
+              attrs: { id: "chat" }
             },
             _vm._l(_vm.tickets, function(ticket, key) {
               return _c("div", { key: key, staticClass: "row" }, [
