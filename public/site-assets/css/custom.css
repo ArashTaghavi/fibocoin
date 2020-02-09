@@ -227,12 +227,16 @@ h2, p {
 .navbar-collapse.collapse.in {
     background: #1E2126 !important;
 }
-#footer-xs .panel-default, #footer-xs .panel-heading{
+
+#footer-xs .panel-default, #footer-xs .panel-heading {
     background-color: transparent !important;
 }
-#footer-xs .panel-body{
+
+#footer-xs .panel-body {
     text-align: center !important;
 }
+
+
 
 
 /*=================================== Site Template ===================================*/

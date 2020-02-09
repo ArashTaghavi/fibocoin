@@ -1,6 +1,6 @@
 <template>
     <card :title="`${$route.name}`">
-        <add-btn to="user"></add-btn>
+        <add-btn to="user"/>
         <div class="row">
             <div class="col-md-4">
                 <input type="text" class="form-control" v-model="search_value" @keypress.enter="handleSearch()"

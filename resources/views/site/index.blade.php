@@ -20,8 +20,8 @@
 													</span>
                                         </h1>
                                         <p>
-                                            با خرید و فروش ارز در سایت بیت کوین، دغدغه های امنیتی و وصول نقدینگی را
-                                            نخواهید داشت.
+                                            ترید به وقت فیبو کوین
+
                                         </p>
                                         <div class="row">
                                             <a href="/site-assets/#" class="bnc-btn" style="display:inline-block">درخواست
@@ -36,7 +36,7 @@
                                 <div class="row">
                                     <div class="col-md-10 video-container">
                                         <video src="https://as2.cdn.asset.aparat.com/aparat-video/de088529cd9e3d87bb58b7f8a239b49a18539284-144p__74885.mp4"
-                                               autoplay>
+                                             controls  autoplay>
 
                                         </video>
                                     </div>
@@ -99,8 +99,9 @@
                           <b>سرعت بالا</b>
                         </span>
                                         </h1>
-                                        <p> با خرید و فروش ارز در سایت بیت کوین، دغدغه های امنیتی و وصول نقدینگی را
-                                            نخواهید داشت.
+                                        <p>
+                                            ترید به وقت فیبو کوین
+
                                         </p>
                                         <a href="/site-assets/#" class="hero-btn">دانلود اپلیکیشن</a>
                                     </div>
@@ -133,8 +134,9 @@
                           <b>سرعت بالا</b>
                         </span>
                                         </h1>
-                                        <p> با خرید و فروش ارز در سایت بیت کوین، دغدغه های امنیتی و وصول نقدینگی را
-                                            نخواهید داشت.
+                                        <p>
+                                            ترید به وقت فیبو کوین
+
                                         </p>
                                         <a href="/site-assets/#" class="hero-btn">دانلود</a>
                                     </div>
@@ -251,7 +253,7 @@
                                 @if($currency->title === $c['currency']['title'])
                                     <tr>
                                         <td>{{$c['currency']['title']}} {{$c['currency']['symbol']}}</td>
-                                        <td>{{number_format($c['balance'])}}/ {{number_format($c['min_sale'])}}</td>
+                                        <td>{{($c['balance'])}}/ {{($c['min_sale'])}}</td>
                                         <td>{{number_format($c['unit_price'])}}</td>
                                         <td>{{jdate($c['created_at'])->format('Y/m/d')}}</td>
                                         <td>
@@ -413,23 +415,21 @@
             <div class="col-md-12 col-sm-12">
                 <div class="col-md-3">
                     <img src="/site-assets/images/support.svg" alt="support">
-                    <h4 style="color:#000;padding: 5px">پیشتبانی 24 ساعته</h4>
-                    <p style="color:#3c3c3c;padding: 5px">متن مورد نظر اینجا قرار میگیرد.</p>
+                    <h4 style="color:#000;padding: 5px">پیشتبانی</h4>
                 </div>
                 <div class="col-md-3">
                     <img src="/site-assets/images/blog.svg" alt="blog">
                     <h4 style="color:#000;padding: 5px">بلاگ فیبوکوین</h4>
-                    <p style="color:#3c3c3c;padding: 5px">متن مورد نظر اینجا قرار میگیرد.</p>
                 </div>
                 <div class="col-md-3">
                     <img src="/site-assets/images/community.svg" alt="community">
-                    <h4 style="color:#000;padding: 5px">نظرات کاربران</h4>
-                    <p style="color:#3c3c3c;padding: 5px">متن مورد نظر اینجا قرار میگیرد.</p>
+                    <h4 style="color:#000;padding: 5px">
+                        <a href="/comments" >نظرات کاربران</a>
+                    </h4>
                 </div>
                 <div class="col-md-3">
                     <img src="/site-assets/images/join-us.svg" alt="join-us">
                     <h4 style="color:#000;padding: 5px">همکاری با فیبوکوین</h4>
-                    <p style="color:#3c3c3c;padding: 5px">متن مورد نظر اینجا قرار میگیرد.</p>
                 </div>
             </div>
         </div>

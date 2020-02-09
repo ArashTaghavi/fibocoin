@@ -111,7 +111,14 @@ Route::middleware(['web', 'auth:web', 'IsUser'])->group(function () {
         Route::prefix('currency-user-payments')->name('currency-user-payments.')->group(function () {
             Route::get('/{id}', 'CurrencyUserPaymentController@index')->name('index');
         });
-        // ================================ Sell Orders ================================
+        // ================================ Currency User Payments ================================
+
+        // ================================ Tickets ================================
+        Route::prefix('tickets')->name('tickets.')->group(function () {
+            Route::get('/list', 'TicketController@list')->name('list');
+            Route::post('/', 'TicketController@store')->name('store');
+        });
+        // ================================ Tickets ================================
 
     });
 

@@ -16,19 +16,11 @@
     <!-- App styles -->
     <link rel="stylesheet" href="/dashboard-assets/css/app.min.css">
     <link rel="stylesheet" href="/dashboard-assets/css/custom.css">
-    <style>
-        video {
-            width: 100%;
-            position: fixed;
-        }
-    </style>
+
 </head>
 
 <body data-sa-theme="2">
-<video loop="" muted="" autoplay="" class="fullscreen-bg__video">
-    <source src="/site-assets/video/price_chart_anime.mp4" type="video/mp4">
-    <source src="/site-assets/video//price_chart_anime.webm" type="video/webm">
-</video>
+
 <div id="app"></div>
 
 <!-- Javascript -->
@@ -50,5 +42,6 @@
 <!-- App functions and actions -->
 <script src="/dashboard-assets/js/app.min.js"></script>
 <script src="/admin-js/app.js"></script>
+
 </body>
 </html>

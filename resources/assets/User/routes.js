@@ -9,6 +9,8 @@ import Notifications from './Components/Notifications/Index';
 
 import WalletAdd from './Components/Wallet/Add';
 
+import Tickets from './Components/Tickets/Index';
+
 
 // =================== Documents ===================
 import Documents from './Components/Documents/Index';
@@ -96,6 +98,7 @@ export default [
     {path: '/wallets/add', name: 'افزایش موجودی کیف پول', component: WalletAdd},
 
     {path: '/financial', name: 'گزارشات مالی', component: Financial},
+    {path: '/tickets', name: 'تیکت ها', component: Tickets},
 
 
 ]

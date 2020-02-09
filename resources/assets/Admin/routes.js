@@ -4,8 +4,12 @@ import Profile from './Components/Profile/Index';
 import ChangePassword from './Components/Profile/ChangePassword';
 
 import Wallet from './Components/Users/Wallet';
+import Comments from './Components/Comments/Index';
 
+import Slider from './Components/Slider/Index';
+import SliderCreate from './Components/Slider/Create';
 
+import Tickets from './Components/Tickets/Index';
 // ================= Users =================
 import Users from './Components/Users/Index';
 import UserDetail from './Components/Users/Detail';
@@ -15,12 +19,12 @@ import UserCards from './Components/Users/Cards';
 import UserDocuments from './Components/Users/Documents';
 import UserPaymentRequests from './Components/Users/PaymentRequests';
 import UserCreate from './Components/Users/Create';
-// ================= Users =================
-
 // ================= Currencies =================
 import Currencies from './Components/Currencies/Index';
 import CurrencyCreate from './Components/Currencies/Create';
 import CurrencyEdit from './Components/Currencies/Edit';
+// ================= Users =================
+
 // ================= Currencies =================
 
 
@@ -46,6 +50,15 @@ export default [
     {path: '/currencies/create', name: 'ثبت ارز', component: CurrencyCreate},
     {path: '/currencies/:id/edit', name: 'ویرایش ارز', component: CurrencyEdit},
     // ============================ Currencies ============================
+
+    // ============================ Currencies ============================
+    {path: '/sliders', name: 'لیست تصاویر اسلایدر', component: Slider},
+    {path: '/sliders/create', name: 'ایجاد تصویر اسلایدر', component: SliderCreate},
+    // ============================ Currencies ============================
+
+
+    {path: '/comments', name: 'لیست نظرات', component: Comments},
+    {path: '/tickets', name: 'تیکت ها', component: Tickets},
 
     {path: '/user/:id/wallet', name: 'موجودی کاربر', component: Wallet},
 

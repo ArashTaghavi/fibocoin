@@ -2,15 +2,15 @@
 
 namespace App;
 
+use App\EloquentHelpers\HasImage;
 use App\Models\Card;
 use App\Models\CurrencyUser;
 use App\Models\Document;
 use App\Models\PaymentRequest;
+use App\Models\Ticket;
 use App\Models\Wallet;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\EloquentHelpers\HasImage;
 
 class User extends Authenticatable
 {
@@ -72,5 +72,15 @@ class User extends Authenticatable
     public function wallet()
     {
         return $this->hasOne(Wallet::class);
+    }
+
+    public function sender()
+    {
+        return $this->hasOne(Ticket::class, 'sender_id');
+    }
+
+    public function receiver()
+    {
+        return $this->hasOne(Ticket::class, 'receiver_id');
     }
 }

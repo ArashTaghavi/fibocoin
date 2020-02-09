@@ -44,6 +44,18 @@
                     </router-link>
                 </li>
                 <li class="@@widgetactive">
+                    <router-link to="/comments">
+                        <i class="zmdi zmdi-comment"></i>
+                        مدیریت نظرات
+                    </router-link>
+                </li>
+                <li class="@@widgetactive">
+                    <router-link to="/tickets">
+                        <i class="zmdi zmdi-comment"></i>
+                        مدیریت تیکت ها
+                    </router-link>
+                </li>
+                <li class="@@widgetactive">
                     <router-link to="/change-password">
                         <i class="zmdi zmdi-lock"></i>
                         تغییر کلمه عبور

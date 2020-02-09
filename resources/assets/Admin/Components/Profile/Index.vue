@@ -55,7 +55,6 @@
 
 <script>
     export default {
-
         created() {
             axios.get('/profile')
                 .then(response => this.form = response.data)

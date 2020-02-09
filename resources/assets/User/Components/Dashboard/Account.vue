@@ -21,7 +21,8 @@
             <card title="ثبت کارت بانکی" :active_loading=false>
                 <div class="row">
                     <div class="col-md-12 m-3">
-                        <h6 class="text-warning">مالک کارت باید با اطلاعات نام و نام خانوادگی وارد شده در قسمت پروفایل و کارت ملی بارگذاری شده یکسان باشد.</h6>
+                        <h6 class="text-danger" style="background: #fff;padding: 12px;border-radius: 5px;">مالک کارت باید با اطلاعات نام و نام خانوادگی وارد شده در قسمت پروفایل و
+                            کارت ملی بارگذاری شده یکسان باشد.</h6>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
@@ -33,7 +34,8 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="card_no" class="required">شماره کارت</label>
-                            <img v-if="bank_logo!==''" :src="bank_logo" width="20px" style="position:absolute;top:25px;left:0"
+                            <img v-if="bank_logo!==''" :src="bank_logo" width="20px"
+                                 style="position:absolute;top:25px;left:0"
                                  alt="bank_logo">
                             <input type="text"
                                    @keyup="handleChange"
@@ -51,14 +53,14 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="sheba_no" >شبا</label>
+                            <label for="sheba_no">شبا</label>
                             <input type="text" v-model="form.sheba_no" id="sheba_no"
                                    class="form-control form-control-sm" placeholder="شماره شبای را اینجا وارد نمایید.">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <label for="is_default">
-                            تنظیم به عنوان کارت پیش فرض
+                            تنظیم به عنوان حساب پیش فرض
                         </label>
                         <input type="checkbox" v-model="form.is_default" id="is_default">
                     </div>
@@ -77,7 +79,7 @@
                     <tbody>
                     <tr v-for="card in cards">
                         <td>{{card.bank_name}}
-                        {{card.is_default==1 ? '( پیش فرض )' : ''}}
+                            {{card.is_default==1 ? '( پیش فرض )' : ''}}
                         </td>
                         <td>{{card.card_no}}</td>
                         <td v-html=approved(card.approved)></td>
@@ -96,7 +98,7 @@
         data() {
             return {
                 cards: [],
-                bank_logo:''
+                bank_logo: ''
             }
         },
         created() {
@@ -130,25 +132,24 @@
                 let cn = this.form.card_no;
 
                 let dir = '/site-assets/images/bank-icon/';
-                if (cn.search(627353)!=-1)
+                if (cn.search(627353) != -1)
                     return this.bank_logo = `${dir}tejarat.ico`;
-                else if (cn.search(589210)!=-1)
+                else if (cn.search(589210) != -1)
                     return this.bank_logo = `${dir}sepah.ico`;
-                else if (cn.search(627648)!=-1)
+                else if (cn.search(627648) != -1)
                     return this.bank_logo = `${dir}saderat.ico`;
-                else if (cn.search(636214)!=-1)
+                else if (cn.search(636214) != -1)
                     return this.bank_logo = `${dir}ayande.ico`;
-                else if (cn.search(627884)!=-1)
+                else if (cn.search(627884) != -1)
                     return this.bank_logo = `${dir}tose-e.png`;
-                else if (cn.search(610433)!=-1)
+                else if (cn.search(610433) != -1)
                     return this.bank_logo = `${dir}mellat.ico`;
-                else if (cn.search(603770)!=-1)
+                else if (cn.search(603770) != -1)
                     return this.bank_logo = `${dir}keshavarzi.ico`;
-                else if (cn.search(622106)!=-1)
+                else if (cn.search(622106) != -1)
                     return this.bank_logo = `${dir}parsian.ico`;
-                else if (cn.search(621986)!=-1)
+                else if (cn.search(621986) != -1)
                     return this.bank_logo = `${dir}saman.ico`;
-
 
 
                 else

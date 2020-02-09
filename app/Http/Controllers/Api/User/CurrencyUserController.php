@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CurrencyUserController extends Controller
 {
+
     public function index()
     {
         return CurrencyUser::with('currency')

@@ -100,13 +100,13 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
                                         <span class="glyphicon glyphicon-plus"></span>
                                         ﮐﺎرﻣزد ﺧدﻣﺎت ﻓﯾﺑوﮐوﯾن ﭼﻘدر اﺳت ؟
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseFour" class="panel-collapse collapse">
+                            <div id="collapseFive" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p>
                                         . )ﻧﯾم درﺻد (از ھر ﯾﮏ از طرﻓﯾن ﻣﻌﺎﻣﻠﮫ ﺑﮫ ﻋﻧوان ﮐﺎرﻣزد ﮐﺳر ﻣﯽ ﮔردد ۰٫۵٪ ﺑﺎﺑت ھر
@@ -119,13 +119,13 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
                                         <span class="glyphicon glyphicon-plus"></span>
                                         ﺗﻌﯾﯾن ﻗﯾﻣت ھﺎی ﭘﯾﺷﻧﮭﺎدی ﭼﮕوﻧﮫ اﺳت ؟
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseFour" class="panel-collapse collapse">
+                            <div id="collapseSix" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p>ﻣﺎ ھﯾﭻ ﮔوﻧﮫ دﺧﺎﻟﺗﯽ در ﺗﻌﯾﯾن ﻗﯾﻣت ارزھﺎی دﯾﺟﯾﺗﺎﻟﯽ ﮐﮫ ﺑرای ﻓروش ﺛﺑت ﻣﯽ ﺷوﻧد ﻧدارﯾم
                                         و اﯾن ﻓروﺷﻧده اﺳت ﮐﮫ ﺗﻌﯾﯾن ﻣﯽ ﮐﻧد ﺑﺎ ﭼﮫ ﻗﯾﻣﺗﯽ ﻣﯽ ﺧواھد ارز دﯾﺟﯾﺗﺎل ﺧود را
@@ -137,13 +137,13 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
                                         <span class="glyphicon glyphicon-plus"></span>
                                         اﻧﺟﺎم ﺗﺳوﯾﮫ ﺣﺳﺎب و وارﯾز وﺟﮫ ﺑﮫ ﻓروﺷﻧده ﭼﻘدر زﻣﺎن ﻣﯾﺑرد ؟
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseFour" class="panel-collapse collapse">
+                            <div id="collapseSeven" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p>
                                         ﭘس از اﻧﺟﺎم ھر ﺗراﮐﻧش ﻣوﻓق ﻣﻌﺎدل ﻣﺑﻠﻎ ﻓروش ﻣﻧﮭﺎی ﮐﺎرﻣزد ﻓﯾﺑوﮐوﯾن در ﺣﺳﺎب ﮐﺎرﺑری
@@ -157,12 +157,12 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
                                         <span class="glyphicon glyphicon-plus"></span>
                                         اﮔر ﭘس از وارﯾز وﺟﮫ ﺗوﺳط ﺧرﯾدار ﻓروﺷﻧده اﻧﺗﻘﺎل را اﻧﺟﺎم ﻧدھد ﭼﮫ ؟ </a>
                                 </h4>
                             </div>
-                            <div id="collapseFour" class="panel-collapse collapse">
+                            <div id="collapseEight" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p>
                                         ﺳﻔﺎرش ﻟﻐو ﺷده و ﻣﺑﻠﻎ ﭘرداﺧﺗﯽ ﺗوﺳط ﺧرﯾدار اﺳﺗرداد ﺧواھد ﺷد ھﻣﭼﻧﯾن ﺣﺳﺎب ﮐﺎرﺑری
@@ -174,12 +174,12 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseNone">
                                         <span class="glyphicon glyphicon-plus"></span>
                                         آﯾﺎ اﻣﮑﺎن ﭘرداﺧت آﻓﻼﯾن وﺟود دارد ؟ </a>
                                 </h4>
                             </div>
-                            <div id="collapseFour" class="panel-collapse collapse">
+                            <div id="collapseNine" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p>
                                         ﺗﻧﮭﺎ ﺑﺎ ھﻣﺎھﻧﮕﯽ واﺣد ﭘﺷﺗﯾﺑﺎﻧﯽ ﻓﯾﺑو ﮐوﯾن اﻣﮑﺎن ﭘرداﺧت ﺑﺻورت ﮐﺎرت ﺑﮫ ﮐﺎرت و ﯾﺎ
@@ -191,12 +191,12 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTen">
                                         <span class="glyphicon glyphicon-plus"></span>
                                         آﯾﺎ ﻓﯾﺑوﮐوﯾن ﺧرﯾد و ﻓروش ارز ھﺎی دﯾﺟﯾﺗﺎل اﻧﺟﺎم ﻣﯾدھد ؟ </a>
                                 </h4>
                             </div>
-                            <div id="collapseFour" class="panel-collapse collapse">
+                            <div id="collapseTen" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p>
                                         ﻓﯾﺑوﮐوﯾن ﺑﮫ ھﯾﭻ ﻋﻧوان ﺧرﯾد و ﻓروش ارزھﺎی دﯾﺟﯾﺗﺎل را اﻧﺟﺎم ﻧداده و ﺗﻧﮭﺎ ﺳﺎﻣﺎﻧﮫ

@@ -72,11 +72,13 @@
 <body id="home">
 
 <!-- Preloader starts-->
-<div id="loading">
-    <div class="load-circle">
-        <img src="/site-assets/images/logo.png" width="150px" alt="logo">
+<div id="loading" style="background-color:#000 ">
+    <div class="load-circle" style="height: 220px;width: 220px">
+        <img src="/site-assets/images/logo.png" style="width: 250px !important;" alt="logo">
+        <p class="text-center" style="color: #fff">تردید به وقت فیبوکوین</p>
     </div>
 </div>
+
 <!-- Preloader ends -->
 
 <!-- Navigation area starts -->
@@ -96,16 +98,51 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
+                            <ul class="navbar2" style="display: none">
+                                @if(!Auth::check())
+                                    <li>
+                                        <a href="/register">
+                                            <button class="register-btn">Register</button>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a style="color: #fff" href="/login">LogIn</a>
+                                    </li>
+                                @else
+                                    <li>
+                                        <a href="{{$panel_address}}">
+                                            <button class="register-btn">پنل کاربری</button>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/logout">
+                                            <button class="register-btn">خروج</button>
+                                        </a>
+                                    </li>
+                                @endif
+                                <li style="padding-left: 0">
+                                    <a href="/">
+                                        <img src="/site-assets/images/logo.png" width="148px" alt="">
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                         <div class="navbar-collapse collapse">
                             <nav>
+
                                 <ul class="nav navbar-nav navbar-left">
-                                    <li><a class="smooth_scroll" href="#price"> بازار</a></li>
-                                    <li><a class="smooth_scroll" href="#orders">سفارشات</a></li>
-                                    <li><a class="smooth_scroll" href="#feature">بلاگ</a></li>
-                                    <li><a class="smooth_scroll" href="/questions">ماشین حساب</a></li>
+                                    <li>
+                                        <a href="/">صفحه اصلی</a>
+                                    </li>
+                                    @php request()->route()->getName()!='index' ? $url = "/" :$url= ''@endphp
+                                    @php request()->route()->getName()!='index' ?$smooth ='' : $smooth='smooth_scroll' @endphp
+                                    <li><a class="{{$smooth}}" href="{{$url}}#price"> بازار</a></li>
+                                    <li><a class="{{$smooth}}" href="{{$url}}#orders">سفارشات</a></li>
+                                    <li><a class="{{$smooth}}" href="{{$url}}#feature">بلاگ</a></li>
+                                    <li><a class="{{$smooth}}" href="/questions">ماشین حساب</a></li>
                                     <li><a class="why-fibocoin" href="/why-fibocoin">چرا فیبوکوین</a></li>
-                                    <li><a class="smooth_scroll" href="#contact">پشتیبانی</a></li>
+                                    <li><a class="{{$smooth}}" href="{{$url}}#contact">پشتیبانی</a></li>
                                     <li><a href="/questions">سوالات متداول</a></li>
                                     {{--      @if(!Auth::check())
                                               <li><a style="display:inline-block" href="/login">ورود / </a><a style="display:inline-block" href="/register">ثبت نام</a></li>
@@ -116,7 +153,7 @@
                                           @endif--}}
                                 </ul>
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li id="app-qrcode">
+                                    {{--<li id="app-qrcode">
                                         <a href="" style="position: absolute;top: -18px;">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"
                                                  class="dp-dl">
@@ -135,7 +172,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
+                                    </li>--}}
                                     @if(!Auth::check())
                                         <li>
                                             <a href="/register">
@@ -152,6 +189,11 @@
                                                 <button class="register-btn">پنل کاربری</button>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/logout">
+                                                <button class="register-btn">خروج</button>
+                                            </a>
+                                        </li>
                                     @endif
                                     <li style="padding-left: 0">
                                         <a href="/">
@@ -159,9 +201,10 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </nav>
-                        </div>
 
+                            </nav>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -294,10 +337,6 @@
                 <p>
                     <i class="fa fa-phone"></i>
                     تلفن : ٠٢١۲۲۳۲۱۱۴۹
-                </p>
-                <p>
-                    <i class="fa fa-support"></i>
-                    پشتیبانی تلگرام و واتس اپ: ۰۹۰۲۳۰۰۸۵۰۲
                 </p>
             </div>
             <div class="col-sm-2">

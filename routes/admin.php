@@ -50,9 +50,32 @@ Route::middleware(['web', 'auth:web', 'IsAdmin'])->group(function () {
             Route::delete('/{currency}', 'CurrencyController@destroy')->name('destroy');
         });
         // ================================ Currency ================================
+
+        // ================================ Sliders ================================
+        Route::prefix('sliders')->name('sliders.')->group(function () {
+            Route::get('/', 'SliderController@index')->name('index');
+            Route::post('/', 'SliderController@store')->name('store');
+            Route::get('/published/{slider}', 'SliderController@published')->name('published');
+            Route::delete('/{slider}', 'SliderController@destroy')->name('destroy');
+        });
+        // ================================ Sliders ================================
+
+        // ================================ Comments ================================
+        Route::prefix('comments')->name('comments.')->group(function () {
+            Route::get('/', 'CommentController@index')->name('index');
+            Route::get('/approved/{comment}', 'CommentController@approved')->name('approved');
+            Route::delete('/{comment}', 'CommentController@destroy')->name('destroy');
+        });
+        // ================================ Comments ================================
+
+        // ================================ Tickets ================================
+        Route::prefix('tickets')->name('tickets.')->group(function () {
+            Route::get('/user-list/{search_value?}', 'TicketController@user_list')->name('user-list');
+            Route::get('/get-by-user-id/{id}', 'TicketController@getByUserId')->name('get-by-user-id');
+            Route::post('/', 'TicketController@store')->name('store');
+        });
+        // ================================ Tickets ================================
     });
-
-
 });
 
 

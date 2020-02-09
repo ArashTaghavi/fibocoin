@@ -23,6 +23,7 @@ Vue.use(axios);
 Vue.use(VueRouter);
 
 
+
 // ================== VueRouter Config ==================
 let router = new VueRouter({
     routes,
@@ -30,6 +31,7 @@ let router = new VueRouter({
     base: 'user-dashboard/'
 });
 Vue.router = router;
+
 
 //  ================== Components  ==================
 Vue.component('submit', () => import('./../common/Components/SubmitButton'));
@@ -53,8 +55,8 @@ import App from './App.vue';
 window.Vue = Vue;
 
 router.beforeEach((to, from, next) => {
-    document.title = ` پنل کاربری - ${to.name}`
-    next()
+    document.title = ` پنل کاربری - ${to.name}`;
+    next();
 });
 
 window.app = new Vue({
@@ -63,3 +65,6 @@ window.app = new Vue({
     components: {App},
     render: h => h(App)
 });
+
+
+

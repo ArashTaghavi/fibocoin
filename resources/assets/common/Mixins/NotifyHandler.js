@@ -20,7 +20,6 @@ export default {
             });
         },
         errorNotify(error) {
-            console.log(error);
             Toast.fire({
                 title: error.response.data.message,
                 icon: 'error',

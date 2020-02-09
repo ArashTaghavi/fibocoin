@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Currency;
 use App\Models\CurrencyUser;
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class SiteController extends Controller
 {
+
+
     public function index()
     {
         $this->binanceApiConfig();
@@ -46,13 +50,6 @@ class SiteController extends Controller
         print_r($prices);
         die();*/
 
-        $panel_address = '#';
-        if (Auth::check()) {
-            if (Auth::user()->is_admin == User::ADMIN)
-                $panel_address = "/admin-dashboard";
-            if (Auth::user()->is_admin != User::ADMIN)
-                $panel_address = "/user-dashboard";
-        }
 
         // ========== Currency Users ==========
         $cu = CurrencyUser::with(['currency:currencies.title,currencies.id,currencies.symbol'])
@@ -61,7 +58,13 @@ class SiteController extends Controller
         // ========== Currency Users ==========
 
         $prices = array_slice($prices, 1, 6);
-
+        $panel_address = '#';
+        if (Auth::check()) {
+            if (Auth::user()->is_admin == User::ADMIN)
+                $panel_address = "/admin-dashboard";
+            if (Auth::user()->is_admin != User::ADMIN)
+                $panel_address = "/user-dashboard";
+        }
         return view('site.index', compact('panel_address', 'cu', 'prices', 'currencies'));
     }
 
@@ -72,12 +75,53 @@ class SiteController extends Controller
 
     public function why_fibocoin()
     {
-        return view('site.why-fibocoin');
+        $panel_address = '#';
+        if (Auth::check()) {
+            if (Auth::user()->is_admin == User::ADMIN)
+                $panel_address = "/admin-dashboard";
+            if (Auth::user()->is_admin != User::ADMIN)
+                $panel_address = "/user-dashboard";
+        }
+
+        return view('site.why-fibocoin', compact('panel_address'));
     }
 
     public function blog()
     {
         return view('blog');
+    }
+
+    public function comments()
+    {
+        $comments = Comment::where('approved', 1)->get();
+        $panel_address = '#';
+        if (Auth::check()) {
+            if (Auth::user()->is_admin == User::ADMIN)
+                $panel_address = "/admin-dashboard";
+            if (Auth::user()->is_admin != User::ADMIN)
+                $panel_address = "/user-dashboard";
+        }
+
+        return view('site.comments', compact('comments', 'panel_address'));
+
+    }
+
+    public function store_comment(Request $request)
+    {
+        $comment = new Comment();
+        if (Auth::check()) {
+            $user = Auth::user();
+            $comment->full_name = $user->first_name . ' ' . $user->last_name;
+            $comment->email = $user->email;
+            $comment->description = $request->description;
+        } else {
+            $comment->fill($request->all());
+        }
+        $comment->save();
+
+        return back()->with('save_comment', 'نظر شما با موفقیت ثبت شد و پس از تایید مدیر نمایش داده می شود.');
+
+
     }
 
 

@@ -84,15 +84,21 @@ class ProfileController extends Controller
         }
 
         if ($user_info->documents != null) {
-            foreach ($user_info->documents as $document) {
-                if ($document->approved == Document::WAITING || $document->approved == Document::REJECT) {
-                    $status = 0;
-                    break;
+            if (count($user_info->documents) > 2) {
+                foreach ($user_info->documents as $document) {
+                    if ($document->approved == Document::WAITING || $document->approved == Document::REJECT) {
+                        $status = 0;
+                        break;
+                    }
                 }
+            } else {
+                $status = 0;
             }
+        } else {
+            $status = 0;
         }
 
-        return $status;
+        return 1;
     }
 
     public function handleValidate($request)

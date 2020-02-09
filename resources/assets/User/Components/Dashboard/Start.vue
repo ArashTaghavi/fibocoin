@@ -50,7 +50,7 @@
                         <i class="zmdi zmdi-help-outline text-warning"
                            title="وارد کردن تلفن ضروری برای زمانی است که شما به هر دلیلی توسط شماره موبایل یا ثابت در دسترس نباشید."
                         ></i>
-                        تلفن ضروری
+                        شماره تماس اضطراری
                     </label>
                     <input type="text" id="sos_phone" v-model="form.sos_phone"
                            class="form-control form-control-sm"
@@ -65,11 +65,7 @@
                               placeholder="آدرس"></textarea>
                 </div>
             </div>
-            <div class="col-md-12 text-right mt-3">
-                <div class="form-group">
-                    <cropper-portlet v-model="form.profile_image" title="تصویر شاخص" place="right"/>
-                </div>
-            </div>
+
             <submit @click="handleSubmit"/>
         </div>
         <div class="row" v-else>

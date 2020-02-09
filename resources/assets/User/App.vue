@@ -20,7 +20,7 @@
         created() {
             axios.get('/profile').then(response => {
                 localStorage.setItem('USER_INFORMATION', JSON.stringify(response.data));
-            }).catch(error => this.errorNotify(error))
+            }).catch(error => this.errorNotify(error));
         },
         components: {Header, Sidebar, Theme}
     }
