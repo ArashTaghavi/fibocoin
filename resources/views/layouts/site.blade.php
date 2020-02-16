@@ -75,7 +75,7 @@
 <div id="loading" style="background-color:#000 ">
     <div class="load-circle" style="height: 220px;width: 220px">
         <img src="/site-assets/images/logo.png" style="width: 250px !important;" alt="logo">
-        <p class="text-center" style="color: #fff">تردید به وقت فیبوکوین</p>
+        <p class="text-center" style="color: #fff">ترید به وقت فیبوکوین</p>
     </div>
 </div>
 
@@ -514,7 +514,9 @@
             $('#orders_table+i').DataTable({searching: false, paging: false, info: false});
         }
     });
+
 </script>
+
 @yield('end-script')
 </body>
 

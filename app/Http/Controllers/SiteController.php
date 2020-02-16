@@ -5,12 +5,30 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Currency;
 use App\Models\CurrencyUser;
+use App\Models\Slider;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class SiteController extends Controller
 {
+
+/*    public function mail($email)
+    {
+        $url = 'http:xoapp.ir/reset-password';
+
+
+        $user = User::where('email',$email)->first();
+        if($user!=null){
+
+            $data = array('name' => "پشتیبانی xoapp");
+            Mail::send(['text' => 'mail'], $data, function ($message) {
+                $message->to('arash.taghavi69@gmail.com', 'تغییر کلمه عبور')->subject('تغییر کلمه عبور');
+                $message->from('xyz@gmail.com', 'پشتیبانی xoapp');
+            });
+        }
+    }*/
 
 
     public function index()
@@ -50,7 +68,6 @@ class SiteController extends Controller
         print_r($prices);
         die();*/
 
-
         // ========== Currency Users ==========
         $cu = CurrencyUser::with(['currency:currencies.title,currencies.id,currencies.symbol'])
             ->orderBy('unit_price', 'asc')->get()->toArray();
@@ -65,7 +82,8 @@ class SiteController extends Controller
             if (Auth::user()->is_admin != User::ADMIN)
                 $panel_address = "/user-dashboard";
         }
-        return view('site.index', compact('panel_address', 'cu', 'prices', 'currencies'));
+        $sliders = Slider::published()->get();
+        return view('site.index', compact('panel_address', 'cu', 'prices', 'currencies','sliders'));
     }
 
     public function questions()
@@ -93,7 +111,7 @@ class SiteController extends Controller
 
     public function comments()
     {
-        $comments = Comment::where('approved', 1)->get();
+        $comments = Comment::where('approved', 1)->paginate(10);
         $panel_address = '#';
         if (Auth::check()) {
             if (Auth::user()->is_admin == User::ADMIN)

@@ -14,25 +14,28 @@
                 @endif
                 <div class="col-md-8 col-md-offset-2 col-sm-12">
                     <div class="comment-wrapper">
-                        <div class="panel panel-info">
+                        <div class="panel panel-default">
                             <div class="panel-heading">ثبت نظر</div>
                             <div class="panel-body">
                                 <form action="{{route('store-comment')}}" method="POST">
                                     @csrf
                                     @if(!\Illuminate\Support\Facades\Auth::check())
                                         <div class="form-group">
-                                            <input type="text" name="full_name" placeholder="نام کامل" class="form-control">
+                                            <label class="required" for="full_name">نام کامل</label>
+                                            <input type="text" name="full_name" id="full_name" placeholder="نام کامل" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" name=email" placeholder="ایمیل" class="form-control">
+                                            <label for="email">ایمیل</label>
+                                            <input type="text" id="email" name=email" placeholder="ایمیل" class="form-control">
                                         </div>
                                     @endif
                                     <div class="form-group">
-                                        <textarea class="form-control" name="description" placeholder="لطفا نظر خود را وارد نمایید..."
+                                        <label for="description" class="required">توضیحات</label>
+                                        <textarea class="form-control" id="description" name="description" placeholder="لطفا نظر خود را وارد نمایید..."
                                                   rows="3"></textarea>
                                     </div>
                                     <br>
-                                    <button type="submit" class="btn btn-info pull-right">ارسال</button>
+                                    <button type="submit" class="register-btn pull-right">ارسال</button>
                                 </form>
                                 <div class="clearfix"></div>
                                 <hr>
@@ -41,8 +44,8 @@
                                         <li class="media">
                                             <div class="media-body">
                                             <span class="text-muted pull-right">
-                                                <small class="text-muted">
-                                                    {{jdate($comment->created_at)}}
+                                                <small class="text-muted" style="font-size: 11px">
+                                                    {{\Morilog\Jalali\CalendarUtils::convertNumbers(jdate($comment->created_at))}}
                                                 </small>
                                             </span>
                                                 <strong class="text-success">
@@ -53,9 +56,10 @@
                                                 </p>
                                             </div>
                                         </li>
-                                        <li class="divider"></li>
+                                        <li class="hr2"></li>
                                     @endforeach
                                 </ul>
+                                {{$comments->links()}}
                             </div>
                         </div>
                     </div>

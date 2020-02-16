@@ -1,62 +1,35 @@
 <template>
     <card :title="`${$route.name}`">
-        <div class="row mb-2">
-            <div class="col-md-2">
-                <icon-btn style="width:100%" type="info" @click="search(1)">در انتظار پرداخت</icon-btn>
-            </div>
-            <div class="col-md-2">
-                <icon-btn style="width:100%" type="danger" @click="search(0)">تایید نشده</icon-btn>
-            </div>
-            <div class="col-md-2">
-                <icon-btn style="width:100%" type="warning" @click="search(2)">در انتظار بررسی</icon-btn>
-            </div>
-            <div class="col-md-2">
-                <icon-btn style="width:100%" type="success" @click="search(3)">پرداخت شده</icon-btn>
-            </div>
-            <div class="col-md-2">
-                <icon-btn style="width:100%" type="info" @click="getSellOrders()">همه</icon-btn>
-            </div>
-        </div>
-        <div class="row" v-if="sell_orders.length>0">
-            <div class="col-md-4" v-for="(sell_order,index) in sell_orders" :key=index>
-                <div class="card">
-                    <icon-btn type="success" style="position:absolute;left:5px;top:5px" v-if="sell_order.status==2"
-                              icon="check" @click="handleStatus(sell_order.id,1)">تایید
-                    </icon-btn>
-                    <icon-btn type="danger" style="position:absolute;left:70px;top:5px" v-if="sell_order.status==2"
-                              icon="close" @click="handleStatus(sell_order.id,0)">رد
-                    </icon-btn>
-                    <icon-btn type="info" style="position:absolute;left:5px;top:5px" v-if="sell_order.status==1"
-                              icon="check" @click="handleStatus(sell_order.id,3)">پرداخت
-                    </icon-btn>
-                    <div class="card-body">
-                        <p>نوع ارز : {{sell_order.currencies_user.currency.title}}
-                            ({{sell_order.currencies_user.currency.symbol}})</p>
-                        <p>مبلغ خریداری شده : {{sell_order.amount}} تومان</p>
-                        <p>تاریخ درخواست :
-                            {{jDate(sell_order.created_date)}}
-                        </p>
-                        <p v-html=status(sell_order.status) class="text-center">
-                        </p>
-                        <textarea v-if="sell_order.status==1 || sell_order.status==2" name="" class="form-control form-control-sm"
-                                  v-model="form.description[sell_order.id]"
-                                  id="" cols="5" rows="5"
-                                  placeholder="توضیحات"
-                        ></textarea>
-                    </div>
-                </div>
-            </div>
+        <div class="row" v-if="payments.currency_user_payments!=null">
+            <table class="table table-hover mb-0 table-responsive">
+                <thead>
+                <tr>
+                    <th>مبلغ پرداخت شده</th>
+                    <th>میزان ارز خریداری شده</th>
+                    <th>وضعیت</th>
+                    <th>توضیحات</th>
+                    <th>تاریخ</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="payment in payments.currency_user_payments">
+                    <td>{{payment.amount}}</td>
+                    <td>{{payment.value}}</td>
+                    <td v-html=status(payment.status)></td>
+                    <td>{{payment.description}}</td>
+                    <td>{{jDate(payment.updated_at)}}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
         <not-found v-else/>
     </card>
-
-
 </template>
 <script>
     export default {
         data() {
             return {
-                sell_orders: []
+                payments: {}
             }
         },
         created() {
@@ -66,7 +39,7 @@
         methods: {
             getSellOrders() {
                 axios.get(`/users/sell-orders/${this.$route.params.id}`)
-                    .then(response => this.sell_orders = response.data)
+                    .then(response => this.payments = response.data)
                     .catch(error => this.errorNotify(error));
             },
             status(status) {
@@ -86,7 +59,7 @@
             },
             search(status) {
                 axios.get(`/users/sell-order-search/${this.$route.params.id}/${status}`)
-                    .then(response => this.sell_orders = response.data)
+                    .then(response => this.payments = response.data)
                     .catch(error => this.errorNotify(error));
             },
             handleStatus(id, status) {

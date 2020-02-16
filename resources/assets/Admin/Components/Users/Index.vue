@@ -17,6 +17,7 @@
                     <th>نام</th>
                     <th>موبایل</th>
                     <th>موجودی</th>
+                    <th>وضعیت</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -26,6 +27,10 @@
                     <td>{{user.mobile}}</td>
                     <td>
                         {{user.wallet!=null ? user.wallet.amount : 0}} ریال
+                    </td>
+                    <td>
+                        <icon-btn type="success" icon="check" v-if="user.is_block==0">فعال</icon-btn>
+                        <icon-btn type="sanger" icon="stop" v-if="user.is_block==1">مسدود</icon-btn>
                     </td>
                     <td>
                         <div class="btn-group" role="group">

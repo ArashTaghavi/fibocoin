@@ -15,6 +15,7 @@ class CurrencyUserController extends Controller
     {
         return CurrencyUser::with('currency')
             ->where('user_id', Auth::id())
+            ->orderBy('created_at','DESC')
             ->get();
     }
 
@@ -78,5 +79,13 @@ class CurrencyUserController extends Controller
         
         return compact('sell', 'buy');
 
+    }
+
+    public function getByIdFromSite($id)
+    {
+        return CurrencyUser::with('currency')
+            ->where('id', $id)
+            ->orderBy('created_at','DESC')
+            ->first();
     }
 }

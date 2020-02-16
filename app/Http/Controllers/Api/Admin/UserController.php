@@ -23,7 +23,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::with('wallet')->where('is_admin', '!=', 1)->get();
+        $users = User::with('wallet')->where('is_admin', '!=', 1)->orderBy('created_at','DESC')->get();
 
         return $users;
     }
@@ -48,11 +48,9 @@ class UserController extends Controller
 
     public function sell_orders($id)
     {
-        return CurrencyUserPayment::whereHas('currenciesUser', function ($query) use ($id) {
-            $query->where('currency_user_id', $id);
-        })->with(['currenciesUser' => function ($query) {
-            $query->with('currency');
-        }])->get();
+        return CurrencyUser::with('currencyUserPayments')
+            ->where('user_id', $id)
+            ->first();
     }
 
 
@@ -185,7 +183,6 @@ class UserController extends Controller
 
             if (!$uppercase || !$lowercase || !$number || strlen($request->password) < 8) {
                 $validator->errors()->add('password', 'پسورد باید شامل حروف کوچک، بزرگ و عدد باشد.');
-
             }
         });
         if ($validator->fails()) {

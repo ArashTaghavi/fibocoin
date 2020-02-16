@@ -7,6 +7,7 @@
                 <tr>
                     <th>مبلغ پرداختی</th>
                     <th>نوع ارز</th>
+                    <th>مقدار ارز (واحد)</th>
                     <th>وضعیت</th>
                     <th>عملیات</th>
                 </tr>
@@ -15,6 +16,7 @@
                 <tr v-for="buy_order in buy_orders">
                     <td>{{buy_order.amount}}</td>
                     <td>{{buy_order.currency.title}} ({{buy_order.currency.symbol}})</td>
+                    <td>{{buy_order.unit}}</td>
                     <td v-html=status(buy_order.status)></td>
                     <td>
                         <div v-if="buy_order.status !==3">

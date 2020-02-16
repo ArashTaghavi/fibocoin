@@ -14,7 +14,7 @@ Vue.mixin(NotifyHandler);
 import moment from 'moment-jalali';
 moment.locale('fa');
 window.moment = moment;
-
+import 'vue-cropperjs';
 import routes from './routes';
 
 // ================== Use ==================

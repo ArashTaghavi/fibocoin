@@ -61,7 +61,7 @@
                 <li class="@@widgetactive">
                     <router-link to="/tickets">
                         <i class="zmdi zmdi-file"></i>
-                        درخواست واریز وجه
+                        تیکت
                     </router-link>
                 </li>
                 <!-- <li class="@@widgetactive">

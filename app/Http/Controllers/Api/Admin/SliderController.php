@@ -11,7 +11,7 @@ class SliderController extends Controller
 {
     public function index()
     {
-        return Slider::all();
+        return Slider::orderBy('created_at','DESC')->get();
     }
 
 

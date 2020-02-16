@@ -1,96 +1,172 @@
 <template>
-    <card :title="`${$route.name}`" v-if="is_verified_user">
+    <card :title="`${$route.name}`" :active_loading=false v-if="is_verified_user">
         <div class="row">
-            <div class="col-md-3"> </div>
+            <div class="col-md-3"></div>
             <div class="col-md-3">
-                <icon-btn style="width:100%" type="info" @click="buy=true">خرید</icon-btn>
+                <router-link tag="div" class="btn btn-outline-success btn-xs" style="width:100% !important" to="/sell-orders-trading-view">خرید</router-link>
             </div>
             <div class="col-md-3">
-                <icon-btn style="width:100%" type="success" @click="buy=false">فروش</icon-btn>
+                    <router-link tag="div" style="width:100% !important" class="btn btn-outline-success btn-xs" to="/buy-orders-trading-view">فروش</router-link>
             </div>
         </div>
-        <add-btn to="/currency-users" v-if="is_verified_user"/>
-        <div class="row">
-            <div class="col-md-12" v-if="!buy">
+        <div class="row" v-if="buy_component && show_buy_or_sell_component">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="currency_id" class="required">نوع ارز</label>
+                    <select @change="getCurrenciesTable($event)" class="form-control form-control-sm"
+                            v-model="form.currency_id" id="currency_id">
+                        <option>یک گزینه را انتخاب نمایید</option>
+                        <option :value=currency.id :key=index v-for="(currency,index) in currencies">
+                            {{currency.title}}-{{currency.symbol}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="balance" class="required">موجودی</label>
+                    <input type="text" v-model="form.balance" id="balance"
+                           class="form-control form-control-sm" placeholder="موجودی را اینجا وارد نمایید...">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="min_sale" class="required">حداقل میزان فروش</label>
+                    <input type="text" v-model="form.min_sale" id="min_sale"
+                           class="form-control form-control-sm" placeholder="حداقل میزان فروش را اینجا وارد نمایید...">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="unit_price" class="required">قیمت واحد</label>
+                    <input type="text" v-model="form.unit_price" id="unit_price"
+                           class="form-control form-control-sm" placeholder="قیمت واحد را اینجا وارد نمایید...">
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <VueTradingView :symbol="symbol" v-if="symbol!==''"/>
+            </div>
+            <submit @click="handleSubmit"/>
+        </div>
+        <BuyOrders v-if="!buy_component && show_buy_or_sell_component"></BuyOrders>
+        <div class="row" v-if="Object.entries(currencies_table).length>0 && show_currencies_table">
+            <div class="col-md-6">
                 <h5>پیشنهادات فروش</h5>
                 <hr>
-                <table class="table table-hover mb-0 table-responsive">
+                <table class="table table-responsive orders_table">
                     <thead>
                     <tr>
-                        <th>نوع ارز</th>
                         <th>موجودی</th>
-                        <th>حداقل میزان فروش</th>
+                        <th>حداقل فروش</th>
                         <th>قیمت واحد</th>
-                        <th>عملیات</th>
+                        <th>تاریخ ثبت</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="currency_user in currency_users">
-                        <td>{{currency_user.currency.title}} ({{currency_user.currency.symbol}})</td>
-                        <td>{{currency_user.balance}}</td>
-                        <td>{{currency_user.min_sale}}</td>
-                        <td>{{currency_user.unit_price}}</td>
-                        <td>
-                            <div v-if="currency_user.status !==3">
-                                <link-btn :to="`currency-users/${currency_user.id}/payment`" type="warning" icon="money">پرداخت ها</link-btn>
-                                <edit-btn :to="`currency-users/${currency_user.id}`"/>
-                                <delete-btn :id=currency_user.id></delete-btn>
-                            </div>
-                        </td>
+                    <tr v-for="currency_table in currencies_table.sell">
+                        <td>{{currency_table.balance}}</td>
+                        <td>{{currency_table.min_sale}}</td>
+                        <td>{{currency_table.unit_price}}</td>
+                        <td>{{jDate(currency_table.created_at)}}</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-12" v-if="buy">
+
+            <div class="col-md-6">
                 <h5>پیشنهادات خرید</h5>
                 <hr>
-                <BuyOrders/>
+                <table class="table table-responsive orders_table">
+                    <thead>
+                    <tr>
+                        <th>قیمت درخواست</th>
+                        <th>تاریخ ثبت</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="currency_table in currencies_table.buy">
+                        <td>{{currency_table.amount}}</td>
+                        <td>{{jDate(currency_table.created_at)}}</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
+
         </div>
     </card>
     <card :title="`${$route.name}`" v-else>
         <div class="row">
-            <div class="col-md-12 text-center ">
+            <div class="col-md-12 text-center">
                 <h5 class="alert alert-warning">تا زمان تکمیل نشدن احراز هویت، مجاز به خرید و فروش نیستید.</h5>
             </div>
         </div>
     </card>
-
-
 </template>
-<script>
-    import BuyOrders from "../../../User/Components/BuyOrders/IndexForUse";
 
+<script>
+    import BuyOrders from "../../../User/Components/BuyOrders/CreateForUse";
+    import VueTradingView from 'vue-trading-view2';
+    import Vue from 'vue';
+    const vm = new Vue();
     export default {
         data() {
             return {
-                currency_users: [],
+                currencies: [],
+                currencies_table: {},
                 is_verified_user: true,
-                buy:true
+                buy_component: false,
+                show_buy_or_sell_component: false,
+                show_currencies_table: false,
+                symbol: localStorage.getItem('symbol')
             }
         },
         created() {
+
             axios.get('/profile/is-verified-user')
                 .then(response => this.is_verified_user = response.data)
                 .catch(error => this.errorNotify(error));
-            this.getCurrencyUsers();
+            axios.get('/helper/currencies')
+                .then(response => this.currencies = response.data)
+                .catch(error => this.errorNotify(error));
+
 
         },
         methods: {
-            handleDelete(id) {
-                axios.delete(`/currency-users/${id}`)
+            handleSubmit() {
+                axios.post('/currency-users', this.form)
                     .then(response => {
                         this.successNotify(response);
-                        this.getCurrencyUsers();
+                        //this.$router.push('/currency-users');
                     })
                     .catch(error => this.errorNotify(error));
             },
-            getCurrencyUsers() {
-                axios.get('/currency-users')
-                    .then(response => this.currency_users = response.data)
+            getCurrenciesTable(event) {
+                axios.get(`/currency-users/currencies-user-list/${event.target.value}`)
+                    .then(response => {
+                        this.currencies_table = response.data;
+                        this.show_currencies_table = true;
+                    })
                     .catch(error => this.errorNotify(error));
+                let symbol = event.target.options[event.target.options.selectedIndex].innerText;
+                symbol = symbol.split('-')[1];
+                this.symbol = symbol;
+                localStorage.setItem('symbol', symbol);
+                localStorage.setItem('currency_id', this.form.currency_id);
+                this.$router.go();
             },
+            jDate(date) {
+                return moment(date).format('jYYYY/jM/jD');
+            },
+            buyOrCell(val) {
+                this.buy_component = val;
+                this.show_buy_or_sell_component = true;
+                this.show_currencies_table = false;
+                this.form = {}
+                this.form.currency_id = localStorage.getItem('currency_id');
+
+            }
         },
-        components: {BuyOrders}
+        components: {BuyOrders, VueTradingView}
     }
 </script>

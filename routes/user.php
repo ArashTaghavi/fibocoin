@@ -95,6 +95,7 @@ Route::middleware(['web', 'auth:web', 'IsUser'])->group(function () {
             Route::get('/{id}', 'CurrencyUserController@getByID')->name('get-by-id');
             Route::put('/{id}', 'CurrencyUserController@update')->name('update');
             Route::delete('/{id}', 'CurrencyUserController@destroy')->name('destroy');
+            Route::get('/get-by-id-from-site/{id}', 'CurrencyUserController@getByIdFromSite')->name('get-by-id-from-site');
         });
         // ================================ Sell Orders ================================
 
@@ -109,7 +110,9 @@ Route::middleware(['web', 'auth:web', 'IsUser'])->group(function () {
 
         // ================================ Currency User Payments ================================
         Route::prefix('currency-user-payments')->name('currency-user-payments.')->group(function () {
+            Route::get('/list', 'CurrencyUserPaymentController@list')->name('list');
             Route::get('/{id}', 'CurrencyUserPaymentController@index')->name('index');
+            Route::post('/{id}', 'CurrencyUserPaymentController@store')->name('store');
         });
         // ================================ Currency User Payments ================================
 
@@ -119,6 +122,13 @@ Route::middleware(['web', 'auth:web', 'IsUser'])->group(function () {
             Route::post('/', 'TicketController@store')->name('store');
         });
         // ================================ Tickets ================================
+
+
+        // ================================ Finances ================================
+        Route::prefix('finances')->name('finances.')->group(function () {
+            Route::get('/', 'FinanceController@index')->name('index');
+        });
+        // ================================ Finances ================================
 
     });
 

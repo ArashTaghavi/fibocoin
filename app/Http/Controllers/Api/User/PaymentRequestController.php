@@ -12,7 +12,7 @@ class PaymentRequestController extends Controller
 {
     public function index()
     {
-        return PaymentRequest::where('user_id', Auth::id())->get();
+        return PaymentRequest::where('user_id', Auth::id())->orderBy('created_at','DESC')->get();
     }
 
 

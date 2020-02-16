@@ -16,7 +16,7 @@ class TicketController extends Controller
                 ->orWhere('first_name', 'like', "%{$search_value}%")
                 ->orWhere('last_name', 'like', "%{$search_value}%")
                 ->orWhere('mobile', 'like', "%{$search_value}%");
-        })->get();
+        })->orderBy('created_at','DESC')->get();
 
         return $users;
 

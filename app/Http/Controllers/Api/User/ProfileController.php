@@ -48,9 +48,18 @@ class ProfileController extends Controller
     public function handleChangePasswordValidation($request)
     {
         $validator = \Validator::make($request->all(), [
-            'password' => 'required|confirmed|',
-        ]);
+        'password' => 'required'
+    ]);
 
+        $validator->after(function ($validator) use ($request) {
+            $uppercase = preg_match('@[A-Z]@', $request->password);
+            $lowercase = preg_match('@[a-z]@', $request->password);
+            $number = preg_match('@[0-9]@', $request->password);
+
+            if (!$uppercase || !$lowercase || !$number || strlen($request->password) < 8) {
+                $validator->errors()->add('password', 'پسورد باید شامل حروف کوچک، بزرگ و عدد باشد.');
+            }
+        });
         if ($validator->fails()) {
             abort(422, $validator->errors()->first());
         }

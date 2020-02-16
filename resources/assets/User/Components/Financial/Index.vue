@@ -1,14 +1,33 @@
 <template>
-    <card title="گزارشات مالی">
+    <card :title="`${$route.name}`" :active_loading=false>
         <div class="row">
-       <h3 class="col-md-12 alert alert-warning text-center">
-           در حال توسعه
-       </h3>
+            <div class="col-md-6">
+                <icon-btn style="width:100%" type="info" @click="selected='BuyOrders'">خرید</icon-btn>
+            </div>
+            <div class="col-md-6">
+                <icon-btn style="width:100%" type="success" @click="selected='CurrencyUser'">فروش</icon-btn>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <component :is="selected"></component>
+            </div>
         </div>
     </card>
-</template>
 
+
+</template>
 <script>
+    import BuyOrders from "../../../User/Components/BuyOrders/BuyOrdersForUse";
+    import CurrencyUser from "../../../User/Components/CurrencyUsers/SellForUse";
+
     export default {
+        data() {
+            return {
+                selected: ''
+            }
+        },
+        components: {BuyOrders, CurrencyUser}
     }
 </script>

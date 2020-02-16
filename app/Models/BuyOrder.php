@@ -11,10 +11,11 @@ class BuyOrder extends Model
     const CONFIRM = 1;
     const WAITING = 2;
     const PAID = 3;
-    protected $fillable = ['amount', 'currency_id'];
+    protected $fillable = ['amount', 'currency_id', 'unit'];
 
     public function currency()
     {
         return $this->belongsTo(Currency::class);
     }
+
 }

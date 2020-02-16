@@ -19,6 +19,13 @@
                     </select>
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="unit" class="required">واحد</label>
+                    <input type="tel" v-model="form.unit" id="unit"
+                           class="form-control form-control-sm" placeholder="واحد را وارد نمایید..">
+                </div>
+            </div>
             <submit @click="handleSubmit"/>
         </div>
         <div class="alert alert-warning text-center" v-else>

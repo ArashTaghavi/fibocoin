@@ -12,10 +12,36 @@ class CurrencyUserPaymentController extends Controller
 {
     public function index($id)
     {
+        return CurrencyUser::with('currencyUserPayments')
+            ->where('id', $id)
+            ->where('user_id', Auth::id())
+            ->first();
 
+
+    }
+
+    public function list()
+    {
         return CurrencyUser::with('currencyUserPayments')
             ->where('user_id', Auth::id())
-            ->where('id', $id)
+            ->orderBy('created_at', 'DESC')
             ->first();
     }
+
+    public function store(Request $request, $id)
+    {
+        $cup = new CurrencyUserPayment();
+
+        $cup->currency_user_id = $id;
+        $cup->user_id = Auth::id();
+        $cup->amount = $request->amount;
+        $cup->value = $request->value;
+        $cup->save();
+
+
+
+        return ['message' => __('messages.save_success')];
+
+    }
+
 }

@@ -45,7 +45,7 @@
                             <div class="col-md-12">
                                 <button @click="handleSend()" class="btn btn-xs btn-success"
                                         style="position:absolute;left:15px;top:30px">
-                                    <i class="zmdi zmdi-home"></i>
+                                    <i class="zmdi zmdi-check"></i>
                                 </button>
                                 <textarea v-model="form.body" class="form-control"
                                           rows="3"></textarea>

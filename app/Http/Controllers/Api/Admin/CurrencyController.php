@@ -10,7 +10,7 @@ class CurrencyController extends Controller
 {
     public function index()
     {
-        return Currency::all();
+        return Currency::orderBy('created_at','DESC')->get();
     }
 
 

@@ -13,7 +13,7 @@
                 <tbody>
                 <tr v-for="slider in sliders">
                     <td>
-                        <img :src=slider.profile_image :alt=slider.id>
+                        <img :src=slider.profile_image style="width: 50%" :alt=slider.id>
                     </td>
                     <td>
                         <delete-btn :id=slider.id></delete-btn>

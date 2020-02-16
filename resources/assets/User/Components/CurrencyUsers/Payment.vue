@@ -1,18 +1,20 @@
 <template>
     <card :title="`${$route.name}`">
-        <div class="row" v-if="payments.length>0">
+        <div class="row">
             <table class="table table-hover mb-0 table-responsive">
                 <thead>
                 <tr>
                     <th>مبلغ پرداخت شده</th>
+                    <th>میزان ارز خریداری شده</th>
                     <th>وضعیت</th>
                     <th>توضیحات</th>
                     <th>تاریخ</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="payment in payments">
+                <tr v-for="payment in payments.currency_user_payments">
                     <td>{{payment.amount}}</td>
+                    <td>{{payment.value}}</td>
                     <td v-html=status(payment.status)></td>
                     <td>{{payment.description}}</td>
                     <td>{{jDate(payment.updated_at)}}</td>
@@ -20,7 +22,6 @@
                 </tbody>
             </table>
         </div>
-        <not-found v-else/>
     </card>
 
 
@@ -29,7 +30,7 @@
     export default {
         data() {
             return {
-                payments: []
+                payments: {}
             }
         },
         created() {
@@ -38,7 +39,7 @@
         methods: {
             getPayments() {
                 axios.get(`/currency-user-payments/${this.$route.params.id}`)
-                    .then(response => this.payments = response.data.currency_user_payments)
+                    .then(response => this.payments = response.data)
                     .catch(error => this.errorNotify(error));
             },
             status(status) {

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCurrencyUserPayments extends Migration
+class CreateFinancesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateCurrencyUserPayments extends Migration
      */
     public function up()
     {
-        Schema::create('currency_user_payments', function (Blueprint $table) {
+        Schema::create('finances', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('currency_user_id');
-            $table->foreign('currency_user_id')->references('id')->on('currency_users')->onDelete('cascade');
+            $table->foreign('currency_user_id')->references('id')->on('buy_orders')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->float('amount')->comment('مبلغ ریالی');
+            $table->double('amount')->comment('مبلغ ریالی');
             $table->double('value')->comment('مبلغ ارزی');
             $table->integer('status')->default(2);
             $table->timestamps();
@@ -33,6 +33,6 @@ class CreateCurrencyUserPayments extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cuurency_user_payments');
+        Schema::dropIfExists('financials');
     }
 }

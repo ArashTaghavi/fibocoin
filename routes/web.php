@@ -1,5 +1,6 @@
 <?php
 Route::middleware(['web'])->group(function () {
+/*    Route::get('/mail', 'SiteController@mail')->name('mail');*/
     Route::get('/', 'SiteController@index')->name('index');
     Route::get('/blog', 'SiteController@blog')->name('blog');
     Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -12,4 +13,7 @@ Route::middleware(['web'])->group(function () {
     Route::get('/why-fibocoin', 'SiteController@why_fibocoin')->name('why-fibocoin');
     Route::get('/comments', 'SiteController@comments')->name('comments');
     Route::post('/store-comment', 'SiteController@store_comment')->name('store-comment');
+
+
+
 });

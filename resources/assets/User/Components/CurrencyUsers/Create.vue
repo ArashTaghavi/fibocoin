@@ -1,7 +1,7 @@
 <template>
     <card :title="`${$route.name}`" :active_loading=false v-if="is_verified_user">
         <div class="row">
-            <div class="col-md-3"> </div>
+            <div class="col-md-3"></div>
 
             <div class="col-md-3">
                 <icon-btn style="width:100%" type="info" @click="buyOrCell(false)">خرید</icon-btn>
@@ -17,8 +17,8 @@
                     <select @change="getCurrenciesTable($event)" class="form-control form-control-sm"
                             v-model="form.currency_id" id="currency_id">
                         <option>یک گزینه را انتخاب نمایید</option>
-                        <option :value=currency.id :key=index v-for="(currency,index) in currencies">{{currency.title}}
-                            ({{currency.symbol}})
+                        <option :value=currency.id :key=index v-for="(currency,index) in currencies">
+                            {{currency.title}}-{{currency.symbol}}
                         </option>
                     </select>
                 </div>
@@ -44,6 +44,10 @@
                            class="form-control form-control-sm" placeholder="قیمت واحد را اینجا وارد نمایید...">
                 </div>
             </div>
+
+                <div class="col-md-12">
+                    <VueTradingView :symbol="symbol" v-if="symbol!==''"/>
+                </div>
             <submit @click="handleSubmit"/>
         </div>
         <BuyOrders v-if="!buy_component && show_buy_or_sell_component"></BuyOrders>
@@ -103,7 +107,10 @@
 
 <script>
     import BuyOrders from "../../../User/Components/BuyOrders/CreateForUse";
+    import VueTradingView from 'vue-trading-view2';
+    import Vue from 'vue';
 
+    const vm = new Vue();
     export default {
         data() {
             return {
@@ -112,10 +119,12 @@
                 is_verified_user: true,
                 buy_component: false,
                 show_buy_or_sell_component: false,
-                show_currencies_table: false
+                show_currencies_table: false,
+                symbol: localStorage.getItem('symbol')
             }
         },
         created() {
+
             axios.get('/profile/is-verified-user')
                 .then(response => this.is_verified_user = response.data)
                 .catch(error => this.errorNotify(error));
@@ -141,6 +150,12 @@
                         this.show_currencies_table = true;
                     })
                     .catch(error => this.errorNotify(error));
+                let symbol = event.target.options[event.target.options.selectedIndex].innerText;
+                symbol = symbol.split('-')[1];
+                this.symbol = symbol;
+                localStorage.setItem('symbol', symbol);
+                localStorage.setItem('currency_id', this.form.currency_id);
+                this.$router.go();
             },
             jDate(date) {
                 return moment(date).format('jYYYY/jM/jD');
@@ -150,9 +165,10 @@
                 this.show_buy_or_sell_component = true;
                 this.show_currencies_table = false;
                 this.form = {}
+                this.form.currency_id = localStorage.getItem('currency_id');
 
             }
         },
-        components: {BuyOrders}
+        components: {BuyOrders, VueTradingView}
     }
 </script>

@@ -23,9 +23,20 @@
         h2, p {
             font-family: IRANSans !important;
         }
-        .sweet-alert{
+
+        .sweet-alert {
             text-align: right !important;
             direction: rtl !important;
+        }
+        .sa-error-container{
+            background-color: transparent !important;
+        }
+        .sa-error-container p {
+            font-size: 12px !important;
+            color: red !important;
+        }
+        .sa-input-error::after , .sa-input-error::before {
+            width: 0 !important;
         }
     </style>
 
@@ -45,13 +56,14 @@
             var data = {'password': inputValue, 'password_confirmation': inputValue};
             if (inputValue === false) return false;
             if (inputValue === "") {
-                swal.showInputError("لطفا رمز عبور را وارد نمایید.");
+                swal.showInputError("لطفا کلمه عبور را وارد نمایید.");
                 return false
             }
+
             axios.post('/profile/change-password', data)
                 .then(response => {
                     swal("عملیات با موفقیت انجام شد!", "کلمه عبور: " + inputValue, "success");
-                }).catch(error => false)
+                }).catch(error => swal.showInputError("کلمه عبور باید شامل حروف کوچک، بزرگ و حداقل یک علامت نگارشی باشد."))
         });
     </script>
 @endif
@@ -72,6 +84,9 @@
 <script src="/dashboard-assets/vendors/bower_components/moment/min/moment.min.js"></script>
 <script src="/dashboard-assets/vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 
+{{--TradingView--}}
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+{{--TradingView--}}
 
 <!-- App functions and actions -->
 <script src="/dashboard-assets/js/app.min.js"></script>

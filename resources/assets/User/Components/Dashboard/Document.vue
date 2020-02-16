@@ -24,10 +24,10 @@
             <card title="بارگذاری مدرک" :active_loading=false>
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="/site-assets/images/document1.png" alt="1">
+                        <img src="/site-assets/images/document1.png" style="max-width: 100%" alt="1">
                     </div>
                     <div class="col-md-6">
-                        <img src="/site-assets/images/document2.png" alt="2">
+                        <img src="/site-assets/images/document2.png" style="max-width: 100%" alt="2">
                     </div>
                     <div class="col-md-12 text-right mt-3">
                         <div class="form-group">

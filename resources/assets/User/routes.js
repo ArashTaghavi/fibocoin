@@ -10,44 +10,42 @@ import Notifications from './Components/Notifications/Index';
 import WalletAdd from './Components/Wallet/Add';
 
 import Tickets from './Components/Tickets/Index';
-
-
 // =================== Documents ===================
 import Documents from './Components/Documents/Index';
 import DocumentCreate from './Components/Documents/Create';
 import DocumentEdit from './Components/Documents/Edit';
-// =================== Documents ===================
-
 // =================== Cards ===================
 import Cards from './Components/Cards/Index';
 import CardCreate from './Components/Cards/Create';
 import CardEdit from './Components/Cards/Edit';
-// =================== Cards ===================
-
 // =================== Buy Orders ===================
 import BuyOrders from './Components/BuyOrders/Index';
+import BuyOrdersTradingView from './Components/CurrencyUsers/BuyTradingView';
 import BuyOrderCreate from './Components/BuyOrders/Create';
 import BuyOrderEdit from './Components/BuyOrders/Edit';
 import BuyOrderDetail from './Components/BuyOrders/Detail';
-// =================== Buy Orders ===================
-
 // =================== Sell Orders ===================
 import SellOrders from './Components/SellOrders/Index';
+import SellOrdersTradingView from './Components/CurrencyUsers/SellTradingView';
+
+import BuyRequest from './Components/BuyRequest/Index';
+
 import SellOrderCreate from './Components/SellOrders/Create';
 import SellOrderEdit from './Components/SellOrders/Edit';
 import SellOrderDetail from './Components/SellOrders/Detail';
-// =================== Sell Orders ===================
-
 // =================== Currency Users ===================
 import CurrencyUsers from './Components/CurrencyUsers/Index';
 import CurrencyUserCreate from './Components/CurrencyUsers/Create';
 import CurrencyUserEdit from './Components/CurrencyUsers/Edit';
 import CurrencyUserPayment from './Components/CurrencyUsers/Payment';
-// =================== Currency Users ===================
-
 // =================== Payment Requests ===================
 import PaymentRequests from './Components/PaymentRequests/Index';
 import PaymentRequestCreate from './Components/PaymentRequests/Create';
+// =================== Documents ===================
+// =================== Cards ===================
+// =================== Buy Orders ===================
+// =================== Sell Orders ===================
+// =================== Currency Users ===================
 // =================== Payment Requests ===================
 
 
@@ -70,6 +68,7 @@ export default [
 
     // =================== Buy Orders ===================
     {path: '/buy-orders', name: 'لیست سفارشات خرید', component: BuyOrders},
+    {path: '/buy-orders-trading-view', name: 'لیست سفارش خرید', component: BuyOrdersTradingView},
     {path: '/buy-orders/create', name: 'ثبت سفارش خرید', component: BuyOrderCreate},
     {path: '/buy-orders/:id/edit', name: 'ویرایش سفارش خرید', component: BuyOrderEdit},
     {path: '/buy-orders/:id/detail', name: 'جزییات سفارش خرید', component: BuyOrderDetail},
@@ -77,6 +76,8 @@ export default [
 
     // =================== Sell Orders ===================
     {path: '/sell-orders', name: 'لیست سفارشات فروش', component: SellOrders},
+    {path: '/sell-orders-trading-view', name: 'لیست سفارش فروش', component: SellOrdersTradingView},
+
     {path: '/sell-orders/create', name: 'ثبت سفارش فروش', component: SellOrderCreate},
     {path: '/sell-orders/:id/edit', name: 'ویرایش سفارش فروش', component: SellOrderEdit},
     {path: '/sell-orders/:id/detail', name: 'جزییات سفارش فروش', component: SellOrderDetail},
@@ -96,6 +97,8 @@ export default [
 
     {path: '/notifications', name: 'پیام های مدیر', component: Notifications},
     {path: '/wallets/add', name: 'افزایش موجودی کیف پول', component: WalletAdd},
+
+    {path: '/buy-request/:id', name: 'درخواست خرید', component: BuyRequest},
 
     {path: '/financial', name: 'گزارشات مالی', component: Financial},
     {path: '/tickets', name: 'تیکت ها', component: Tickets},

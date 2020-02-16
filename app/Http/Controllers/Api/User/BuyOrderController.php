@@ -66,6 +66,7 @@ class BuyOrderController extends Controller
         $validator = \Validator::make($request->all(), [
             'amount' => 'required',
             'currency_id' => 'required',
+            'unit'=>'required'
         ]);
 
         if ($validator->fails()) {

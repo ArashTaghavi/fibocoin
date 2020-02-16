@@ -10,6 +10,7 @@ class Slider extends Model
     use HasImage;
 
     public $image_path = 'sliders';
+
     protected $fillable = ['profile_image'];
 
 
