@@ -9,6 +9,10 @@ import Comments from './Components/Comments/Index';
 import Slider from './Components/Slider/Index';
 import SliderCreate from './Components/Slider/Create';
 
+import Banner from './Components/Banner/Index';
+import BannerCreate from './Components/Banner/Create';
+
+
 import Tickets from './Components/Tickets/Index';
 // ================= Users =================
 import Users from './Components/Users/Index';
@@ -51,10 +55,15 @@ export default [
     {path: '/currencies/:id/edit', name: 'ویرایش ارز', component: CurrencyEdit},
     // ============================ Currencies ============================
 
-    // ============================ Currencies ============================
+    // ============================ Sliders ============================
     {path: '/sliders', name: 'لیست تصاویر اسلایدر', component: Slider},
     {path: '/sliders/create', name: 'ایجاد تصویر اسلایدر', component: SliderCreate},
-    // ============================ Currencies ============================
+    // ============================ Sliders ============================
+
+    // ============================ Sliders ============================
+    {path: '/banners', name: 'لیست بنر ها', component: Banner},
+    {path: '/banners/create', name: 'ایجاد بنر', component: BannerCreate},
+    // ============================ Sliders ============================
 
 
     {path: '/comments', name: 'لیست نظرات', component: Comments},

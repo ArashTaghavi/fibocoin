@@ -51,21 +51,23 @@
             text: "لطفا کلمه عبور مورد نظر خود را وارد نمایید...",
             type: "input",
             closeOnConfirm: false,
-            inputPlaceholder: "کلمه عبور..."
+            inputPlaceholder: "کلمه عبور...",
         }, function (inputValue) {
             var data = {'password': inputValue, 'password_confirmation': inputValue};
             if (inputValue === false) return false;
             if (inputValue === "") {
                 swal.showInputError("لطفا کلمه عبور را وارد نمایید.");
-                return false
+                return false;
             }
-
             axios.post('/profile/change-password', data)
                 .then(response => {
                     swal("عملیات با موفقیت انجام شد!", "کلمه عبور: " + inputValue, "success");
                 }).catch(error => swal.showInputError("کلمه عبور باید شامل حروف کوچک، بزرگ و حداقل یک علامت نگارشی باشد."))
         });
     </script>
+<script>
+
+</script>
 @endif
 <div id="app"></div>
 

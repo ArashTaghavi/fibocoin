@@ -75,6 +75,15 @@ Route::middleware(['web', 'auth:web', 'IsAdmin'])->group(function () {
             Route::post('/', 'TicketController@store')->name('store');
         });
         // ================================ Tickets ================================
+
+        // ================================ Banners ================================
+        Route::prefix('banners')->name('banners.')->group(function () {
+            Route::get('/', 'BannerController@index')->name('index');
+            Route::post('/', 'BannerController@store')->name('store');
+            Route::get('/published/{banner}', 'BannerController@published')->name('published');
+            Route::delete('/{banner}', 'BannerController@destroy')->name('destroy');
+        });
+        // ================================ Banners ================================
     });
 });
 

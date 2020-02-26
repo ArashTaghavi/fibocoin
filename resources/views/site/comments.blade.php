@@ -45,7 +45,7 @@
                                             <div class="media-body">
                                             <span class="text-muted pull-right">
                                                 <small class="text-muted" style="font-size: 11px">
-                                                    {{\Morilog\Jalali\CalendarUtils::convertNumbers(jdate($comment->created_at))}}
+                                                    {{\Morilog\Jalali\CalendarUtils::convertNumbers(jdate($comment->created_at)->format('Y/m/d'))}}
                                                 </small>
                                             </span>
                                                 <strong class="text-success">

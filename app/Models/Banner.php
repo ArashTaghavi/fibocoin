@@ -5,11 +5,11 @@ namespace App\Models;
 use App\EloquentHelpers\HasImage;
 use Illuminate\Database\Eloquent\Model;
 
-class Slider extends Model
+class Banner extends Model
 {
     use HasImage;
 
-    public $image_path = 'banners';
+    public $image_path = 'sliders';
 
     protected $fillable = ['profile_image'];
 

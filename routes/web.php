@@ -1,6 +1,5 @@
 <?php
 Route::middleware(['web'])->group(function () {
-/*    Route::get('/mail', 'SiteController@mail')->name('mail');*/
     Route::get('/', 'SiteController@index')->name('index');
     Route::get('/blog', 'SiteController@blog')->name('blog');
     Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');

@@ -3,32 +3,32 @@
 namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Currency;
-use App\Models\Slider;
+use App\Models\Banner;
 use Illuminate\Http\Request;
 
-class SliderController extends Controller
+class BannerController extends Controller
 {
     public function index()
     {
-        return Slider::orderBy('created_at','DESC')->get();
+        return Banner::orderBy('created_at', 'DESC')->get();
     }
 
     public function store(Request $request)
     {
         $this->handleValidate($request);
 
-        $slider = new Slider();
+        $slider = new Banner();
         $slider->fillImage($request);
         $slider->save();
 
         return ['message' => __('messages.save_success')];
     }
 
-    public function published(Slider $slider)
+    public function published(Banner $banner)
     {
-        $slider->is_published = $slider->is_published == 1 ? 0 : 1;
-        $slider->save();
+        Banner::query()->update(['is_published' => 0]);
+        $banner->is_published = $banner->is_published == 1 ? 0 : 1;
+        $banner->save();
     }
 
     public function handleValidate($request)
@@ -43,12 +43,10 @@ class SliderController extends Controller
         return $validator->getData();
     }
 
-    public function destroy(Slider $slider)
+    public function destroy(Banner $banner)
     {
-        $slider->unlinkOriginalImage();
-        $slider->delete();
+        $banner->unlinkOriginalImage();
+        $banner->delete();
         return ['message' => __('messages.delete_success')];
     }
-
-
 }

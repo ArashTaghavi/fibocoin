@@ -62,6 +62,12 @@
                     </router-link>
                 </li>
                 <li class="@@widgetactive">
+                    <router-link to="/banners">
+                        <i class="zmdi zmdi-image"></i>
+                        مدیریت بنر ها
+                    </router-link>
+                </li>
+                <li class="@@widgetactive">
                     <router-link to="/change-password">
                         <i class="zmdi zmdi-lock"></i>
                         تغییر کلمه عبور

@@ -61,7 +61,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
 
                         </div>
@@ -295,17 +294,12 @@
     <!-- feature area starts -->
     <section id="feature" class="feature-area section-big">
         <div class="container">
-
-            <div class="row">
                 <!-- section-title -->
                 <div class="section-title">
                     <h2 class="title-class">ویژگی های <span>فیبوکوین</span></h2>
-                </div>
             </div>
 
             <div class="row feature-inner about-content">
-
-                <div class="row">
                     <div class="col-sm-12 col-md-3">
 
                         <!--single-feature-->
@@ -361,7 +355,6 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-3">
-
                         <!--single-feature-->
                         <div class="single-feature single-feature-squre">
                             <div class="icon">
@@ -376,7 +369,6 @@
                             </p>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </section>
